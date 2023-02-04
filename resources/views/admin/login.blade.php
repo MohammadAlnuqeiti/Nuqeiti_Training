@@ -2,6 +2,8 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
     <link rel="icon" href="{{ asset('image/placeholder.png') }}">
+    {{-- <link rel="icon" href="{{ asset('usersTable/img/logo.png') }}"> --}}
+
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
@@ -26,12 +28,12 @@
         </div>
 
         <!-- Remember Me -->
-       
+
 
         <div class="flex items-center justify-center mt-4" >
-          
 
-            <x-primary-button class="ml-3" style="background-color:#3ED2A2 ; color:azure;">
+
+            <x-primary-button class="ml-3" style="background-color:red ; color:azure;">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
