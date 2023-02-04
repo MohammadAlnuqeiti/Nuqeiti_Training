@@ -9,6 +9,10 @@ use App\Http\Controllers\User\RegisterUserController;
 use App\Http\Controllers\User\RegisterEngineerController;
 use App\Http\Controllers\User\ProfileUserController;
 use App\Http\Controllers\User\ProfileEngineerController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CourseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +30,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/single', function () {
-//     return view('publicUser.singleCourse');
-// });
+Route::get('/admin', function () {
+    return view('admin.profile.show');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -41,6 +45,24 @@ Route::middleware('auth')->group(function () {
 });
 
 
+//admin
+
+// Route::middleware(['auth','verified','admin'])->name('admin.')->prefix('admin')->group(function()
+Route::name('admin.')->prefix('admin')->group(function()
+{
+Route::get('/',[AdminController::class,'index'])->name('index');
+Route::get('/admin',[AdminController::class,'admin'])->name('show.admin');
+Route::resource('/users',UserController::class);
+Route::resource('/categories',CategoryController::class);
+Route::resource('/courses',CourseController::class);
+Route::resource('/reservation',ReservationController::class);
+Route::get('/messages',[ContactController::class,'show'])->name('message');
+
+});
+
+
+//user
+
 Route::prefix('user')->name('user.')->group(function () {
 
 
@@ -51,7 +73,7 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::get('/about',function(){
         return view('publicUser.about');
     })->name('about');
-    
+
     Route::get('/register',function(){
         return view('publicUser.registerPage');
     })->name('register');
