@@ -21,7 +21,7 @@
         </div>
         <div class="info">
             <a href="#" class="d-block">
-                {{-- {{ Auth::user()->name }} --}}
+                {{ Auth::user()->name }}
         </a>
         </div>
       </div>
@@ -116,12 +116,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">
-            {{-- <a href="{{route('logout')}}" class="nav-link"> --}}
+            <a href="{{route('logout')}}" class="nav-link">
 
               <i class="nav-icon fa-solid fa-arrow-right-from-bracket"></i>
-              <p class="text">logout</p>
+                            <p class="text">logout</p>
+
             </a>
+          </form>
           </li>
 
 

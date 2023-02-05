@@ -26,21 +26,47 @@
             <li class="nav-item">
                 <a href="{{route('user.contact')}}" class="nav-link">CONTACT</a>
             </li>
+            @if(!Auth::user())
             <li class="nav-item">
                 <a href="{{route('user.login')}}" class="nav-link">LOGIN</a>
             </li>
-            <li class="nav-item">
-                <!-- <div class="dropdown">
-                    <button class="dropbtn">REGISTER
-                      <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                      <a href="./register.html">REGISTER AS STUDENT</a>
-                      <a href="./registerEngineering.html">REGISTER AS ENGINEERING</a>
-                    </div>
-                </div> -->
-                <a href="{{route('user.register')}}"><button id="btn-nav" class="nav-link">REGISTER</button></a>
+            @endif
+            @if(Auth::user())
+            <li>
+
+                <a href="{{route('user.login.destroy')}}" class="nav-link">logout</a>
             </li>
+            @endif
+        </div>
+        @if(!Auth::user())
+        <li class="nav-item">
+            <!-- <div class="dropdown">
+                <button class="dropbtn">REGISTER
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="./register.html">REGISTER AS STUDENT</a>
+                    <a href="./registerEngineering.html">REGISTER AS ENGINEERING</a>
+                </div>
+            </div> -->
+            <a href="{{route('user.register')}}"><button id="btn-nav" class="nav-link">REGISTER</button></a>
+        </li>
+        @endif
+        @if(Auth::user())
+        <li class="nav-item">
+            <!-- <div class="dropdown">
+                <button class="dropbtn">REGISTER
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="./register.html">REGISTER AS STUDENT</a>
+                    <a href="./registerEngineering.html">REGISTER AS ENGINEERING</a>
+                </div>
+            </div> -->
+            <a href="{{route('user.profile_user.index')}}"><button id="btn-nav" class="nav-link">ACCOUNT</button></a>
+        </li>
+        @endif
+        {{-- <a href="{{route('user.profile.index')}}" class="btn btn-primary rounded-pill py-2 px-4">Account</a> --}}
         </ul>
          <div class="hamburger">
         <span class="bar"></span>

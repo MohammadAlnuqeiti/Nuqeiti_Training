@@ -20,12 +20,12 @@ Profile
     <div class="col_container">
         <div class="left_col">
             <div class="img_container">
-                <img src="userSide/img/user icon.png" alt="user" />
+                <img src="/userSide/img/user icon.png" alt="user" />
                 <span></span>
             </div>
-            <h2>mohammad ali</h2>
+            <h2>{{ Auth::user()->name }}</h2>
             <p>user</p>
-            <p>mohammad@gmail.com</p>
+            <p>{{ Auth::user()->email }}</p>
             <ul class="about ul">
                 <li style="margin: auto;"><span>4</span>course</li>
                 <!-- <li><span>4.05</span>followers</li>
@@ -59,7 +59,7 @@ Profile
             <div class="photos">
     <!-- <div class="container"> -->
         <div class="card">
-            <img src="userSide/img/1215970_a5f8_11.jpg" alt=""/>
+            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
             <div class="card-body">
                 <div class="row">
                     <div class="card-title">
@@ -74,7 +74,7 @@ Profile
             </div>
         </div>
         <div class="card">
-            <img src="userSide/img/1215970_a5f8_11.jpg" alt=""/>
+            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
             <div class="card-body">
                 <div class="row">
                     <div class="card-title">
@@ -89,7 +89,7 @@ Profile
             </div>
         </div>
         <div class="card">
-            <img src="userSide/img/1215970_a5f8_11.jpg" alt=""/>
+            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
             <div class="card-body">
                 <div class="row">
                     <div class="card-title">
@@ -104,7 +104,7 @@ Profile
             </div>
         </div>
         <div class="card">
-            <img src="userSide/img/1215970_a5f8_11.jpg" alt=""/>
+            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
             <div class="card-body">
                 <div class="row">
                     <div class="card-title">

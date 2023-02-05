@@ -30,9 +30,9 @@ Route::get('/', function () {
     return view('admin.login');
 });
 
-Route::get('/admin', function () {
-    return view('admin.profile.show');
-});
+// Route::get('/admin', function () {
+//     return view('admin.profile.show');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
 //admin
 
 // Route::middleware(['auth','verified','admin'])->name('admin.')->prefix('admin')->group(function()
-Route::name('admin.')->prefix('admin')->group(function()
+Route::middleware(['auth','verified','admin'])->name('admin.')->prefix('admin')->group(function()
 {
 Route::get('/',[AdminController::class,'index'])->name('index');
 Route::get('/admin',[AdminController::class,'admin'])->name('show.admin');
@@ -86,10 +86,11 @@ Route::prefix('user')->name('user.')->group(function () {
     // Route::resource('/signup',RegisterUserController::class);
     // Route::post('/search' , [Search::class , 'search'])->name('search');
     Route::get('/login',[LoginUserController::class,'index'])->name('login');
+    Route::get('/login/check',[LoginUserController::class,'LoginPost'])->name('login.check');
     Route::get('/register_user',[RegisterUserController::class,'index'])->name('register_user');
+    Route::get('/register_user/store',[RegisterUserController::class,'store'])->name('signup.store');
     Route::get('/register_engineer',[RegisterEngineerController::class,'index'])->name('register_engineer');
-    // Route::get('/login/check',[LoginUserController::class,'LoginPost'])->name('login.check');
-    // Route::get('/login/destroy',[LoginUserController::class,'destroy'])->name('login.destroy');
+    Route::get('/login/destroy',[LoginUserController::class,'destroy'])->name('login.destroy');
 
     Route::resource('/profile_user',ProfileUserController::class);
     Route::resource('/profile_engineer',ProfileEngineerController::class);
