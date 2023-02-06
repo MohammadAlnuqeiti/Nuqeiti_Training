@@ -30,7 +30,9 @@ class RegisterUserController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
-            'is_admin' => false,
+            'role' => 'user',
+            'status' => 'accept',
+
 
         ]);
         return redirect()->route('user.login');

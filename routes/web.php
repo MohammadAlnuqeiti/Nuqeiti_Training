@@ -90,6 +90,7 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::get('/register_user',[RegisterUserController::class,'index'])->name('register_user');
     Route::get('/register_user/store',[RegisterUserController::class,'store'])->name('signup.store');
     Route::get('/register_engineer',[RegisterEngineerController::class,'index'])->name('register_engineer');
+    Route::get('/register_engineer/store',[RegisterEngineerController::class,'store'])->name('register_engineer.store');
     Route::get('/login/destroy',[LoginUserController::class,'destroy'])->name('login.destroy');
 
     Route::resource('/profile_user',ProfileUserController::class);

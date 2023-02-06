@@ -20,7 +20,7 @@ class Admin extends Seeder
             'email'=>'admin@gmail.com',
             'email_verified_at'=>now(),
             'password'=> bcrypt('12345678'),
-            'is_admin'=>1,
+            'role'=>'admin',
         ]);
     }
 }

@@ -59,13 +59,13 @@ Register user
                     <input type="password" placeholder="Confirm password">
                 </div> --}}
             </div>
-            <div class="circal-form">
+            {{-- <div class="circal-form">
                 <span class="circal-title">Gender</span>
                 <div class="category">
                     <input type="radio" name="gender">Male
                     <input type="radio" name="gender">Female
                 </div>
-            </div>
+            </div> --}}
             <div class="button">
                 <input type="submit" value="Register">
             </div>

@@ -17,31 +17,48 @@ Register engineering
 
     <div class="container">
         <div class="heading">Registration as engineering</div>
-        <form action="#">
+        <form action="{{route('user.register_engineer.store')}}" method="post" enctype="multipart/form-data">
+            @method('HEAD')
+            @csrf
             <div class="card-details">
                 <div class="card-box">
-                    <span class="details">First Name</span>
-                    <input type="text" placeholder="Enter your first name">
+                    <span class="details">Name</span>
+                    <input type="text" placeholder="Enter your first name" name="name" value="{{ old('name')}}" class="@error('name') is-invalid @enderror">
+                    @error('name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
                 </div>
-                <div class="card-box">
+                {{-- <div class="card-box">
                     <span class="details">Last Name</span>
                     <input type="text" placeholder="Enter your lirst name">
-                </div>
+                </div> --}}
                 <div class="card-box">
                     <span class="details">Email</span>
-                    <input type="email" placeholder="Enter your email name">
+                    <input type="email" placeholder="Enter your email name" name="email" value="{{ old('email')}}" class="@error('email') is-invalid @enderror">
+                    @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
                 </div>
                 <div class="card-box">
                     <span class="details">Phone Number</span>
-                    <input type="phone" placeholder="Enter your phone number">
+                    <input type="phone" placeholder="Enter your phone number" name="phone" value="{{ old('phone')}}" class="@error('phone') is-invalid @enderror">
+                    @error('phone')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
                 </div>
                 <div class="card-box">
                     <span class="details">the description</span>
-                    <input type="text" placeholder="the description">
+                    <input type="text" placeholder="the description" name="the_description" value="{{ old('the_description')}}" class="@error('the_description') is-invalid @enderror">
+                    @error('the_description')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
                 </div>
                 <div class="card-box">
                     <span class="details">Facebook link</span>
-                    <input type="text" placeholder="Facebook link">
+                    <input type="text" placeholder="Facebook link" name="facebook_link" value="{{ old('facebook_link')}}" class="@error('facebook_link') is-invalid @enderror">
+                    @error('facebook_link')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
                 </div>
                 <!-- <div class="card-box">
                     <span class="details">Linkedin link</span>
@@ -53,42 +70,60 @@ Register engineering
                 </div> -->
                 <div class="card-box">
                     <span class="details">the work</span>
-                    <input type="text" placeholder="the work">
+                    <input type="text" placeholder="the work" name="the_work" value="{{ old('the_work')}}" class="@error('the_work') is-invalid @enderror">
+                    @error('the_work')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
                 </div>
                 <div class="card-box">
                     <span class="details">Certificates and credits</span>
-                    <input type="text" placeholder="Certificates and credits">
+                    <input type="text" placeholder="Certificates and credits" name="certificates_and_credits" value="{{ old('certificates_and_credits')}}" class="@error('certificates_and_credits') is-invalid @enderror">
+                    @error('certificates_and_credits')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
                 </div>
                 <div class="card-box">
                     <span class="details">Of experience</span>
-                    <input type="text" placeholder="Of experience">
+                    <input type="text" placeholder="Of experience" name="experience" value="{{ old('experience')}}" class="@error('experience') is-invalid @enderror">
+                    @error('experience')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
                 </div>
                 <div class="card-box">
                     <span class="details">Password</span>
-                    <input type="password" placeholder="Enter your  password">
+                    <input type="password" placeholder="Enter your  password" name="password" value="{{ old('password')}}" class="@error('password') is-invalid @enderror">
+                    @error('password')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
                 </div>
-                <div class="card-box">
+                {{-- <div class="card-box">
                     <span class="details">Confirm Password</span>
                     <input type="password" placeholder="Confirm password">
-                </div>
+                </div> --}}
                 <div class="card-box">
-                    <span class="details">Upload Cv As PDF  </span>
-                    <input type="file" placeholder="Upload Image" class="file">
+                    <span class="details">Upload Cv As PDF</span>
+                    <input type="file" placeholder="Upload Image" class="file" name="cv_pdf" value="{{ old('cv_pdf')}}" class="@error('cv_pdf') is-invalid @enderror">
                     <small style="color: #07393E;">Please attach certificates and credits to the same file.</small>
+                    @error('cv_pdf')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
                 </div>
                 <div class="card-box">
                     <span class="details">Upload Image</span>
-                    <input type="file" placeholder="Upload Image" class="file">
+                    <input type="file" placeholder="Upload Image" class="file" name="image" value="{{ old('image')}}" class="@error('image') is-invalid @enderror">
+                    @error('image')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
                 </div>
 
             </div>
-            <div class="circal-form">
+            {{-- <div class="circal-form">
                 <span class="circal-title">Gender</span>
                 <div class="category">
                     <input type="radio" name="gender">Male
                     <input type="radio" name="gender">Female
                 </div>
-            </div>
+            </div> --}}
             <div class="button">
                 <input type="submit" value="Register">
             </div>

@@ -26,8 +26,15 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
-        'is_admin',
+        'role',
         'image',
+        'the_description',
+        'facebook_link',
+        'the_work',
+        'certificates_and_credits',
+        'experience',
+        'cv_pdf',
+        'status',
 
     ];
 

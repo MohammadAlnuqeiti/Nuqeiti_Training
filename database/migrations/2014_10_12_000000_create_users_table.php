@@ -20,8 +20,15 @@ return new class extends Migration
             $table->integer('phone')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('the_description')->nullable();
+            $table->string('facebook_link')->nullable();
+            $table->string('the_work')->nullable();
+            $table->string('certificates_and_credits')->nullable();
+            $table->string('experience')->nullable();
+            $table->string('cv_pdf')->nullable();
             $table->string('image')->default('icon.png');
-            $table->boolean('is_admin')->default(0);
+            $table->string('role')->default('user');
+            $table->string('status')->default('accept');
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
