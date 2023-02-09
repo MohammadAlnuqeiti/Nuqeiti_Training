@@ -20,11 +20,14 @@ return new class extends Migration
             $table->integer('phone')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('education')->nullable();
             $table->string('the_description')->nullable();
-            $table->string('facebook_link')->nullable();
-            $table->string('the_work')->nullable();
+            $table->string('Linkedin_link')->nullable();
+            $table->string('job_position')->nullable();
             $table->string('certificates_and_credits')->nullable();
             $table->string('experience')->nullable();
+            $table->string('skills')->nullable();
+            $table->string('address')->nullable();
             $table->string('cv_pdf')->nullable();
             $table->string('image')->default('icon.png');
             $table->string('role')->default('user');

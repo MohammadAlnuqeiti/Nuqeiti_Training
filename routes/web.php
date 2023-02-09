@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\EngineeringController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,7 +53,10 @@ Route::middleware(['auth','verified','admin'])->name('admin.')->prefix('admin')-
 {
 Route::get('/',[AdminController::class,'index'])->name('index');
 Route::get('/admin',[AdminController::class,'admin'])->name('show.admin');
+Route::get('/admin/create',[AdminController::class,'create'])->name('create.admin');
+Route::get('/admin/store',[AdminController::class,'store'])->name('store.admin');
 Route::resource('/users',UserController::class);
+Route::resource('/engineering',EngineeringController::class);
 Route::resource('/categories',CategoryController::class);
 Route::resource('/courses',CourseController::class);
 Route::resource('/reservation',ReservationController::class);
@@ -79,6 +83,8 @@ Route::prefix('user')->name('user.')->group(function () {
     })->name('register');
 
      Route::get('/contact',[ContactController::class,'index'])->name('contact');
+     Route::get('/contact/create',[ContactController::class,'store'])->name('message.create');
+
      Route::get('/courses',[ShopController::class,'index'])->name('shop');
     //  Route::get('/admin/contact',[FeedController::class,'show'])->name('contact.show');
     //  Route::get('/contact/create',[FeedController::class,'store'])->name('contact.create');

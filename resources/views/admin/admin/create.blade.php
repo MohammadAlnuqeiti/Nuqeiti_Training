@@ -40,7 +40,8 @@ Admin
             <!-- /.card-header -->
             <!-- form start -->
             {{-- <form action="{{route('admin.users.store')}}" method="POST" enctype="multipart/form-data"> --}}
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{route('admin.store.admin')}}" method="POST" enctype="multipart/form-data">
+                @method('HEAD')
                 @csrf
 
               <div class="card-body">

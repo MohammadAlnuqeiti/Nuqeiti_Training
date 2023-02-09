@@ -58,42 +58,45 @@ user
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
-                <th>is_admin</th>
+                {{-- <th>is_admin</th> --}}
                 <th>Delete</th>
               </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($data as $value)
-                @if($value->is_admin==0) --}}
+                <?php $i=1?>
+
+                @foreach ($data as $value)
+                @if($value->role=='user')
 
                 <tr>
-                    <td>1</td>
+                    {{-- <td>1</td>
                     <td>mohammad</td>
                     <td>mohammad@gmail.com</td>
-                    <td>0790369501</td>
-                    <td>0</td>
-                    {{-- <td>{{$value->id}}</td>
+                    <td>0790369501</td> --}}
+                    {{-- <td>0</td> --}}
+                    <td> {{$i}}</td>
                     <td>{{$value->name}}</td>
                     <td>{{$value->email	}}</td>
                     <td>{{$value->phone	}}</td>
-                    <td>{{$value->is_admin	}}</td> --}}
 
                     <td>
-                        <form action="" method="post">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
-                        </form>
-                        {{-- <form action="{{Route('admin.users.destroy',$value->id)}}" method="post">
+                        {{-- <form action="" method="post">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
                         </form> --}}
+                        <form action="{{Route('admin.users.destroy',$value->id)}}" method="post">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
+                        </form>
                     </td>
 
                 </tr>
-                {{-- @endif --}}
-                {{-- @endforeach --}}
+                <?php ++$i?>
+
+                @endif
+                @endforeach
 
 
             </tbody>

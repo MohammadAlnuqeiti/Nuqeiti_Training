@@ -2,7 +2,7 @@
 
 
 @section('title')
-Category
+Reservation
 @endsection
 
 @section('css')
@@ -12,11 +12,11 @@ Category
 @endsection
 
 @section('section_title')
-Edit Category
+Edit Reservation
 @endsection
 
 
-@section('Category')
+@section('Reservation')
 active
 @endsection
 
@@ -25,9 +25,8 @@ admin
 @endsection
 
 @section('title_page2')
-Category
+Reservation
 @endsection
-
 
 
 @section('content')
@@ -36,47 +35,24 @@ Category
     <div class="col-12">
         <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Controls</h3>
+              <h3 class="card-title">Edit</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{route('admin.categories.update',$category->id)}}" method="POST" enctype="multipart/form-data">
+            {{-- <form action="" method="POST" enctype="multipart/form-data"> --}}
+            <form action="{{route('admin.engineering.update',$data->id)}}" method="POST" enctype="multipart/form-data">
               @method('PUT')
+
               @csrf
-
-              <div class="card-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter  name" name="name"  class="@error('name') is-invalid @enderror">
-                  @error('name')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Description</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter  description" name="description"  class="@error('description') is-invalid @enderror">
-                  @error('description')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputFile">File input</label>
-                  <div class="input-group">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="exampleInputFile" name="image" class="@error('image') is-invalid @enderror">
-                      <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                    </div>
-                    <div class="input-group-append">
-                      <span class="input-group-text">Upload</span>
-                    </div>
+                    <label for="exampleSelectRounded0">Status</label>
+                    <select class="custom-select rounded-0" id="exampleSelectRounded0" name="status">
+                      <option value="pending">Pending</option>
+                      <option value="accepted">Accepted</option>
+                      <option value="rejected">Rejected</option>
+                    </select>
                   </div>
-                  @error('image')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
-                </div>
 
-              </div>
               <!-- /.card-body -->
 
               <div class="card-footer">

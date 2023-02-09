@@ -54,9 +54,16 @@ Register engineering
                    @enderror
                 </div>
                 <div class="card-box">
-                    <span class="details">Facebook link</span>
-                    <input type="text" placeholder="Facebook link" name="facebook_link" value="{{ old('facebook_link')}}" class="@error('facebook_link') is-invalid @enderror">
-                    @error('facebook_link')
+                    <span class="details">Linkedin link</span>
+                    <input type="text" placeholder="Linkedin link" name="Linkedin_link" value="{{ old('Linkedin_link')}}" class="@error('Linkedin_link') is-invalid @enderror">
+                    @error('Linkedin_link')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
+                </div>
+                <div class="card-box">
+                    <span class="details">Education</span>
+                    <input type="text" placeholder="education" name="education" value="{{ old('education')}}" class="@error('education') is-invalid @enderror">
+                    @error('education')
                     <div class="alert alert-danger">{{ $message }}</div>
                    @enderror
                 </div>
@@ -69,9 +76,9 @@ Register engineering
                     <input type="text" placeholder="Instagram link">
                 </div> -->
                 <div class="card-box">
-                    <span class="details">the work</span>
-                    <input type="text" placeholder="the work" name="the_work" value="{{ old('the_work')}}" class="@error('the_work') is-invalid @enderror">
-                    @error('the_work')
+                    <span class="details">Job position</span>
+                    <input type="text" placeholder="the job position" name="job_position" value="{{ old('job_position')}}" class="@error('job_position') is-invalid @enderror">
+                    @error('job_position')
                     <div class="alert alert-danger">{{ $message }}</div>
                    @enderror
                 </div>
@@ -83,9 +90,23 @@ Register engineering
                    @enderror
                 </div>
                 <div class="card-box">
-                    <span class="details">Of experience</span>
+                    <span class="details">Experience</span>
                     <input type="text" placeholder="Of experience" name="experience" value="{{ old('experience')}}" class="@error('experience') is-invalid @enderror">
                     @error('experience')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
+                </div>
+                <div class="card-box">
+                    <span class="details">Skills</span>
+                    <input type="text" placeholder="Of skills" name="skills" value="{{ old('skills')}}" class="@error('skills') is-invalid @enderror">
+                    @error('skills')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
+                </div>
+                <div class="card-box">
+                    <span class="details">Address</span>
+                    <input type="text" placeholder="address" name="address" value="{{ old('address')}}" class="@error('address') is-invalid @enderror">
+                    @error('address')
                     <div class="alert alert-danger">{{ $message }}</div>
                    @enderror
                 </div>

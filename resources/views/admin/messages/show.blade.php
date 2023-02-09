@@ -56,35 +56,29 @@ Messages
             <thead>
               <tr>
 
-                <th>Name</th>
+                <th>First name</th>
+                <th>Last name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
-                <th>Subject</th>
                 <th>Message</th>
 
-                {{-- <th>is_admin</th> --}}
-                {{-- <th>Delete</th> --}}
               </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($data as $value) --}}
+                @foreach ($data as $value)
                 <tr>
-                    <td>ddddddddd</td>
-                    <td>ddddddddddd</td>
-                    <td>2222222222222222</td>
-                    <td>ssdddddddddddddd</td>
-                    <td>dddddddddddddddddddd</td>
-                    {{-- <td>{{$value->name}}</td>
+
+                    <td>{{$value->first_name}}</td>
+                    <td>{{$value->last_name}}</td>
                     <td>{{$value->email}}</td>
-                    <td>{{$value->phoneNumber	}}</td>
-                    <td>{{$value->subject	}}</td>
-                    <td>{{$value->message	}}</td> --}}
+                    <td>{{$value->phoneNumber}}</td>
+                    <td>{{$value->message	}}</td>
 
 
 
                 </tr>
 
-                {{-- @endforeach --}}
+                @endforeach
 
 
             </tbody>

@@ -41,8 +41,7 @@ Category
             <div class="input-group input-group-sm" style="width: 100px;" >
 
 
-              <a href=""><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add category</button></a>
-              {{-- <a href="{{route('admin.categories.create')}}"><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add category</button></a> --}}
+              <a href="{{route('admin.categories.create')}}"><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add category</button></a>
 
 
               </div>
@@ -63,44 +62,34 @@ Category
               </tr>
             </thead>
             <tbody >
-              {{-- @foreach ($categories as $category) --}}
+              @foreach ($categories as $category)
 
 
               <tr>
-                <td> 1</td>
-                <td>name</td>
-                <td><img src="" alt="" style="width: 75px"></td>
 
-                <td>mmmm</td>
-                {{-- <td> {{$category->id}}</td>
+                <td> {{$category->id}}</td>
                 <td>{{$category->name}}</td>
                 <?php
                 $img=$category->image
                 ?>
                 <td><img src="{{URL::asset("storage/image/$img")}}" alt="" style="width: 75px"></td>
 
-                <td>{{$category->description}}</td> --}}
+                <td>{{$category->description}}</td>
 
                 <td>
-                  <a href=""><button  type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button></a>
-                  {{-- <a href="{{route('admin.categories.edit',$category->id)}}"><button  type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button></a> --}}
+                  <a href="{{route('admin.categories.edit',$category->id)}}"><button  type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button></a>
                 </td>
                 <td>
-                  <form action="" method="post">
+
+                  <form action="{{route('admin.categories.destroy',$category->id)}}" method="post">
                     @method('delete')
                     @csrf
 
                     <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
                   </form>
-                  {{-- <form action="{{route('admin.categories.destroy',$category->id)}}" method="post">
-                    @method('delete')
-                    @csrf
-
-                    <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
-                  </form> --}}
                 </td>
               </tr>
-              {{-- @endforeach --}}
+              @endforeach
 
             </tbody>
           </table>

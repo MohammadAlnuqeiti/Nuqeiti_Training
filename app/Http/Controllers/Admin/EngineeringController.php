@@ -7,7 +7,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class EngineeringController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-
         $data=User::all();
-
-        return view('admin.usersTable.show',['data'=>$data]);
+        return view('admin.engineering.show',['data'=>$data]);
     }
 
     /**
@@ -51,7 +49,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = User::findOrfail($id);
+
+        return view('admin.engineering.details',['data'=>$data]);
+
     }
 
     /**
@@ -62,7 +63,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = User::findOrfail($id);
+        return view('admin.engineering.edit', ['data' => $data]);
     }
 
     /**
@@ -74,7 +76,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = User::findOrfail($id);
+
+        $data->status = $request->status;
+
+
+        $data->save();
+        //-------------------------------
+
+        return redirect()->route('admin.engineering.index');
     }
 
     /**
@@ -86,6 +96,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::findOrfail($id)->delete();
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.engineering.index');
     }
 }

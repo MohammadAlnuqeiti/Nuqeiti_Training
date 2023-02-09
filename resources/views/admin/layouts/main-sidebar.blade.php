@@ -61,8 +61,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="" class="nav-link  @yield('engineering')">
-                  {{-- <a href="{{route('admin.show.admin')}}" class="nav-link  @yield('Profile')"> --}}
+                  <a href="{{route('admin.engineering.index')}}" class="nav-link  @yield('engineer')">
                     <i class="nav-icon fa-solid fa-address-card"></i>
                     <p>
                       Engineering

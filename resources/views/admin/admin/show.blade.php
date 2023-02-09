@@ -44,8 +44,8 @@ Profile
 
 
 
-                <a href=""><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add admin</button></a>
-                {{-- <a href="{{route('admin.users.create')}}"><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add admin</button></a> --}}
+                {{-- <a href=""><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add admin</button></a> --}}
+                <a href="{{route('admin.create.admin')}}"><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add admin</button></a>
 
 
               </div>
@@ -67,32 +67,31 @@ Profile
               </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($data as $value)
-                @if($value->is_admin==1) --}}
+                <?php $i=1?>
+                @foreach ($data as $value)
+                @if($value->role=='admin')
                 <tr>
-                    <td>1</td>
-                    <td>mohammad</td>
-                    <td>mohammad@gmail.com</td>
-                    <td>0790369501</td>
-                    {{-- <td>{{$value->id}}</td>
-                    <td>{{$value->name}}</td>
-                    <td>{{$value->email	}}</td>
-                    <td>{{$value->phone	}}</td> --}}
+                    <td> {{$i}}</td>
+                        {{-- <td>{{$value->id}}</td> --}}
+                        <td>{{$value->name}}</td>
+                        <td>{{$value->email	}}</td>
+                        <td>{{$value->phone	}}</td>
 
-                    {{-- <td>{{$value->is_admin	}}</td> --}}
+                        {{-- <td>{{$value->is_admin	}}</td> --}}
 
-                    {{-- <td>
-                        <form action="{{Route('admin.users.destroy',$value->id)}}" method="post">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
-                        </form>
-                    </td> --}}
+                        {{-- <td>
+                            <form action="{{Route('admin.users.destroy',$value->id)}}" method="post">
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
+                            </form>
+                        </td> --}}
 
-                </tr>
+                    </tr>
 
-                {{-- @endif
-                @endforeach --}}
+                    <?php ++$i?>
+                    @endif
+                    @endforeach
 
 
             </tbody>
