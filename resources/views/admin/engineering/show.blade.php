@@ -152,14 +152,10 @@ Engineering
                     <tr>
                         <td> {{$i}}</td>
                         <td>{{$value->name}}</td>
-                        {{-- @if ($value->status=="pending")
-                        <td><span class="badge bg-warning">Pending</span></td>
-                        @endif --}}
+
                         <td><span class="badge bg-success">Accepted</span></td>
 
-                        {{-- @if ($value->status	=="rejected")
-                        <td><span class="badge bg-danger">Rejected</span></td>
-                        @endif --}}
+
                         <td style="text-align: center"><a href="{{Route('admin.engineering.show',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-info btn-sm">more details</button>
                             <td><a href="{{Route('admin.engineering.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
                             </a></td>
@@ -219,27 +215,21 @@ Engineering
                     <tr>
                         <td> {{$i}}</td>
                         <td>{{$value->name}}</td>
-                        {{-- @if ($value->status=="pending")
-                        <td><span class="badge bg-warning">Pending</span></td>
-                        @endif
-                        @if ($value->status	=="accepted")
-                        <td><span class="badge bg-success">Accepted</span></td>
-
-                        @endif --}}
                         <td><span class="badge bg-danger">Rejected</span></td>
                         <td style="text-align: center"><a href="{{Route('admin.engineering.show',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-info btn-sm">more details</button>
-                            <td><a href="{{Route('admin.engineering.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
-                            </a></td>
-                            <td>
+                        <td>
+                            <a href="{{Route('admin.engineering.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button></a>
+                        </td>
+                        <td>
 
-                                <form action="{{Route('admin.engineering.destroy',$value['id'])}}" method="post">
-                                    @method('delete')
-                                    @csrf
-                                    <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
-                                </form>
-                            </td>
+                            <form action="{{Route('admin.engineering.destroy',$value['id'])}}" method="post">
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
 
-                        </tr>
+                    </tr>
                         <?php ++$i?>
 
                     @endif

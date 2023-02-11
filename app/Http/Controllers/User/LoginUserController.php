@@ -45,7 +45,7 @@ class LoginUserController extends Controller
                 return redirect()->route('user.index');
 
             }
-        
+
 
 
 

@@ -2,7 +2,7 @@
 
 
 @section('title')
-Trip
+Courses
 @endsection
 
 @section('css')
@@ -12,7 +12,7 @@ Trip
 @endsection
 
 @section('section_title')
-Create new Trip
+Create new Course
 @endsection
 
 
@@ -25,7 +25,7 @@ admin
 @endsection
 
 @section('title_page2')
-Trip
+Course
 @endsection
 
 
@@ -39,15 +39,15 @@ Trip
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="" method="POST" enctype="multipart/form-data">
-            {{-- <form action="{{route('admin.trips.store')}}" method="POST" enctype="multipart/form-data"> --}}
+            <form action="{{route('admin.courses.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="trip_name" placeholder="Enter name" value="{{ old('trip_name')}}" class="@error('trip_name') is-invalid @enderror">
-                  @error('trip_name')
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="course_name" placeholder="Enter name" value="{{ old('course_name')}}" class="@error('course_name') is-invalid @enderror">
+                  <input type="hidden" class="form-control" id="exampleInputEmail1" name="user_id"  value="1" >
+                  @error('course_name')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
@@ -67,16 +67,16 @@ Trip
                  @enderror
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Guest number</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" name="guest_number" placeholder="Enter guest number" value="{{ old('guest_number')}}" class="@error('guest_number') is-invalid @enderror">
-                  @error('guest_number')
+                  <label for="exampleInputEmail1">Video</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="video_course" placeholder="Enter video source" value="{{ old('video_course')}}" class="@error('video_course') is-invalid @enderror">
+                  @error('video_course')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Price</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" name="trip_price" placeholder="Enter price" value="{{ old('trip_price')}}" class="@error('trip_price') is-invalid @enderror">
-                  @error('trip_price')
+                  <input type="number" class="form-control" id="exampleInputEmail1" name="course_price" placeholder="Enter price" value="{{ old('course_price')}}" class="@error('course_price') is-invalid @enderror">
+                  @error('course_price')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
@@ -92,26 +92,26 @@ Trip
                    @enderror
                   </div>
                 <div class="form-group">
-                  <label for="exampleInputFile">Image one</label>
+                  <label for="exampleInputFile">Image</label>
                   <div class="input-group">
                     <div class="custom-file">
                         {{-- <input id="trip_image" type="file" name="trip_image" placeholder="Upload Image" value="{{ old('trip_image')}}" class="@error('trip_image') is-invalid @enderror"><br><br> --}}
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="trip_image" value="{{ old('trip_image')}}" class="@error('trip_image') is-invalid @enderror">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="course_image" value="{{ old('course_image')}}" class="@error('course_image') is-invalid @enderror">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                     </div>
                     <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
                     </div>
                     </div>
-                        @error('trip_image')
+                        @error('course_image')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <label for="exampleInputFile">Image two</label>
                   <div class="input-group">
                     <div class="custom-file">
-                        {{-- <input id="trip_image" type="file" name="trip_image" placeholder="Upload Image" value="{{ old('trip_image')}}" class="@error('trip_image') is-invalid @enderror"><br><br> --}}
+                        <input id="trip_image" type="file" name="trip_image" placeholder="Upload Image" value="{{ old('trip_image')}}" class="@error('trip_image') is-invalid @enderror"><br><br>
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="trip_image2" value="{{ old('trip_image2')}}" class="@error('trip_image2') is-invalid @enderror">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                     </div>
@@ -122,7 +122,7 @@ Trip
                         @error('trip_image2')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                </div>
+                </div> --}}
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>

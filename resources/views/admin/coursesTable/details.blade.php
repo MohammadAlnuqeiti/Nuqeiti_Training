@@ -31,8 +31,8 @@ trip details
 {{-- <div class="content-wrapper"> --}}
     <!-- Main content -->
     <section class="content">
-        {{-- <?php $img=$data[0]['image']?>
-        <?php $img2=$data[0]['image2']?> --}}
+        <?php $img=$data[0]['image']?>
+        <?php $video=$data[0]['video']?>
 
 
         <!-- Default box -->
@@ -42,38 +42,43 @@ trip details
               <div class="col-12 col-sm-6">
                 <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
                 <div class="col-12">
-                  <img src="{{URL::asset("storage/image/")}}" class="product-image" alt="Product Image">
+
+                  <img src="{{URL::asset("storage/image/$img")}}" class="product-image" alt="Product Image">
                 </div>
                 <div class="col-12 product-image-thumbs">
-                  <div class="product-image-thumb active"><img src="{{URL::asset("storage/image/")}}" alt="Product Image"></div>
-                  <div class="product-image-thumb" ><img src="{{URL::asset("storage/image/")}}" alt="Product Image"></div>
+                  <div class="product-image-thumb active"><img src="{{URL::asset("storage/image/$img")}}" alt="Product Image"></div>
+                  {{-- <div class="product-image-thumb" ><video src="{{URL::asset("storage/image/$video")}}" controls></video></div> --}}
                   {{-- <div class="product-image-thumb" ><img src="../../dist/img/prod-3.jpg" alt="Product Image"></div>
                   <div class="product-image-thumb" ><img src="../../dist/img/prod-4.jpg" alt="Product Image"></div>
                   <div class="product-image-thumb" ><img src="../../dist/img/prod-5.jpg" alt="Product Image"></div> --}}
                 </div>
               </div>
               <div class="col-12 col-sm-6">
-                <h3 class="my-3">ddddddddddddddddddddddddddddddddddddddddddd</h3>
-                {{-- <h3 class="my-3">{{$data[0]['name']}}</h3> --}}
-                <p>sdddddddddddddddddddddddddddddddddddddd</p>
-                {{-- <p>{{$data[0]['short_description']}}</p> --}}
+                <h3 class="my-3">{{$data[0]['name']}}</h3>
+                <p>{{$data[0]['short_description']}}</p>
 
                 <hr>
-                <h4>Category : ddddddddddddddddddddddddd </h4>
-                {{-- <h4>Category : {{$data[0]['category']}} </h4> --}}
+                <h4>Category : {{$data[0]['category']}} </h4>
 
 
-                <h4 class="mt-3">Guest  number : dddddddddddddddddddddddddddd</h4>
-                {{-- <h4 class="mt-3">Guest  number : {{$data[0]['guest_number']}}</h4> --}}
+                <h4 class="mt-3"> Instrector : {{$data[0]['user']}}</h4>
+                <h4 class="mt-3"> Status : {{$data[0]['status']}}</h4>
 
 
                 <div class="bg-gray py-2 px-3 mt-4">
                   <h2 class="mb-0">
-                    Price :55 JD
-                    {{-- Price : {{$data[0]['price']}} JD --}}
+                    Price : {{$data[0]['price']}} JD
                   </h2>
 
                 </div>
+
+                {{-- <div >
+                    <video width="400" controls>
+                        <source src="{{URL::asset("storage/image/$video")}}" type="video/mp4">
+                      </video>
+                    <video src="{{URL::asset("storage/image/$video")}}" controls></video>
+                </div> --}}
+
 
 
 {{--
@@ -103,8 +108,7 @@ trip details
                 </div>
               </nav>
               <div class="tab-content p-3" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</div>
-                {{-- <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">{{$data[0]['long_description']}} </div> --}}
+                <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">{{$data[0]['long_description']}} </div>
                 {{-- <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab"> Vivamus rhoncus nisl sed venenatis luctus. Sed condimentum risus ut tortor feugiat laoreet. Suspendisse potenti. Donec et finibus sem, ut commodo lectus. Cras eget neque dignissim, placerat orci interdum, venenatis odio. Nulla turpis elit, consequat eu eros ac, consectetur fringilla urna. Duis gravida ex pulvinar mauris ornare, eget porttitor enim vulputate. Mauris hendrerit, massa nec aliquam cursus, ex elit euismod lorem, vehicula rhoncus nisl dui sit amet eros. Nulla turpis lorem, dignissim a sapien eget, ultrices venenatis dolor. Curabitur vel turpis at magna elementum hendrerit vel id dui. Curabitur a ex ullamcorper, ornare velit vel, tincidunt ipsum. </div> --}}
                 {{-- <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab"> Cras ut ipsum ornare, aliquam ipsum non, posuere elit. In hac habitasse platea dictumst. Aenean elementum leo augue, id fermentum risus efficitur vel. Nulla iaculis malesuada scelerisque. Praesent vel ipsum felis. Ut molestie, purus aliquam placerat sollicitudin, mi ligula euismod neque, non bibendum nibh neque et erat. Etiam dignissim aliquam ligula, aliquet feugiat nibh rhoncus ut. Aliquam efficitur lacinia lacinia. Morbi ac molestie lectus, vitae hendrerit nisl. Nullam metus odio, malesuada in vehicula at, consectetur nec justo. Quisque suscipit odio velit, at accumsan urna vestibulum a. Proin dictum, urna ut varius consectetur, sapien justo porta lectus, at mollis nisi orci et nulla. Donec pellentesque tortor vel nisl commodo ullamcorper. Donec varius massa at semper posuere. Integer finibus orci vitae vehicula placerat. </div> --}}
               </div>

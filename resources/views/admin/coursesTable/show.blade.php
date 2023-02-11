@@ -2,11 +2,11 @@
 
 
 @section('title')
-Trips
+Courses
 @endsection
 
 @section('section_title')
-Trips Table
+Courses Table
 @endsection
 
 @section('css')
@@ -31,7 +31,7 @@ Trips
 @section('content')
  <!-- /.row -->
 
- <div class="row container-fluid m-auto" >
+ <div class="row container-fluid m-auto">
     <div class="col-12">
       <div class="card">
         <div class="card-header">
@@ -42,8 +42,7 @@ Trips
 
                 {{-- <button type="button" class="btn btn-block bg-gradient-primary btn-sm"><a href="{{route('admin.categories.create')}}">Add new category</a></button> --}}
 
-         <a href=""><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add new trip</button></a>
-         {{-- <a href="{{route('admin.trips.create')}}"><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add new trip</button></a> --}}
+         <a href="{{route('admin.courses.create')}}"><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add new course</button></a>
 
               {{-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
@@ -75,39 +74,29 @@ Trips
               </tr>
             </thead>
             <tbody>
-
-                {{-- @foreach ($data as $value) --}}
-
+               @foreach ($data as $value)
 
                 <tr>
-                    <td style="text-align: center">1111</td>
-                    {{-- <td style="text-align: center">{{$value['id']}}</td> --}}
-                    <td style="text-align: center">55555</td>
-                    {{-- <td style="text-align: center">{{$value['name']}}</td> --}}
-                    {{-- <td style="text-align: center"><a href=""><button type="button" class="btn btn-block bg-gradient-info btn-sm">more details</button> --}}
-                    <td style="text-align: center"><a href="{{Route('admin.courses.show',1)}}"><button type="button" class="btn btn-block bg-gradient-info btn-sm">more details</button>
+                    <td style="text-align: center">{{$value['id']}}</td>
+                    <td style="text-align: center">{{$value['name']}}</td>
+                    <td style="text-align: center"><a href="{{Route('admin.courses.show',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-info btn-sm">more details</button>
 
 
 
-                    <td style="text-align: center"><a href=""><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
-                    {{-- <td style="text-align: center"><a href="{{Route('admin.trips.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button> --}}
+                    <td style="text-align: center"><a href="{{Route('admin.courses.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
                     </a></td>
                     <td style="text-align: center">
-                        <form action="" method="post">
+
+                        <form action="{{Route('admin.courses.destroy',$value['id'])}}" method="post">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
                         </form>
-                        {{-- <form action="{{Route('admin.trips.destroy',$value['id'])}}" method="post">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
-                        </form> --}}
                     </td>
 
                 </tr>
 
-                {{-- @endforeach --}}
+                @endforeach
 
               {{-- </tr> <tr>
                 <td>183</td>
