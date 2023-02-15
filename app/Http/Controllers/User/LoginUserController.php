@@ -22,16 +22,16 @@ class LoginUserController extends Controller
     public function LoginPost(LoginRequest $request): RedirectResponse
     {
 
+        // $request->authenticate();
+        $request->authenticate();
         $data = User::where('email',$request->email)->get();
         // dd($data[0]->role );
         if($data[0]->role=='engineer'){
 
-            if($data[0]->status !=='accept'){
+            if($data[0]->status !=='accepted'){
                 abort(403);
             }
         }
-            // $request->authenticate();
-            $request->authenticate();
 
             $request->session()->regenerate();
 

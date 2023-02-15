@@ -9,11 +9,14 @@ use App\Http\Controllers\User\RegisterUserController;
 use App\Http\Controllers\User\RegisterEngineerController;
 use App\Http\Controllers\User\ProfileUserController;
 use App\Http\Controllers\User\ProfileEngineerController;
+use App\Http\Controllers\User\SingleCourseController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\EngineeringController;
+use App\Http\Controllers\Admin\LectureController;
+use App\Http\Controllers\Admin\CommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('admin.login');
-});
+})->name('admin.login');
 
 // Route::get('/admin', function () {
 //     return view('admin.profile.show');
@@ -59,7 +62,10 @@ Route::resource('/users',UserController::class);
 Route::resource('/engineering',EngineeringController::class);
 Route::resource('/categories',CategoryController::class);
 Route::resource('/courses',CourseController::class);
-Route::resource('/reservation',ReservationController::class);
+Route::resource('/lectures',LectureController::class);
+// Route::resource('/reservation',ReservationController::class);
+Route::resource('/comment',CommentController::class);
+// Route::get('/comment/destroy/{id}',[CommentController::class,'destroy'])->name('comment.destroy');
 Route::get('/messages',[ContactController::class,'show'])->name('message');
 
 });
@@ -101,6 +107,7 @@ Route::prefix('user')->name('user.')->group(function () {
 
     Route::resource('/profile_user',ProfileUserController::class);
     Route::resource('/profile_engineer',ProfileEngineerController::class);
+    Route::resource('/course_details',SingleCourseController::class);
 
     // Route::get('/package_details/{id}',[PackageDetailsController::class,'index'])->name('package.details');
 

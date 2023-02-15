@@ -16,13 +16,17 @@ Course
 <section class="course-info">
 
     <div class="image">
-        <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
+        <?php
+        $img=$data[0]['image']
+        ?>
+
+        <img src="{{URL::asset("storage/image/$img")}}" alt=""/>
     </div>
     <div class="info">
-        <h1>The Comprehensive ETABS Professional Course (RCC and Steel)</h1>
-        <p>instrector</p>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-        <p><i class="fa-solid fa-calendar"></i> 12-6-2022</p>
+        <h1>{{$data[0]['name']}}</h1>
+        <p>{{$data[0]['user']}}</p>
+        <p>{{$data[0]['short_description']}}</p>
+        <p><i class="fa-solid fa-calendar"></i> {{$data[0]['created_at']}}</p>
         <div>
             <a href="./cart.html" class="btn">Add to cart</a>
             <a href="./checkout.html" class="btn">Buy now</a>
@@ -31,7 +35,7 @@ Course
 
     </div>
 </section>
-
+{{-- {{dd($data)}} --}}
 
 <section>
     <div class="about" id="about">
@@ -39,11 +43,14 @@ Course
         <div class="row">
             <div class="content">
                 <h3>Description</h3>
-                <p>Steel Structures especially PEB are somewhat tricky to model, analyze and design. Majority of the people are comfortable in RCC Design, but very few are expert in Steel Design. After covering this section , you will be able to calculate wind and seismic loads as per the Indian Standards , Model the Steel Structures i.e. Portal , Plan Bracing and Elevation Bracing, Analyze ,</p>
+                <p>{{$data[0]['long_description']}}</p>
                 <!-- <a href="#" class="btn">learn more</a> -->
             </div>
             <div class="video-container">
-                <video src="./video/SampleVideo_1280x720_20mb.mp4" controls></video>
+                <?php
+        $video=$data[0]['video']
+        ?>
+                <video src="{{URL::asset("storage/video/$video")}}" controls></video>
                 <!-- <h3>best courses</h3> -->
             </div>
 
@@ -63,21 +70,21 @@ Course
             <img src="/userSide/img/user.png" alt="">
             <div class="info">
                 <h3>Instructor</h3>
-                <p>Guangshuai Han</p>
+                <p>{{$data[0]['user']}}</p>
             </div>
         </div>
         <div class="group">
             <img src="/userSide/img/price.png" alt="">
             <div class="info">
                 <h3>Price</h3>
-                <p>$84.99</p>
+                <p>{{$data[0]['price']}} JD</p>
             </div>
         </div>
         <div class="group">
             <img src="/userSide/img/category.png" alt="">
             <div class="info">
                 <h3>Specialization</h3>
-                <p>Civil Engineering</p>
+                <p>{{$data[0]['category']}}</p>
             </div>
         </div>
     </div>
@@ -88,13 +95,17 @@ Course
         <div class="image-content">
             <span class="overlay"></span>
             <div class="card-image">
-                <img src="/userSide/img/user icon.png" alt="" class="card-img">
+                <?php
+                $img2=$data[0]['user_image']
+                ?>
+                <img src="{{URL::asset("storage/image/$img2")}}" alt="" class="card-img">
 
             </div>
         </div>
         <div class="card-content">
-            <h2 class="name">Guangshuai Han</h2>
-            <p class="description">Graduate Research Assistant at Purdue University</p>
+
+            <h2 class="name">{{$data[0]['user']}}</h2>
+            <p class="description">{{$data[0]['education']}}</p>
             <a href="{{route('user.profile_engineer.index')}}"><button class="button">View more</button></a>
 
         </div>
@@ -251,24 +262,32 @@ Course
             </div>
         </div>
 
+        @if(Auth::user())
 
         <div id="input">
 
             <input type="submit" id="comment" value="add comment">
         </div>
+        @endif
     </div>
     <div id="comment_section">
+        @if(Auth::user())
 
-        <form>
+        <form action="{{route('user.course_details.store')}}" method="post">
+
+            @csrf
             <label for="story">write comment:</label>
             <div >
-                <textarea id="story" name="comment"rows="5" cols="33" >Comment...
-                </textarea>
+                <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
+                <input type="hidden" name="course_id" value="{{$data[0]['id']}}"/>
+                <textarea id="story" name="comment" rows="5" cols="33" ></textarea>
+
             </div>
             <div id="input">
-              <input type="submit" id="submit">
+                <input type="submit" id="submit">
             </div>
-         </form>
+        </form>
+        @endif
     </div>
 </section>
 @endsection

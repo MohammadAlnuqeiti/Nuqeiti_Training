@@ -96,12 +96,19 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link  @yield('Reservations')">
-            {{-- <a href="{{route('admin.reservation.index')}}" class="nav-link  @yield('Reservations')"> --}}
+            <a href="{{route('admin.lectures.index')}}" class="nav-link  @yield('lectures')">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Orders
+                lectures
                 {{-- <span class="right badge badge-danger">user</span> --}}
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('admin.comment.index')}}" class="nav-link  @yield('comments')">
+              <i class="nav-icon fa-solid fa-message"></i>
+              <p>
+                Comments
               </p>
             </a>
           </li>

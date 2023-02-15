@@ -2,41 +2,21 @@
 
 
 @section('title')
-Reservation
+Comments
 @endsection
 
 @section('css')
 <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
 <link rel="stylesheet" href=".{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
-<style>
-  /* width */
-  ::-webkit-scrollbar {
-  height: 5px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-  </style>
 @endsection
 
 @section('section_title')
-Reservations Table
+Comments Table
 @endsection
 
-@section('Reservations')
+
+@section('comments')
 active
 @endsection
 
@@ -45,88 +25,79 @@ admin
 @endsection
 
 @section('title_page2')
-Reservation
+Comment
 @endsection
 
 
 @section('content')
-<!-- /.row -->
-
- <div class="row container-fluid" style="margin: auto auto 30px auto">
+<div class="row container-fluid m-auto">
     <div class="col-12">
       <div class="card">
-        <div class="card-header bg-warning">
-          <h3 class="card-title">Reservations Pending</h3>
+        <div class="card-header">
+          <h3 class="card-title">Comment controls</h3>
 
-        </div>
+          <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 90px;">
+
+
+
+
+                {{-- <a href="{{route('admin.users.create')}}"><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add admin</button></a> --}}
+
+
+              </div>
+            </div>
+          </div>
         </div>
         <!-- /.card-header -->
-
         <div class="card-body table-responsive p-0" >
-          <table class="table table-head-fixed text-nowrap">
+          <table class="table table-head-fixed text-nowrap" style="text-align: center;">
             <thead>
               <tr>
                 <th>#</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Phone No.</th>
-                <th>Email</th>
-                <th>Trip</th>
-                <th>Guest number</th>
-                <th>Reservation date</th>
-                <th>Status</th>
-                <th>edit</th>
-                <th>delete</th>
+                <th>Comment</th>
+                <th>Course name</th>
+                <th>Username</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
+                <?php $i=1?>
 
-                {{-- @foreach ($data as $value) --}}
+                @foreach ($data as $value)
+
                 <tr>
-                    <td>44</td>
-                    <td>oooooooooo</td>
-                    <td>ooooooooo</td>
-                    <td>5555555555555</td>
-                    <td>iiiiiiiiiiiiiii</td>
-                    <td>iiiiiiiiiiiiii</td>
-                    <td>5555555555555</td>
 
-                    <td>5555555555555555</td>
+                    <td> {{$i}}</td>
+                    <td>{{$value['comment']}}</td>
+                    <td>{{$value['course']}}</td>
+                    <td>{{$value['user']}}</td>
 
-                    <td><span class="badge bg-warning">Pending</span></td>
-
-
-                    <td><a href=""><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
-                    {{-- <td><a href="{{Route('admin.reservation.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button> --}}
-                    </a></td>
                     <td>
-                        <form action="" method="post">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
-                        </form>
-                        {{-- <form action="{{Route('admin.reservation.destroy',$value['id'])}}" method="post">
+                        {{-- <form action="" method="post">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
                         </form> --}}
+                        <form action="{{Route('admin.comment.destroy',$value['id'])}}" method="post">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
+                        </form>
                     </td>
 
                 </tr>
+                <?php ++$i?>
 
-                {{-- @endforeach --}}
+                @endforeach
 
 
             </tbody>
-        </table>
-    </div>
-    <!-- /.card-body -->
-</div>
-<!-- /.card -->
-</div>
-
-
-
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
     </div>
   </div>
   <!-- /.row -->

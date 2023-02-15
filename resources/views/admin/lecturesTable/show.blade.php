@@ -2,21 +2,41 @@
 
 
 @section('title')
-Reservation
+lectures
 @endsection
 
 @section('css')
 <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
 <link rel="stylesheet" href=".{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
+<style>
+  /* width */
+  ::-webkit-scrollbar {
+  height: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  </style>
 @endsection
 
 @section('section_title')
-Edit Reservation
+lectures Table
 @endsection
 
-
-@section('Reservation')
+@section('lectures')
 active
 @endsection
 
@@ -25,42 +45,77 @@ admin
 @endsection
 
 @section('title_page2')
-Reservation
+lectures
 @endsection
 
 
 @section('content')
- <!-- /.row -->
- <div class="row container m-auto">
+<!-- /.row -->
+
+ <div class="row container-fluid" style="margin: auto auto 30px auto">
     <div class="col-12">
-        <div class="card card-primary">
-            <div class="card-header">
-              <h3 class="card-title">Edit</h3>
-            </div>
-            <!-- /.card-header -->
-            <!-- form start -->
-            <form action="" method="POST" enctype="multipart/form-data">
-            {{-- <form action="{{route('admin.reservation.update',$data->id)}}" method="POST" enctype="multipart/form-data"> --}}
-              @method('PUT')
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Lectures</h3>
 
-              @csrf
-                <div class="form-group">
-                    <label for="exampleSelectRounded0">Status</label>
-                    <select class="custom-select rounded-0" id="exampleSelectRounded0" name="status">
-                      <option value="Pending">Pending</option>
-                      <option value="Accepted">Accepted</option>
-                      <option value="Rejected">Rejected</option>
-                    </select>
-                  </div>
+        </div>
+        </div>
+        <!-- /.card-header -->
 
-              <!-- /.card-body -->
+        <div class="card-body table-responsive p-0" >
+          <table class="table table-head-fixed text-nowrap">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Video</th>
+                <th>Engineering</th>
+                <th>Course name</th>
+                <th>edit</th>
+                <th>delete</th>
+              </tr>
+            </thead>
+            <tbody>
+{{-- {{dd($data)}} --}}
+                @foreach ($data as $value)
+                <tr>
+                    <td>{{$value['id']}}</td>
+                    <td>{{$value['title']}}</td>
+                    <td>{{$value['description']}}</td>
+                    <td>{{$value['video']}}</td>
+                    <td>{{$value['engineering']}}</td>
+                    <td>{{$value['course']}}</td>
 
-              <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
-          <!-- /.card -->
+
+
+
+                    <td><a href="{{Route('admin.lectures.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
+                    </a></td>
+                    <td>
+
+                        <form action="{{Route('admin.lectures.destroy',$value['id'])}}" method="post">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+
+                </tr>
+
+                @endforeach
+
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
+</div>
+
+
+
     </div>
   </div>
   <!-- /.row -->

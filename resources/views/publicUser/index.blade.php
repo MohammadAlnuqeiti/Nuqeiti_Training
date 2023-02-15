@@ -34,7 +34,7 @@ home page
             </div>
 
             <div class="btn">
-                <a href="./singlecoarse.html">Buy Now</a>
+                <a href="{{route('user.course_details.show',1)}}">Buy Now</a>
             </div>
         </div>
     </div>
