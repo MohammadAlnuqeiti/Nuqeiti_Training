@@ -106,15 +106,16 @@ Course
 
             <h2 class="name">{{$data[0]['user']}}</h2>
             <p class="description">{{$data[0]['education']}}</p>
-            <a href="{{route('user.profile_engineer.index')}}"><button class="button">View more</button></a>
+            <a href="{{route('user.profile_engineer.show',$data[0]['user_id'])}}"><button class="button">View more</button></a>
 
         </div>
     </div>
 </section>
 <section>
+   {{-- {{ dd($lectures)}} --}}
     <h2 class="heading"><span style="color: #FF0000;">Topic</span> courses</h2>
     <div class="accordion">
-        <div class="accordion-item">
+        {{-- <div class="accordion-item">
           <div class="accordion-item-header">
             What is Web Development?
           </div>
@@ -123,8 +124,8 @@ Course
               Web Development broadly refers to the tasks associated with developing functional websites and applications for the Internet. The web development process includes web design, web content development, client-side/server-side scripting and network security configuration, among other tasks.
             </div>
           </div>
-        </div>
-        <div class="accordion-item">
+        </div> --}}
+        {{-- <div class="accordion-item">
           <div class="accordion-item-header">
             What is HTML?
           </div>
@@ -133,30 +134,32 @@ Course
               HTML, aka HyperText Markup Language, is the dominant markup language for creating websites and anything that can be viewed in a web browser.
             </div>
           </div>
+        </div> --}}
+
+        @foreach ($lectures as $lecture)
+      <div class="accordion-item">
+            <div class="accordion-item-header">
+                {{$lecture->name}}
         </div>
-        <div class="accordion-item">
-          <div class="accordion-item-header">
-            What are some basic technical skills of a Front-End developer?
-          </div>
           <div class="accordion-item-body">
-            <div class="accordion-item-body-content">
-              <ul style="padding-left: 1rem;">
-                <li>HTML, CSS, JavaScript</li>
-                <li>Frameworks (CSS and JavaScript frameworks)</li>
-                <li>Responsive Design</li>
-                <li>Version Control/Git</li>
-                <li>Testing/Debugging</li>
-                <li>Browser Developer Tools</li>
-                <li>Web Performance</li>
-                <li>SEO (Search Engine Optimization)</li>
-                <!-- <li>CSS Preprocessing</li> -->
-                <li>Command Line</li>
-                <li>CMS (Content Management System)</li>
-              </ul>
+              <div class="accordion-item-body-content">
+                  <ul style="padding-left: 1rem;">
+                    <li>{{$lecture->description}}</li>
+                    <li><a href="{{$lecture->video_lecture}}" target="_blank">video link</a></li>
+                    {{-- <li>Responsive Design</li>
+                    <li>Version Control/Git</li>
+                    <li>Testing/Debugging</li>
+                    <li>Browser Developer Tools</li>
+                    <li>Web Performance</li>
+                    <li>SEO (Search Engine Optimization)</li>
+                    <li>Command Line</li>
+                    <li>CMS (Content Management System)</li> --}}
+                </ul>
             </div>
           </div>
         </div>
-        <div class="accordion-item">
+        @endforeach
+        {{-- <div class="accordion-item">
           <div class="accordion-item-header">
             What is HTTP?
           </div>
@@ -165,8 +168,8 @@ Course
               HTTP, aka HyperText Transfer Protocol, is the underlying protocol used by the World Wide Web and this protocol defines how messages are formatted and transmitted, and what actions Web servers and browsers should take in response to various commands.
             </div>
           </div>
-        </div>
-        <div class="accordion-item">
+        </div> --}}
+        {{-- <div class="accordion-item">
           <div class="accordion-item-header">
             What is CORS?
           </div>
@@ -175,7 +178,7 @@ Course
               CORS, aka Cross-Origin Resource Sharing, is a mechanism that enables many resources (e.g. images, stylesheets, scripts, fonts) on a web page to be requested from another domain outside the domain from which the resource originated.
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
 </section>
 <section>

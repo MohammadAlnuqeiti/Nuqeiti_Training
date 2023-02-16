@@ -32,27 +32,24 @@ Profile
 
 
 
-
 @section('content')
 <div class="header_wrapper">
-
+{{-- {{dd($data)}} --}}
     <header></header>
-    <?php
-    $img=$data[0]->image
-    ?>
+
     <div class="col_container">
         <div class="left_col">
             <div class="img_container">
-                <img src="{{URL::asset("storage/image/$img")}}" alt="user" />
+                <img src="/userSide/img/user icon.png" alt="user" />
                 <span></span>
             </div>
             <h2>{{$data[0]->name}}</h2>
             <p>{{$data[0]->education}}</p>
             <p>{{$data[0]->email}}</p>
             <div class="icon">
-                {{-- <a href="#"><i class="fa-brands fa-facebook"></i> </a> --}}
-                <a href="http://wa.me/+962{{$data[0]->phone}}"><i class="fa-solid fa-square-phone"></i></a>
-                <a href="mailto:{{$data[0]->email}}"><i class="fa-solid fa-envelope"> </i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i> </a>
+                <a href="#"><i class="fa-solid fa-square-phone"></i></a>
+                <a href="#"><i class="fa-solid fa-envelope"> </i></a>
                 <a href="{{$data[0]->Linkedin_link}}"><i class="fa-brands fa-linkedin"> </i></a>
             </div>
             <!-- <div class="icon">
@@ -70,14 +67,12 @@ Profile
             </ul>
             <div class="content">
                 <p>
-                    {{$data[0]->the_description}}
-                </p>
+{{$data[0]->the_description}}                </p>
                 <ul class="ul">
-                <!--<li><i class="fap fa-twitter"></i></li>
+                    <!-- <li><i class="fap fa-twitter"></i></li>
                     <li><i class="fap fa-twitter"></i></li>
                     <li><i class="fap fa-twitter"></i></li>
                     <li><i class="fap fa-twitter"></i></li> -->
-                    <button><a href="{{route('user.profile_engineer.edit',$data[0]->id)}}">Edit account</a></button>
                 </ul>
             </div>
         </div>
@@ -92,7 +87,7 @@ Profile
                 </ul>
                 <div>
 
-                    <button><a href="{{route('user.add_course.index')}}">Upload Course</a></button>
+                    {{-- <button><a href="./index.html">Upload Course</a></button> --}}
                 </div>
             </nav>
 
@@ -109,7 +104,7 @@ Profile
                 </div>
 
                 <div class="btn">
-                    <a href="">Edit course</a>
+                    <a href="">Show course</a>
                 </div>
             </div>
         </div>
@@ -124,7 +119,7 @@ Profile
                 </div>
 
                 <div class="btn">
-                    <a href="">Edit course</a>
+                    <a href="">Show course</a>
                 </div>
             </div>
         </div>
@@ -134,12 +129,12 @@ Profile
                 <div class="row">
                     <div class="card-title">
                         <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                        <p>Nike Sneaker</p>
+                        <p>Show Sneaker</p>
                     </div>
                 </div>
 
                 <div class="btn">
-                    <a href="">Edit course</a>
+                    <a href="">Show course</a>
                 </div>
             </div>
         </div>

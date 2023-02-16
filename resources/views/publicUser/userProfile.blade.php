@@ -14,13 +14,14 @@ Profile
 
 @section('content')
 <div class="header_wrapper">
-
+    <?php
+    $img=$data[0]['image']
+    ?>
     <header></header>
-
     <div class="col_container">
         <div class="left_col">
             <div class="img_container">
-                <img src="/userSide/img/user icon.png" alt="user" />
+                <img src="{{URL::asset("storage/image/$img")}}" alt="user" />
                 <span></span>
             </div>
             <h2>{{ Auth::user()->name }}</h2>
@@ -40,7 +41,7 @@ Profile
                     <li><i class="fap fa-twitter"></i></li>
                     <li><i class="fap fa-twitter"></i></li>
                     <li><i class="fap fa-twitter"></i></li> -->
-                    <button><a href="./editaccountuser.html">Edit account</a></button>
+                    <button><a href="{{route('user.profile_user.edit',Auth::user()->id)}}">Edit account</a></button>
                 </ul>
             </div>
         </div>
@@ -53,7 +54,7 @@ Profile
                     <li><a href="#">photo</a></li>
                     <li><a href="#">photo</a></li> -->
                 </ul>
-                <button><a href="./index.html">Show all courses</a></button>
+                <button><a href="{{route('user.shop')}}">Show all courses</a></button>
             </nav>
 
             <div class="photos">

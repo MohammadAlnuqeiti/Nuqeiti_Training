@@ -5,11 +5,9 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
-use App\Models\lecture;
-use App\Models\Comment;
 use Illuminate\Http\Request;
 
-class SingleCourseController extends Controller
+class AddCourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +16,8 @@ class SingleCourseController extends Controller
      */
     public function index()
     {
-
+        $category=Category::all();
+        return view('publicUser.addcourse',['category'=>$category]);
     }
 
     /**
@@ -39,17 +38,37 @@ class SingleCourseController extends Controller
      */
     public function store(Request $request)
     {
-        Comment::create([
+        $request->validate([
+            'course_name' => ['required'],
+            'short_description' => ['required'],
+            'long_description' => ['required'],
+            'course_price' => ['required'],
+            'select' => ['required'],
+            'video_course' => ['required'],
+            'course_image' => ['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
+        ]);
+        $user=$request->user_id;
 
-            'user_id' => $request->user_id,
-            'comment' => $request->comment,
-            'course_id' => $request->course_id,
+        $photoName = $request->file('course_image')->getClientOriginalName();
+        $request->file('course_image')->storeAs('public/image', $photoName);
+        // $photoName2 = $request->file('trip_image2')->getClientOriginalName();
+        // $request->file('trip_image2')->storeAs('public/image', $photoName2);
 
+        Course::create([
+
+            'name' => $request->course_name,
+            'short_description' => $request->short_description,
+            'long_description' => $request->long_description,
+            'price' => $request->course_price,
+            'category_id' => $request->select,
+            'video_course' => $request->video_course,
+            'user_id' =>  $user,
+            'image' => $photoName,
+            'status' => "pending",
 
         ]);
 
-        return redirect()->back();
-
+        return redirect()->route('user.profile_engineer.index');
     }
 
     /**
@@ -60,32 +79,7 @@ class SingleCourseController extends Controller
      */
     public function show($id)
     {
-        $lectures =lecture::where('course_id', $id)->get();
-        $courses = Course::where('id', $id)->get();
-        $data = [];
-        foreach ($courses as $course) {
-            $data[] = [
-                'id' => $course->id,
-                'name' => $course->name,
-                'short_description' => $course->short_description,
-                'long_description' => $course->long_description,
-                'price' => $course->price,
-                'image' => $course->image,
-                'video' => $course->video_course,
-                'created_at' => $course->created_at,
-                'category' => isset($course->category) ? $course->category->name : "",
-                'user' => isset($course->user) ? $course->user->name : "",
-                'user_id' => isset($course->user) ? $course->user->id : "",
-                'user_image' => isset($course->user) ? $course->user->image : "",
-                'education' => isset($course->user) ? $course->user->education : "",
-
-
-            ];
-        }
-        if($courses->isEmpty()) {
-            return redirect()->back();
-        }
-        return view('publicUser.singleCourse',['data'=>$data , 'lectures'=>$lectures]);
+        //
     }
 
     /**
