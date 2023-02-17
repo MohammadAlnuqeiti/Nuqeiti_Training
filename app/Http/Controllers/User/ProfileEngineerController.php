@@ -4,6 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Course;
+
 
 use App\Models\User;
 
@@ -21,7 +23,28 @@ class ProfileEngineerController extends Controller
         $id = Auth()->user()->id;
         // dd($id);
         $data = User::where('id', $id)->get();
-        return view('publicUser.engineeringProfile',['data'=>$data]);
+        $courses = Course::where('user_id', $id)->get();
+
+        // dd($courses);
+        $Data = [];
+        foreach ($courses as $course) {
+            $Data[]= [
+                'id' => $course->id,
+                'name' => $course->name,
+                'short_description' => $course->short_description,
+                'long_description' => $course->long_description,
+                'price' => $course->price,
+                'image' => $course->image,
+                'video' => $course->video_course,
+                'category' => isset($course->category) ? $course->category->name : "",
+                'user' => isset($course->user) ? $course->user->name : "",
+
+
+            ];
+        }
+        // dd($Data);
+
+        return view('publicUser.engineeringProfile',['data'=>$data,'Data'=>$Data]);
 
     }
 

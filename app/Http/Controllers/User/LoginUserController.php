@@ -23,15 +23,14 @@ class LoginUserController extends Controller
     {
 
         // $request->authenticate();
-        $data = User::where('email',$request->email)->get();
-        // dd($data[0]->role );
-        if($data[0]->role=='engineer'){
+        // $data = User::where('email',$request->email)->get();
+        // if($data[0]->role=='engineer'){
 
-            if($data[0]->status !=='accepted'){
-                abort(403);
-            }
+        //     if($data[0]->status !=='accepted'){
+        //         abort(403);
+        //     }
 
-        }
+        // }
 
             $request->authenticate();
             $request->session()->regenerate();
@@ -46,7 +45,7 @@ class LoginUserController extends Controller
                 return redirect()->route('user.index');
 
             }
-        
+
 
 
 

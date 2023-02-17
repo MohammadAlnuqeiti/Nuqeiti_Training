@@ -1,45 +1,77 @@
-@extends('admin.layouts.master')
+@extends('publicUser.layouts.master')
 
 
 @section('title')
-Lectures
+Add course
 @endsection
 
 @section('css')
+
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+  <!-- Tempusdominus Bootstrap 4 -->
+  {{-- <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"> --}}
+  <link rel="stylesheet" href="{{asset('assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+
+  <!-- iCheck -->
+  {{-- <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css"> --}}
+  <link rel="stylesheet" href="{{asset('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+
+  <!-- JQVMap -->
+  {{-- <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css"> --}}
+  <link rel="stylesheet" href="{{asset('assets/plugins/jqvmap/jqvmap.min.css')}}">
+
+  <!-- Theme style -->
+  {{-- <link rel="stylesheet" href="dist/css/adminlte.min.css"> --}}
+  <link rel="stylesheet" href="{{asset('assets/css/adminlte.min.css')}}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{{asset('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+
+  {{-- <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css"> --}}
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{{asset('assets/plugins/daterangepicker/daterangepicker.css')}}">
+
+  {{-- <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css"> --}}
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.min.css')}}">
+
+  <script src="https://kit.fontawesome.com/a8b56cb52b.js" crossorigin="anonymous"></script>
+
+
 <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
 <link rel="stylesheet" href=".{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{asset('userSide/css/header.css')}}">
+<link rel="stylesheet" href="{{asset('userSide/css/footer.css')}}">
+<style>
+     .card-header{
+        background-color: #07393E;
+        }
+    label{
+        color: #07393E !important;
+    }
+    header{
+        box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+        }
+
+</style>
+
 @endsection
 
-@section('section_title')
-Edit Lectures
-@endsection
-
-
-@section('lectures')
-active
-@endsection
-
-@section('title_page1')
-admin
-@endsection
-
-@section('title_page2')
-Lectures
-@endsection
 
 
 @section('content')
- <!-- /.row -->
- <div class="row container m-auto">
-    <div class="col-12">
+<!-- /.row -->
+<div class="row container m-auto mt-5">
+    <div class="col-12 m-auto">
         <div class="card card-primary">
-            <div class="card-header">
-              <h3 class="card-title">Edit</h3>
+            <div class="card-header" style="background-color:#07393E">
+              <h3 class="card-title">Edit lecture</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{route('admin.lectures.update',$data->id)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('user.lectures.update',$data->id)}}" method="POST" enctype="multipart/form-data">
 
                 @method('PUT')
 
@@ -85,13 +117,14 @@ Lectures
 
 
               <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" style="background-color:red">Submit</button>
               </div>
               </div>
             </form>
           </div>
           <!-- /.card -->
     </div>
+  </div>
   </div>
   <!-- /.row -->
 @endsection

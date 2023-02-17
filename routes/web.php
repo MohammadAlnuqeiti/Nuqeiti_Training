@@ -11,6 +11,7 @@ use App\Http\Controllers\User\ProfileUserController;
 use App\Http\Controllers\User\ProfileEngineerController;
 use App\Http\Controllers\User\SingleCourseController;
 use App\Http\Controllers\User\AddCourseController;
+use App\Http\Controllers\User\LectureUserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -110,6 +111,7 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::resource('/profile_engineer',ProfileEngineerController::class);
     Route::resource('/course_details',SingleCourseController::class);
     Route::resource('/add_course',AddCourseController::class);
+    Route::resource('/lectures',LectureUserController::class);
 
     // Route::get('/package_details/{id}',[PackageDetailsController::class,'index'])->name('package.details');
 

@@ -101,8 +101,9 @@ Engineering
                             <form action="{{Route('admin.engineering.destroy',$value['id'])}}" method="post">
                                 @method('delete')
                                 @csrf
-                                <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
-                            </form>
+                                <input name="_method" type="hidden" value="DELETE">
+                                <button type="submit" class="btn btn-sm btn-block  bg-gradient-danger  show_confirm"  data-toggle="tooltip" title='Delete'>Delete</button>
+                        </form>
                         </td>
 
                     </tr>
@@ -164,7 +165,9 @@ Engineering
                                 <form action="{{Route('admin.engineering.destroy',$value['id'])}}" method="post">
                                     @method('delete')
                                     @csrf
-                                    <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <button type="submit" class="btn btn-sm btn-block  bg-gradient-danger  show_confirm"  data-toggle="tooltip" title='Delete'>Delete</button>
+
                                 </form>
                             </td>
 
@@ -225,8 +228,9 @@ Engineering
                             <form action="{{Route('admin.engineering.destroy',$value['id'])}}" method="post">
                                 @method('delete')
                                 @csrf
-                                <button type="submit" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
-                            </form>
+                                <input name="_method" type="hidden" value="DELETE">
+                                <button type="submit" class="btn btn-sm btn-block  bg-gradient-danger  show_confirm"  data-toggle="tooltip" title='Delete'>Delete</button>
+                        </form>
                         </td>
 
                     </tr>
@@ -283,4 +287,28 @@ Engineering
       });
     });
   </script>
+
+    {{-- sweet alert --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script type="text/javascript">
+
+         $('.show_confirm').click(function(event) {
+              var form =  $(this).closest("form");
+              var name = $(this).data("name");
+              event.preventDefault();
+              swal({
+                  title: `Are you sure you want to delete this record?`,
+                  text: "If you delete this, it will be gone forever.",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  form.submit();
+                }
+              });
+          });
+
+    </script>
 @endsection

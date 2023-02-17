@@ -90,7 +90,17 @@ class AddCourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category=Category::all();
+        $course = Course::where('id', $id)->get();
+
+        // $trip=Trip::findOrFail($id); is emptyما بتزبط مع ال
+        if($course->isEmpty()) {
+            return redirect()->back();
+        }
+
+        return view('publicUser.editCourse', [
+            'data' => Course::findOrFail($id),'category'=>$category
+        ]);
     }
 
     /**
@@ -102,7 +112,34 @@ class AddCourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'course_name' => ['required'],
+            'short_description' => ['required'],
+            'long_description' => ['required'],
+            'course_price' => ['required'],
+            'select' => ['required'],
+            'video_course' => ['required'],
+            'course_image' => ['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
+        ]);
+
+        $photoName = $request->file('course_image')->getClientOriginalName();
+        $request->file('course_image')->storeAs('public/image', $photoName);
+
+
+        $data = Course::findOrfail($id);
+        $data->name = $request->course_name;  //id لانه هون انا موجودة عندي البيانات من خلال ال  new model ما عملت هون
+        $data->short_description = $request->short_description;
+        $data->long_description = $request->long_description;
+        $data->price = $request->course_price;
+        $data->category_id = $request->select;
+        $data->video_course = $request->video_course;
+        $data->image = $photoName;
+        $data->status = "pending";
+        $data->save();
+        //-------------------------------
+
+        return redirect()->route('user.profile_engineer.index');
     }
 
     /**

@@ -35,7 +35,6 @@ Profile
 
 @section('content')
 <div class="header_wrapper">
-
     <header></header>
     <?php
     $img=$data[0]->image
@@ -64,7 +63,7 @@ Profile
 
             </div> -->
             <ul class="about ul">
-                <li style="margin: auto;"><span>4</span>courses</li>
+                <li style="margin: auto;"><span>{{count($Data)}}</span>courses</li>
                 <!-- <li><span>4.05</span>followers</li>
                 <li><span>4.05</span>followers</li> -->
             </ul>
@@ -96,24 +95,31 @@ Profile
                 </div>
             </nav>
 
-            <div class="photos">
-    <!-- <div class="container"> -->
+    <div class="photos">
+        <!-- <div class="container"> -->
+            @foreach($Data as $value)
+            {{-- {{dd($value['name'])}} --}}
         <div class="card">
-            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
+            <?php
+            $img=$value['image']
+            ?>
+            <img src="{{URL::asset("storage/image/$img")}}" alt="{{$img}}"/>
             <div class="card-body">
                 <div class="row">
                     <div class="card-title">
-                        <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                        <p>Nike Sneaker</p>
+                        <h3>{{$value['name']}}</h3><br>
+                        <p>{{$value['category']}}</p>
                     </div>
                 </div>
 
                 <div class="btn">
-                    <a href="">Edit course</a>
+                    <a href="{{route('user.add_course.edit',$value['id'])}}">Edit course</a>
                 </div>
             </div>
         </div>
-        <div class="card">
+
+        @endforeach
+        {{-- <div class="card">
             <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
             <div class="card-body">
                 <div class="row">
@@ -157,7 +163,7 @@ Profile
                     <a href="">Show course</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
         </div>
