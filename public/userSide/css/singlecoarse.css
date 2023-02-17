@@ -4,9 +4,9 @@
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
     margin: 0;
-    padding: 0;  
+    padding: 0;
   }
-  
+
   /* ---------------------NAV BAR------------------ */
   header {
       display: flex;
@@ -31,7 +31,7 @@
       height: 100px;
   }
   .menu a {
-      text-decoration: none; 
+      text-decoration: none;
      padding: 0 15PX;
      transition: all 0.3s ease 0s;
      align-self: center;
@@ -57,7 +57,7 @@
       margin:50px auto;
       display: flex;
       justify-content: center;
-    
+
   }
   .header form .search {
       padding:8px 15px;
@@ -76,12 +76,12 @@
     overflow: hidden;
 
   }
-  
+
   .dropdown {
     float: left;
     overflow: hidden;
   }
-  
+
   .dropdown .dropbtn {
       background-color: #FF0000;
     color: white;
@@ -97,11 +97,11 @@
     font-size: 1em;
 
   }
-  
+
   .dropdown a:hover, .dropdown:hover .dropbtn {
     background-color: red;
   }
-  
+
   .dropdown-content {
     display: none;
     position: absolute;
@@ -110,7 +110,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
-  
+
   .dropdown-content a {
     float: none;
     color: black;
@@ -119,14 +119,14 @@
     display: block;
     text-align: left;
   }
-  
+
   .dropdown-content a:hover {
     background-color: #ddd;
   }
-  
+
   .dropdown:hover .dropdown-content {
     display: block;
-    
+
   }
   .header div form .button {
       padding:6px 15px;
@@ -143,11 +143,11 @@
       color:#07393E;
       transition: all 0.8s ease 0s;
   }
-  
-  
-  
+
+
+
   /* ---------------------NAV BAR------------------ */
-  
+
   .navbar{
       min-height: 70px;
       display: flex;
@@ -193,12 +193,12 @@
       -webkit-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out;
       background-color: black;
-  
+
   }
   @media(max-width:913px){
       .hamburger{
           display: block;
-  
+
       }
       .hamburger.active .bar:nth-child(2){
           opacity: 0;
@@ -245,7 +245,7 @@
       }
       #sectionfour p{
           font-size: 21px;
-  
+
       }}
 
       @media(max-width:500px){
@@ -295,7 +295,7 @@
     color: #07393E;
     font-size: 1.5rem;
     font-weight: 400;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 .info  .btn{
     display: inline-block;
@@ -309,7 +309,7 @@
     font-size: 1.7rem;
     text-decoration: none;
     transition: all 0.5s ease;
-    
+
 }
 .info  .btn:hover{
     background: rgb(240, 240, 214);
@@ -329,11 +329,13 @@
 .containerInfo .group{
     display: flex;
     gap: 10px;
-    
-    
+    align-items: center;
+
+
 }
 .containerInfo .group img{
-    width: 65px;
+    width: 60px;
+    height: 60px;
 }
 .containerInfo .group .info{
     display: flex;
@@ -423,7 +425,7 @@
 /* @media (max-width:450px) {
     .heading{
         font-size: 3rem;
- 
+
     }
 } */
 
@@ -462,7 +464,7 @@
     flex-direction: column;
     align-items: center;
     padding: 10px 14px;
-    
+
 }
 .card-content{
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
@@ -497,7 +499,7 @@
 }
 .card-content .button:hover{
     background-color: #316a6f;
-    
+
 }
 .overlay{
     position: absolute;
@@ -577,7 +579,7 @@
     border-top: 1px solid;
     border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
   }
-  
+
   @media(max-width:767px) {
     html {
       font-size: 14px;
@@ -611,7 +613,7 @@
     /* transition: all 0.5s ; */
 }
 .reviews .reviews-slider .box img{
-    height: 7rem;   
+    height: 7rem;
     width: 7rem;
     border-radius: 50%;
     object-fit: cover;
@@ -656,7 +658,7 @@ textarea{
     opacity: 0.5;
 }
 #input{
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
@@ -767,7 +769,7 @@ textarea{
 @media (max-width:767px) {
     .col_footer {
         width: 50%;
-        margin-bottom: 30px;  
+        margin-bottom: 30px;
   }
 }
 @media (max-width:574px) {
@@ -797,7 +799,7 @@ textarea{
     color:  rgb(185, 12, 12);
 }
 /* End  Footer */
-  
+
   /* Scroll UP */
 
  .up {

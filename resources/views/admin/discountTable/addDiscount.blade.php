@@ -36,7 +36,7 @@ Add discount
     <div class="col-12">
         <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Controls</h3>
+              <h3 class="card-title">Add discount for category</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -46,19 +46,19 @@ Add discount
               <div class="card-body">
                 <div class="form-group">
                     <label for="exampleSelectRounded0">Category name<code></code></label>
-                    <select class="custom-select rounded-0" id="exampleSelectRounded0" name="select"   class="@error('select') is-invalid @enderror">
+                    <select class="custom-select rounded-0" id="exampleSelectRounded0" name="select_category"   class="@error('select_category') is-invalid @enderror">
                         @foreach($category as $value)
                             <option value="{{$value->id}}">{{$value->name}}</option>
                         @endforeach
                     </select>
-                    @error('select')
+                    @error('select_category')
                     <div class="alert alert-danger">{{ $message }}</div>
                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Discount mount %</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter  discount" name="discount"  class="@error('discount') is-invalid @enderror">
-                    @error('discount')
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter  discount" name="discount_category"  class="@error('discount_category') is-invalid @enderror">
+                    @error('discount_category')
                     <div class="alert alert-danger">{{ $message }}</div>
                    @enderror
                 </div>
@@ -78,7 +78,7 @@ Add discount
     <div class="col-12">
         <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Controls</h3>
+              <h3 class="card-title">Add discount for course</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -88,12 +88,12 @@ Add discount
               <div class="card-body">
                 <div class="form-group">
                     <label for="exampleSelectRounded0">Courses name<code></code></label>
-                    <select class="custom-select rounded-0" id="exampleSelectRounded0" name="select"   class="@error('select') is-invalid @enderror">
+                    <select class="custom-select rounded-0" id="exampleSelectRounded0" name="select_course"   class="@error('select_course') is-invalid @enderror">
                         @foreach($courses as $value)
                             <option value="{{$value->id}}">{{$value->name}}</option>
                         @endforeach
                     </select>
-                    @error('select')
+                    @error('select_course')
                     <div class="alert alert-danger">{{ $message }}</div>
                    @enderror
                 </div>
@@ -102,8 +102,8 @@ Add discount
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Discount mount %</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter  discount" name="discount"  class="@error('discount') is-invalid @enderror">
-                    @error('discount')
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter  discount" name="discount_course"  class="@error('discount_course') is-invalid @enderror">
+                    @error('discount_course')
                     <div class="alert alert-danger">{{ $message }}</div>
                    @enderror
                 </div>

@@ -42,6 +42,7 @@ class AddCourseController extends Controller
             'course_name' => ['required'],
             'short_description' => ['required'],
             'long_description' => ['required'],
+            'duration_of_the_course' => ['required'],
             'course_price' => ['required'],
             'select' => ['required'],
             'video_course' => ['required'],
@@ -62,6 +63,7 @@ class AddCourseController extends Controller
             'price' => $request->course_price,
             'category_id' => $request->select,
             'video_course' => $request->video_course,
+            'duration_of_the_course' => $request->duration_of_the_course,
             'user_id' =>  $user,
             'image' => $photoName,
             'status' => "pending",
@@ -117,6 +119,7 @@ class AddCourseController extends Controller
             'course_name' => ['required'],
             'short_description' => ['required'],
             'long_description' => ['required'],
+            'duration_of_the_course' => ['required'],
             'course_price' => ['required'],
             'select' => ['required'],
             'video_course' => ['required'],
@@ -134,6 +137,7 @@ class AddCourseController extends Controller
         $data->price = $request->course_price;
         $data->category_id = $request->select;
         $data->video_course = $request->video_course;
+        $data->duration_of_the_course = $request->duration_of_the_course;
         $data->image = $photoName;
         $data->status = "pending";
         $data->save();

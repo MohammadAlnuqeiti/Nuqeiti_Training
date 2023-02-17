@@ -54,6 +54,14 @@ Add course
     header{
         box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
         }
+    l, ol, ul {
+        margin-top: 0;
+        margin-bottom: 0 !important;
+    }
+
+    .nav-menu{
+        gap:0 !important;
+    }
 
 </style>
 
@@ -105,6 +113,13 @@ Add course
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">duration of the course</label>
+                    <input type="number" class="form-control" id="exampleInputEmail1" name="duration_of_the_course" placeholder="Enter duration" value="{{ old('duration_of_the_course')}}" class="@error('duration_of_the_course') is-invalid @enderror">
+                    @error('duration_of_the_course')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
+                  </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Price</label>
                   <input type="number" class="form-control" id="exampleInputEmail1" name="course_price" placeholder="Enter price" value="{{ old('course_price')}}" class="@error('course_price') is-invalid @enderror">

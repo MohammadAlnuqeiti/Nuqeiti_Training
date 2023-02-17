@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class CategoryDiscountController extends Controller
@@ -35,7 +37,34 @@ class CategoryDiscountController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->select);
+        // dd($request->select);
+        $request->validate([
+            'select_category' => ['required'],
+            'discount_category' => ['required'],
+        ]);
+
+        $category_id = $request->select_category;
+        $courses = Course::where('category_id', $category_id)->get();
+
+        // update discount category
+
+        $data = Category::findOrfail($category_id);
+        $data->discount = $request->discount_category;
+
+        $data->save();
+
+
+        // update price of courses
+        foreach($courses as $course){
+            $data = Course::findOrfail($course->id);
+            $data->discount = $request->discount_category;
+            $data->new_price = $course->price* (1 - $request->discount_category / 100);
+
+            $data->save();
+        }
+
+        return redirect()->route('admin.discount');
+
     }
 
     /**
@@ -57,7 +86,8 @@ class CategoryDiscountController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Category::findOrfail($id);
+        return view('admin.discountTable.editCategoryDiscount',['data'=>$data]);
     }
 
     /**
@@ -69,7 +99,31 @@ class CategoryDiscountController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'discount_category' => ['required'],
+        ]);
+
+        $category_id = $id;
+        $courses = Course::where('category_id', $category_id)->get();
+
+
+        // update discount category
+
+        $data = Category::findOrfail($category_id);
+        $data->discount = $request->discount_category;
+        $data->save();
+
+
+        // update price of courses
+        foreach($courses as $course){
+            $data = Course::findOrfail($course->id);
+            $data->discount = $request->discount_category;
+            $data->new_price = $course->price* (1 - $request->discount_category / 100);
+
+            $data->save();
+        }
+
+        return redirect()->route('admin.discount');
     }
 
     /**
@@ -80,6 +134,28 @@ class CategoryDiscountController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+
+        $category_id = $id;
+        $courses = Course::where('category_id', $category_id)->get();
+
+        // update discount category
+
+        $data = Category::findOrfail($category_id);
+        $data->discount = 0;
+
+        $data->save();
+
+
+        // update price of courses
+        foreach($courses as $course){
+            $data = Course::findOrfail($course->id);
+            $data->discount = 0;
+            $data->new_price = 0;
+
+            $data->save();
+        }
+
+        return redirect()->back();
     }
 }

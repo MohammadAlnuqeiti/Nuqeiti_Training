@@ -41,7 +41,7 @@ Discount
             <div class="input-group input-group-sm" style="width: 130px;">
 
 
-         <a href="{{route('admin.discount.create')}}"><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add new course</button></a>
+         <a href="{{route('admin.discount.create')}}"><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add new discount</button></a>
 
 
 
@@ -72,11 +72,11 @@ Discount
 
 
 
-                    <td style="text-align: center"><a href=""><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
+                    <td style="text-align: center"><a href="{{Route('admin.category_discount.edit',$value->id)}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
                     </a></td>
                     <td style="text-align: center">
 
-                        <form action="" method="post">
+                        <form action="{{Route('admin.category_discount.destroy',$value->id)}}" method="post">
                             @method('delete')
                             @csrf
                             <input name="_method" type="hidden" value="DELETE">
@@ -106,7 +106,7 @@ Discount
         </div>
         <!-- /.card-body -->
         <!-- /.card-header -->
-        <div class="card-body table-responsive p-0" >
+        <div class="card-body table-responsive p-0 mt-5" >
           <table class="table table-head-fixed text-nowrap">
             <thead>
               <tr>
@@ -128,16 +128,17 @@ Discount
                     <td style="text-align: center">{{$value->name}}</td>
                     <td style="text-align: center">{{$value->price}}</td>
                     <td style="text-align: center">{{$value->discount}}</td>
-                    <td style="text-align: center">{{$value->price * (1 - $value->discount / 100) }}</td>
+                    <td style="text-align: center">{{$value->new_price}}</td>
+                    {{-- <td style="text-align: center">{{$value->price * (1 - $value->discount / 100) }}</td> --}}
 
 
 
-                    <td style="text-align: center"><a href=""><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
+                    <td style="text-align: center"><a href="{{Route('admin.course_discount.edit',$value->id)}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
                     </a></td>
                     <td style="text-align: center">
 
-                        <form action="" method="post">
-                            @method('delete')
+                        <form action="{{Route('admin.course_discount.destroy',$value->id)}}" method="post">
+                            @method('DELETE')
                             @csrf
                             <input name="_method" type="hidden" value="DELETE">
                             <button type="submit" class="btn btn-sm btn-block  bg-gradient-danger  show_confirm"  data-toggle="tooltip" title='Delete'>Delete</button>

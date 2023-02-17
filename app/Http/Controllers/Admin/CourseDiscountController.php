@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class CourseDiscountController extends Controller
@@ -35,7 +37,23 @@ class CourseDiscountController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->select);
+
+
+        $request->validate([
+            'select_course' => ['required'],
+            'discount_course' => ['required'],
+        ]);
+        $course_id = $request->select_course;
+        // $courses = Course::where('id', $course_id)->get();
+
+        $data = Course::findOrfail($course_id);
+        $data->discount = $request->discount_course;
+        $data->new_price = $data->price * (1 - $request->discount_course / 100);
+
+        $data->save();
+        return redirect()->route('admin.discount');
+
+
 
     }
 
@@ -58,7 +76,8 @@ class CourseDiscountController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Course::findOrfail($id);
+        return view('admin.discountTable.editCoursesDiscount',['data'=>$data]);
     }
 
     /**
@@ -70,7 +89,22 @@ class CourseDiscountController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'discount_course' => ['required'],
+        ]);
+
+        $course_id = $id;
+        // $courses = Course::where('id', $course_id)->get();
+
+        $data = Course::findOrfail($course_id);
+        $data->discount = $request->discount_course;
+        $data->new_price = $data->price * (1 - $request->discount_course / 100);
+
+        $data->save();
+        return redirect()->route('admin.discount');
+
+
     }
 
     /**
@@ -81,6 +115,11 @@ class CourseDiscountController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Course::findOrfail($id);
+        $data->discount = 0;
+        $data->new_price = 0;
+
+        $data->save();
+        return redirect()->route('admin.discount');
     }
 }

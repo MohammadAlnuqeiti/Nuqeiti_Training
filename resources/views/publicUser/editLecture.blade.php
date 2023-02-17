@@ -54,6 +54,13 @@ Add course
     header{
         box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
         }
+    l, ol, ul {
+        margin-top: 0;
+        margin-bottom: 0 !important;
+    }
+    .nav-menu{
+        gap:0 !important;
+    }
 
 </style>
 
@@ -63,7 +70,7 @@ Add course
 
 @section('content')
 <!-- /.row -->
-<div class="row container m-auto mt-5">
+<div class="row container" style="margin: 50px auto 50px auto">
     <div class="col-12 m-auto">
         <div class="card card-primary">
             <div class="card-header" style="background-color:#07393E">

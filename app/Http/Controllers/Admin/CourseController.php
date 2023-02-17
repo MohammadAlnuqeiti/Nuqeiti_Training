@@ -29,6 +29,8 @@ class CourseController extends Controller
                 'price' => $course->price,
                 'image' => $course->image,
                 'video' => $course->video_course,
+                'discount' => $course->discount,
+                'new_price' => $course->new_price,
                 'duration_of_the_course' => $course->duration_of_the_course,
                 'category' => isset($course->category) ? $course->category->name : "",
                 'user' => isset($course->user) ? $course->user->name : "",
@@ -114,6 +116,8 @@ class CourseController extends Controller
                 'long_description' => $course->long_description,
                 'price' => $course->price,
                 'image' => $course->image,
+                'discount' => $course->discount,
+                'new_price' => $course->new_price,
                 'video' => $course->video_course,
                 'duration_of_the_course' => $course->duration_of_the_course,
                 'status' => $course->status,
@@ -186,6 +190,7 @@ class CourseController extends Controller
         $data->short_description = $request->short_description;
         $data->long_description = $request->long_description;
         $data->price = $request->course_price;
+        $data->duration_of_the_course = $request->duration_of_the_course;
         $data->category_id = $request->select;
         $data->video_course = $request->video_course;
         $data->image = $photoName;

@@ -7,7 +7,14 @@ Register user
 
 @section('css')
 <link rel="stylesheet" href="{{asset('userSide/css/registerUser.css')}}">
+<style>
+    .error{
+  color: red;
+  font-size: 15px;
+  margin-top: -1px;
+}
 
+</style>
 @endsection
 
 
@@ -26,7 +33,7 @@ Register user
                     <span class="details">Name</span>
                     <input type="text" placeholder="Enter your first name" name="name" value="{{ old('name')}}" class="@error('name') is-invalid @enderror">
                     @error('name')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="error">{{ $message }}</div>
                    @enderror
                 </div>
                 {{-- <div class="card-box">
@@ -37,21 +44,21 @@ Register user
                     <span class="details">Email</span>
                     <input type="email" placeholder="Enter your email name" name="email" value="{{ old('email')}}" class="@error('email') is-invalid @enderror">
                     @error('email')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="error">{{ $message }}</div>
                    @enderror
                 </div>
                 <div class="card-box">
                     <span class="details">Phone Number</span>
                     <input type="phone" placeholder="Enter your phone number" name="phone" value="{{ old('phone')}}" class="@error('phone') is-invalid @enderror">
                     @error('phone')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="error">{{ $message }}</div>
                    @enderror
                 </div>
                 <div class="card-box">
                     <span class="details">Password</span>
                     <input type="password" placeholder="Enter your  password" name="password" value="{{ old('password')}}" class="@error('password') is-invalid @enderror">
                     @error('password')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="error">{{ $message }}</div>
                    @enderror
                 </div>
                 {{-- <div class="card-box">

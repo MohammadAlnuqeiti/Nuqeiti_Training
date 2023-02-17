@@ -192,11 +192,19 @@ Course
                     <h3>mohammad alnuqeiti</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam saepe numquam sequi accusamus tenetur?</p>
                     <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                    <i class="fa-solid fa-calendar"></i> 20 - 12 - 1998
+
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="userSide/img/user icon.png" alt="">
+                    <h3>mohammad alnuqeiti</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam saepe numquam sequi accusamus tenetur?</p>
+                    <div >
+                        <ul>
+                            <li><i class="fa fa-clock-o"></i> 20 - 12 - 1998 </li>
+
+                        </ul>
                     </div>
                 </div>
                 <div class="swiper-slide box">
@@ -204,23 +212,7 @@ Course
                     <h3>mohammad alnuqeiti</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam saepe numquam sequi accusamus tenetur?</p>
                     <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-                <div class="swiper-slide box">
-                    <img src="userSide/img/user icon.png" alt="">
-                    <h3>mohammad alnuqeiti</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam saepe numquam sequi accusamus tenetur?</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+
                     </div>
                 </div>
                 <div  class="swiper-slide box">
@@ -228,11 +220,7 @@ Course
                     <h3>mohammad alnuqeiti</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam saepe numquam sequi accusamus tenetur?</p>
                     <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+
                     </div>
                 </div>
                 <div class="swiper-slide box">

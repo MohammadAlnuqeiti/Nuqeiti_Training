@@ -7,7 +7,14 @@ Contact
 
 @section('css')
 <link rel="stylesheet" href="{{asset('userSide/css/contact.css')}}">
+<style>
+    .error{
+  color: red;
+  font-size: 15px;
+  margin-top: -10px;
+}
 
+</style>
 @endsection
 
 
@@ -64,27 +71,27 @@ Contact
             <div>
                 <input type="text"  class="form_control" name="first_name" id="fname" placeholder="First Name" value="{{ old('first_name')}}" class="@error('first_name') is-invalid @enderror">
                 @error('first_name')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class="error">{{ $message }}</div>
             @enderror
                 <input type="text"  class="form_control" name="last_name" id="lname" placeholder="Last Name" value="{{ old('last_name')}}" class="@error('last_name') is-invalid @enderror">
                 @error('last_name')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class="error">{{ $message }}</div>
             @enderror
             </div>
 
             <div>
                 <input type="email" class="form_control" name="email" id="email" placeholder="Email" value="{{ old('email')}}" class="@error('email') is-invalid @enderror">
                 @error('email')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class="error">{{ $message }}</div>
             @enderror
                 <input type="text" class="form_control" name="phone" id="phone" placeholder="Phone" value="{{ old('phone')}}" class="@error('phone') is-invalid @enderror">
                 @error('phone')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class="error">{{ $message }}</div>
             @enderror
             </div>
             <textarea class="form_control" name="message" id="message" cols="30" rows="5" placeholder="Message" value="{{ old('message')}}" class="@error('message') is-invalid @enderror"></textarea>
             @error('message')
-            <div class="alert alert-danger">{{ $message }}</div>
+            <div class="error">{{ $message }}</div>
         @enderror
             <input type="submit" class="send_btn" value="send message">
             </form>

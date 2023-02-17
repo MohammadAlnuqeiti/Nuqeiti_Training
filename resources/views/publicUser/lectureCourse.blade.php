@@ -54,6 +54,13 @@ Add course
     header{
         box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
         }
+    l, ol, ul {
+        margin-top: 0;
+        margin-bottom: 0 !important;
+    }
+    .nav-menu{
+        gap:0 !important;
+    }
 
 </style>
 

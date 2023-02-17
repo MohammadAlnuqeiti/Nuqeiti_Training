@@ -7,7 +7,14 @@ login
 
 @section('css')
 <link rel="stylesheet" href="{{asset('userSide/css/login.css')}}">
+<style>
+    .error{
+  color: red;
+  font-size: 15px;
+  margin-top: -10px;
+}
 
+</style>
 @endsection
 
 
@@ -23,12 +30,12 @@ login
         <label for="">E-mail</label>
         <input type="email" name="email" class="@error('email') is-invalid @enderror" value="{{ old('email')}}">
         @error('email')
-        <div class="alert alert-danger">{{ $message }}</div>
+        <div class="error">{{ $message }}</div>
        @enderror
         <label for="">Password</label>
         <input type="password" name="password" class="@error('password') is-invalid @enderror" value="{{ old('password')}}">
         @error('password')
-        <div class="alert alert-danger">{{ $message }}</div>
+        <div class="error">{{ $message }}</div>
        @enderror
         <p>Forgot Password?</p>
         <button type="submit">Login</button>

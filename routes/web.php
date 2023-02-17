@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\CategoryDiscountController;
 use App\Http\Controllers\Admin\CourseDiscountController;
+use App\Http\Controllers\Admin\DeleteDiscountController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -76,6 +77,7 @@ Route::resource('/course_discount',CourseDiscountController::class);
 Route::get('/messages',[ContactController::class,'show'])->name('message');
 Route::get('/discount',[DiscountController::class,'index'])->name('discount');
 Route::get('/discount/create',[DiscountController::class,'addDiscount'])->name('discount.create');
+Route::get('/discount/delete',[DeleteDiscountController::class,'deleteDiscountCourse'])->name('course.delete');
 
 });
 

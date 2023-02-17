@@ -398,7 +398,7 @@ header {
     border : 1.5px solid #c7c7c7;
     border-radius: 5px;
     padding: 0.7rem;
-    margin: 1.3rem 0;
+    margin: 1.3rem 0 0.9rem 0;
     font-size: 1rem;
     outline: 0;
 }
@@ -428,7 +428,7 @@ header {
 }
 .contact_form div {
     margin: 0 auto;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .map {

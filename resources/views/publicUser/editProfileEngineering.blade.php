@@ -145,7 +145,7 @@ Update profile
                 </div>
             </div> --}}
             <div class="button">
-                <input type="submit" value="Register">
+                <input type="submit" value="Update">
             </div>
 
         </form>

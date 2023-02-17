@@ -34,7 +34,6 @@ trip details
         <?php $img=$data[0]['image']?>
         <?php $video=$data[0]['video']?>
 
-
         <!-- Default box -->
         <div class="card card-solid">
           <div class="card-body">
@@ -67,9 +66,18 @@ trip details
 
 
                 <div class="bg-gray py-2 px-3 mt-4">
+
+
+                    @if($data[0]['discount']>0)
+                  <h2 class="mb-0">
+                    Price : {{$data[0]['new_price']}} JD
+                  </h2>
+                  @else
                   <h2 class="mb-0">
                     Price : {{$data[0]['price']}} JD
                   </h2>
+                  @endif
+
 
                 </div>
 
