@@ -23,7 +23,11 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->decimal('price');
+            $table->decimal('new_price')->default(0);
+            $table->integer('duration_of_the_course');
             $table->string('status')->default('pending');
+            $table->string('feature')->default(0);
+            $table->integer('discount')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

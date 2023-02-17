@@ -70,8 +70,15 @@ edit courses
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Video source</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="video_course" value="{{$data->video_course}}" placeholder="Enter video source"  class="@error('guest_number') is-invalid @enderror">
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="video_course" value="{{$data->video_course}}" placeholder="Enter video source"  class="@error('video_course') is-invalid @enderror">
                   @error('video_course')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                 @enderror
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">duration of the course</label>
+                  <input type="number" class="form-control" id="exampleInputEmail1" name="duration_of_the_course" value="{{$data->duration_of_the_course}}" placeholder="Enter price"  class="@error('duration_of_the_course') is-invalid @enderror">
+                  @error('duration_of_the_course')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>

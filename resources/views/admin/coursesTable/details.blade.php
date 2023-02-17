@@ -63,6 +63,7 @@ trip details
 
                 <h4 class="mt-3"> Instrector : {{$data[0]['user']}}</h4>
                 <h4 class="mt-3"> Status : {{$data[0]['status']}}</h4>
+                <h4 class="mt-3"> Duration : {{$data[0]['duration_of_the_course']}}</h4>
 
 
                 <div class="bg-gray py-2 px-3 mt-4">

@@ -2,11 +2,11 @@
 
 
 @section('title')
-Courses
+Discount
 @endsection
 
 @section('section_title')
-Courses Table
+Discount Table
 @endsection
 
 @section('css')
@@ -15,7 +15,7 @@ Courses Table
 <link rel="stylesheet" href=".{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
 @endsection
 
-@section('Courses')
+@section('discount')
 active
 @endsection
 
@@ -24,7 +24,7 @@ admin
 @endsection
 
 @section('title_page2')
-Trips
+Discount
 @endsection
 
 
@@ -35,59 +35,48 @@ Trips
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Trips controls</h3>
+          <h3 class="card-title">Discount controls</h3>
 
           <div class="card-tools">
             <div class="input-group input-group-sm" style="width: 130px;">
 
-                {{-- <button type="button" class="btn btn-block bg-gradient-primary btn-sm"><a href="{{route('admin.categories.create')}}">Add new category</a></button> --}}
 
-         <a href="{{route('admin.courses.create')}}"><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add new course</button></a>
+         <a href="{{route('admin.discount.create')}}"><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Add new course</button></a>
 
-              {{-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-default">
-                  <i class="fas fa-search"></i>
-                </button> --}}
+
               </div>
             </div>
           </div>
         </div>
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0" >
+
           <table class="table table-head-fixed text-nowrap">
             <thead>
               <tr>
                 <th style="text-align: center">#</th>
-                <th style="text-align: center">Name</th>
-                <th style="text-align: center">more details</th>
-                {{-- <th>Short description</th>
-                <th>Long description</th>
-                <th>image one</th>
-                <th>image two</th>
-                <th>Category</th>
-                <th>Guest number</th>
-                <th>price</th> --}}
+                <th style="text-align: center">Category name</th>
+                <th style="text-align: center">Discount percentage % </th>
                 <th style="text-align: center">edit</th>
                 <th style="text-align: center">delete</th>
               </tr>
             </thead>
             <tbody>
-               @foreach ($data as $value)
-
+               @foreach ($category as $value)
+@if($value->discount > 0)
                 <tr>
-                    <td style="text-align: center">{{$value['id']}}</td>
-                    <td style="text-align: center">{{$value['name']}}</td>
-                    <td style="text-align: center"><a href="{{Route('admin.courses.show',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-info btn-sm">more details</button>
+                    <td style="text-align: center">{{$value->id}}</td>
+                    <td style="text-align: center">{{$value->name}}</td>
+                    <td style="text-align: center">{{$value->discount}} %</td>
 
 
 
-                    <td style="text-align: center"><a href="{{Route('admin.courses.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
+                    <td style="text-align: center"><a href=""><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
                     </a></td>
                     <td style="text-align: center">
 
-                        <form action="{{Route('admin.courses.destroy',$value['id'])}}" method="post">
+                        <form action="" method="post">
                             @method('delete')
                             @csrf
                             <input name="_method" type="hidden" value="DELETE">
@@ -96,6 +85,68 @@ Trips
                     </td>
 
                 </tr>
+@endif
+                @endforeach
+
+              {{-- </tr> <tr>
+                <td>183</td>
+                <td>John Doe</td>
+                <td>11-7-2014</td>
+                <td><span class="tag tag-success">Approved</span></td>
+                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                <td>
+                    <button href="" type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
+                  </td>
+                <td>
+                    <button href="" type="button" class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
+                </td> --}}
+
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" >
+          <table class="table table-head-fixed text-nowrap">
+            <thead>
+              <tr>
+                <th style="text-align: center">#</th>
+                <th style="text-align: center">Corses name</th>
+                <th style="text-align: center">Old price price</th>
+                <th style="text-align: center">Discount percentage % </th>
+                <th style="text-align: center">New price</th>
+                <th style="text-align: center">edit</th>
+                <th style="text-align: center">delete</th>
+              </tr>
+            </thead>
+            <tbody>
+               @foreach ($courses as $value)
+               @if($value->discount > 0)
+
+                <tr>
+                    <td style="text-align: center">{{$value->id}}</td>
+                    <td style="text-align: center">{{$value->name}}</td>
+                    <td style="text-align: center">{{$value->price}}</td>
+                    <td style="text-align: center">{{$value->discount}}</td>
+                    <td style="text-align: center">{{$value->price * (1 - $value->discount / 100) }}</td>
+
+
+
+                    <td style="text-align: center"><a href=""><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
+                    </a></td>
+                    <td style="text-align: center">
+
+                        <form action="" method="post">
+                            @method('delete')
+                            @csrf
+                            <input name="_method" type="hidden" value="DELETE">
+                            <button type="submit" class="btn btn-sm btn-block  bg-gradient-danger  show_confirm"  data-toggle="tooltip" title='Delete'>Delete</button>
+                    </form>
+                    </td>
+
+                </tr>
+
+                @endif
 
                 @endforeach
 

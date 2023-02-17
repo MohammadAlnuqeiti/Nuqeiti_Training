@@ -96,6 +96,15 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{route('admin.discount')}}" class="nav-link  @yield('discount')">
+              <i class="nav-icon fa-solid fa-plane-departure"></i>
+              <p><i class=""></i>
+                Discount
+                {{-- <span class="right badge badge-danger">user</span> --}}
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{route('admin.lectures.index')}}" class="nav-link  @yield('lectures')">
               <i class="nav-icon fas fa-th"></i>
               <p>

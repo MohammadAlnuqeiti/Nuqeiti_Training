@@ -19,6 +19,9 @@ use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\EngineeringController;
 use App\Http\Controllers\Admin\LectureController;
 use App\Http\Controllers\Admin\CommentController;
+use App\Http\Controllers\Admin\DiscountController;
+use App\Http\Controllers\Admin\CategoryDiscountController;
+use App\Http\Controllers\Admin\CourseDiscountController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,8 +70,12 @@ Route::resource('/courses',CourseController::class);
 Route::resource('/lectures',LectureController::class);
 // Route::resource('/reservation',ReservationController::class);
 Route::resource('/comment',CommentController::class);
+Route::resource('/category_discount',CategoryDiscountController::class);
+Route::resource('/course_discount',CourseDiscountController::class);
 // Route::get('/comment/destroy/{id}',[CommentController::class,'destroy'])->name('comment.destroy');
 Route::get('/messages',[ContactController::class,'show'])->name('message');
+Route::get('/discount',[DiscountController::class,'index'])->name('discount');
+Route::get('/discount/create',[DiscountController::class,'addDiscount'])->name('discount.create');
 
 });
 
