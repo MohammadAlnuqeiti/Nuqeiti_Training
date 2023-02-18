@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('cv_pdf')->nullable();
             $table->string('image')->default('icon.png');
             $table->string('role')->default('user');
-            $table->string('status')->default('accept');
+            $table->string('status')->default('accepted');
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

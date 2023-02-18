@@ -31,7 +31,7 @@ class RegisterUserController extends Controller
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
             'role' => 'user',
-            'status' => 'accept',
+            'status' => 'accepted',
 
 
         ]);
