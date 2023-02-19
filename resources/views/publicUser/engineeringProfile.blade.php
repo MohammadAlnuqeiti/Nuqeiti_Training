@@ -27,6 +27,24 @@ Profile
     .col_container .left_col .icon a:hover{
         opacity: 0.6;
     }
+    .message{
+        border: 1px solid;
+        margin: 10px 0px;
+        padding: 15px 10px 15px 15px;
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        width: 100%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #D8000C;
+        background-color: #FFBABA;
+        text-align: center;
+    }
+    .message p {
+        font-size: 18px
+    }
     </style>
 @endsection
 
@@ -76,31 +94,35 @@ Profile
                     <li><i class="fap fa-twitter"></i></li>
                     <li><i class="fap fa-twitter"></i></li>
                     <li><i class="fap fa-twitter"></i></li> -->
+                    @if(Auth()->user()->status=='accepted')
+
                     <button><a href="{{route('user.profile_engineer.edit',$data[0]->id)}}">Edit account</a></button>
+                    @endif
                 </ul>
             </div>
         </div>
         <div class="right_col">
+            @if(Auth()->user()->status=='accepted')
             <nav>
                 <h3>my courses</h3>
                 <ul class="ul">
                     <!-- <li><a href="#">photo</a></li>
-                    <li><a href="#">photo</a></li>
-                    <li><a href="#">photo</a></li>
-                    <li><a href="#">photo</a></li> -->
-                </ul>
+                        <li><a href="#">photo</a></li>
+                        <li><a href="#">photo</a></li>
+                        <li><a href="#">photo</a></li> -->
+                    </ul>
                 <div>
 
                     <button><a href="{{route('user.add_course.index')}}">Upload Course</a></button>
                 </div>
             </nav>
 
-    <div class="photos">
-        <!-- <div class="container"> -->
-            @foreach($Data as $value)
-            {{-- {{dd($value['name'])}} --}}
-        <div class="card">
-            <?php
+            <div class="photos">
+                <!-- <div class="container"> -->
+                    @foreach($Data as $value)
+                    {{-- {{dd($value['name'])}} --}}
+                    <div class="card">
+                        <?php
             $img=$value['image']
             ?>
             <img src="{{URL::asset("storage/image/$img")}}" alt="{{$img}}"/>
@@ -164,10 +186,19 @@ Profile
                 </div>
             </div>
         </div> --}}
+        @else
+        <div style="display: flex;align-items: center;justify-content: center;height:100%;">
+
+            <div class="message">
+
+                <p>Dear engineer, you cannot modify your account or enjoy the privillages of an engineer on the site unless you obtain the approval of the administration.</p>
+            </div>
+        </div>
+        @endif
     </div>
 
-        </div>
-    <!-- </div> -->
+</div>
+<!-- </div> -->
 </div>
 
 @endsection

@@ -5,10 +5,15 @@
     </a>
 
     <div style="width: 90%;">
-        <form id="form" class="form">
+        <form action="{{ route('user.search') }}" method="post" id="form" class="form">
+            @csrf
+            <input class="search" type="search" name="search" placeholder="Search...">
+            <button type="submit" class="button">Search</button>
+        </form>
+        {{-- <form id="form" class="form">
             <input type="search" placeholder="Search..." required class="search">
             <input type="button" value="Search" class="button">
-        </form>
+        </form> --}}
     </div>
 
     <div class="navbar">

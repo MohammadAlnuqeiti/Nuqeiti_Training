@@ -12,6 +12,7 @@ use App\Http\Controllers\User\ProfileEngineerController;
 use App\Http\Controllers\User\SingleCourseController;
 use App\Http\Controllers\User\AddCourseController;
 use App\Http\Controllers\User\LectureUserController;
+use App\Http\Controllers\User\SearchController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -118,6 +119,8 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::resource('/course_details',SingleCourseController::class);
     Route::resource('/add_course',AddCourseController::class);
     Route::resource('/lectures',LectureUserController::class);
+    Route::post('/search' , [SearchController::class , 'search'])->name('search');
+
 
     // Route::get('/package_details/{id}',[PackageDetailsController::class,'index'])->name('package.details');
 

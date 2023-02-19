@@ -16,9 +16,9 @@ class LectureUserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('CheckEngineering');
+        $this->middleware(['CheckEngineering','CheckEngineerStatus']);
     }
- 
+
     public function index()
     {
         //

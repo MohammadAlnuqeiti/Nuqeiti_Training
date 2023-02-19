@@ -67,6 +67,7 @@ class Kernel extends HttpKernel
         'CheckEngineering'=> \App\Http\Middleware\CheckEngineering::class,
         'CheckUser'=> \App\Http\Middleware\CheckUser::class,
         'CheckLogin'=> \App\Http\Middleware\CheckLogin::class,
+        'CheckEngineerStatus'=> \App\Http\Middleware\CheckEngineerStatus::class,
 
     ];
 }

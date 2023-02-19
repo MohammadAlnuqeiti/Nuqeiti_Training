@@ -61,6 +61,12 @@ Edit course
 .nav-menu{
         gap:0 !important;
     }
+    .lecture{
+        background-color: red ;
+        color:white ;
+        font-weight:bold
+
+    }
 
 </style>
 
@@ -79,7 +85,7 @@ Edit course
                 <div class="input-group input-group-sm" style="width: 200px;" >
 
 
-                  <a href="{{route('user.lectures.show',$data->id)}}"><button type="button" class="btn btn-block bg-gradient-primary btn-sm">Lectures course</button></a>
+                  <a href="{{route('user.lectures.show',$data->id)}}"><button type="button" class="btn btn-block  btn-sm lecture">Lectures course</button></a>
 
 
                   </div>
