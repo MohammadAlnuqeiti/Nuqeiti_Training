@@ -18,11 +18,37 @@ home page
     <a href="{{route('user.shop')}}" class="btnone" onclick="">Discover courses</a>
 </section>
 <!-- </div> -->
-
+{{-- {{dd($data)}} --}}
 <section id="newcourses">
 <h2><span style="color: #FF0000;">New</span> on Alpha</h2>
 <div class="container">
+    @foreach ($data as $value)
     <div class="card">
+        <?php
+        $img=$value['image']
+        ?>
+
+        <img src="{{URL::asset("storage/image/$img")}}" alt="{{$value['name']}}"/>
+        <div class="card-body">
+            <div class="row">
+                <div class="card-title">
+                    <h3>{{$value['name']}}</h3><br>
+                    <p>{{$value['user']}}</p>
+                    @if($value['discount'] == 0)
+                    <h3>{{$value['price']}} JD</h3><br>
+                    @else
+                    <h3><s>{{$value['price']}} JD</s><span style="color:red;font-size:1.125em;">  {{$value['new_price']}} JD</span></h3><br>
+                    @endif
+                </div>
+            </div>
+
+            <div class="btn">
+                <a href="{{route('user.course_details.show',$value['id'])}}">More details</a>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    {{-- <div class="card">
         <img src="userSide/img/1215970_a5f8_11.jpg" alt=""/>
         <div class="card-body">
             <div class="row">
@@ -34,7 +60,7 @@ home page
             </div>
 
             <div class="btn">
-                <a href="{{route('user.course_details.show',1)}}">Buy Now</a>
+                <a href="">Buy Now</a>
             </div>
         </div>
     </div>
@@ -69,23 +95,7 @@ home page
                 <a href="">Buy Now</a>
             </div>
         </div>
-    </div>
-    <div class="card">
-        <img src="userSide/img/1215970_a5f8_11.jpg" alt=""/>
-        <div class="card-body">
-            <div class="row">
-                <div class="card-title">
-                    <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                    <p>Nike Sneaker</p>
-                    <h3>$120</h3><br>
-                </div>
-            </div>
-
-            <div class="btn">
-                <a href="">Buy Now</a>
-            </div>
-        </div>
-    </div>
+    </div> --}}
 </div>
 </section>
 <section class="category">

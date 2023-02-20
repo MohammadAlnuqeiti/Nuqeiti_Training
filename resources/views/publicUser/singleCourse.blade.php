@@ -20,7 +20,7 @@ Course
         $img=$data[0]['image']
         ?>
 
-        <img src="{{URL::asset("storage/image/$img")}}" alt=""/>
+        <img src="{{URL::asset("storage/image/$img")}}" alt="{{$data[0]['name']}}"/>
     </div>
     <div class="info">
         <h1>{{$data[0]['name']}}</h1>
@@ -28,8 +28,8 @@ Course
         <p>{{$data[0]['short_description']}}</p>
         <p><i class="fa-solid fa-calendar"></i> {{$data[0]['created_at']}}</p>
         <div>
-            <a href="./cart.html" class="btn">Add to cart</a>
-            <a href="./checkout.html" class="btn">Buy now</a>
+            <a href="{{route('user.cart.store', $data[0]['id'])}}" class="btn">Add to cart</a>
+            {{-- <a href="./checkout.html" class="btn">Buy now</a> --}}
 
         </div>
 
@@ -63,7 +63,7 @@ Course
             <img src="/userSide/img/time.png" alt="">
             <div class="info">
                 <h3>The number of hours</h3>
-                <p>30 hours</p>
+                <p>{{$data[0]['duration_of_the_course']}} hours</p>
             </div>
         </div>
         <div class="group">
@@ -77,7 +77,11 @@ Course
             <img src="/userSide/img/price.png" alt="">
             <div class="info">
                 <h3>Price</h3>
+                @if($data[0]['discount'] == 0)
                 <p>{{$data[0]['price']}} JD</p>
+                @else
+                <p><s>{{$data[0]['price']}} JD</s><span style="color:red;">  {{$data[0]['new_price']}} JD</span></p>
+                @endif
             </div>
         </div>
         <div class="group">
@@ -188,13 +192,14 @@ Course
         <div class="swiper reviews-slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide box">
+
                     <img src="userSide/img/user icon.png" alt="">
                     <h3>mohammad alnuqeiti</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam saepe numquam sequi accusamus tenetur?</p>
                     <div class="stars">
                     <i class="fa-solid fa-calendar"></i> 20 - 12 - 1998
 
-                    </div>
+                </div>
                 </div>
                 <div class="swiper-slide box">
                     <img src="userSide/img/user icon.png" alt="">

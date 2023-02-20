@@ -47,18 +47,18 @@ class AddCourseController extends Controller
             'course_name' => ['required'],
             'short_description' => ['required'],
             'long_description' => ['required'],
-            'duration_of_the_course' => ['required'],
-            'course_price' => ['required'],
+            'duration_of_the_course' => ['required','numeric'],
+            'course_price' => ['required','numeric'],
             'select' => ['required'],
-            'video_course' => ['required'],
+            'video_course' => ['required','mimetypes:video/avi,video/mpeg,video/mp4','max:102400'],
             'course_image' => ['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
         ]);
         $user=$request->user_id;
 
         $photoName = $request->file('course_image')->getClientOriginalName();
         $request->file('course_image')->storeAs('public/image', $photoName);
-        // $photoName2 = $request->file('trip_image2')->getClientOriginalName();
-        // $request->file('trip_image2')->storeAs('public/image', $photoName2);
+        $videooName = $request->file('video_course')->getClientOriginalName();
+        $request->file('video_course')->storeAs('public/video', $videooName);
 
         Course::create([
 
@@ -67,7 +67,7 @@ class AddCourseController extends Controller
             'long_description' => $request->long_description,
             'price' => $request->course_price,
             'category_id' => $request->select,
-            'video_course' => $request->video_course,
+            'video_course' => $videooName,
             'duration_of_the_course' => $request->duration_of_the_course,
             'user_id' =>  $user,
             'image' => $photoName,
@@ -124,16 +124,17 @@ class AddCourseController extends Controller
             'course_name' => ['required'],
             'short_description' => ['required'],
             'long_description' => ['required'],
-            'duration_of_the_course' => ['required'],
-            'course_price' => ['required'],
+            'duration_of_the_course' => ['required','numeric'],
+            'course_price' => ['required','numeric'],
             'select' => ['required'],
-            'video_course' => ['required'],
+            'video_course' => ['required','mimetypes:video/avi,video/mpeg,video/mp4','max:102400'],
             'course_image' => ['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
         ]);
 
         $photoName = $request->file('course_image')->getClientOriginalName();
         $request->file('course_image')->storeAs('public/image', $photoName);
-
+        $videooName = $request->file('video_course')->getClientOriginalName();
+        $request->file('video_course')->storeAs('public/video', $videooName);
 
         $data = Course::findOrfail($id);
         $data->name = $request->course_name;  //id لانه هون انا موجودة عندي البيانات من خلال ال  new model ما عملت هون
@@ -141,7 +142,7 @@ class AddCourseController extends Controller
         $data->long_description = $request->long_description;
         $data->price = $request->course_price;
         $data->category_id = $request->select;
-        $data->video_course = $request->video_course;
+        $data->video_course = $videooName;
         $data->duration_of_the_course = $request->duration_of_the_course;
         $data->image = $photoName;
         $data->status = "pending";

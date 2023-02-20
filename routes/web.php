@@ -13,6 +13,8 @@ use App\Http\Controllers\User\SingleCourseController;
 use App\Http\Controllers\User\AddCourseController;
 use App\Http\Controllers\User\LectureUserController;
 use App\Http\Controllers\User\SearchController;
+use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -119,6 +121,10 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::resource('/course_details',SingleCourseController::class);
     Route::resource('/add_course',AddCourseController::class);
     Route::resource('/lectures',LectureUserController::class);
+    Route::resource('/checkout',CheckoutController::class);
+    Route::get('/cart',[CartController::class,'index'])->name('cart');
+    Route::get('/add-to-cart/{id}',[CartController::class,'addToCart'])->name('cart.store');
+    Route::get('/destroy-from-cart/{id}',[CartController::class,'destroy'])->name('cart.destroy');
     Route::post('/search' , [SearchController::class , 'search'])->name('search');
 
 

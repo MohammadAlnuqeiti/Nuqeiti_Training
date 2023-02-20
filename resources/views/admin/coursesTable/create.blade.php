@@ -66,23 +66,23 @@ Course
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <label for="exampleInputEmail1">Video</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" name="video_course" placeholder="Enter video source" value="{{ old('video_course')}}" class="@error('video_course') is-invalid @enderror">
                   @error('video_course')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
-                </div>
+                </div> --}}
                 <div class="form-group">
-                  <label for="exampleInputEmail1">duration of the course</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" name="duration_of_the_course" placeholder="Enter duration" value="{{ old('duration_of_the_course')}}" class="@error('duration_of_the_course') is-invalid @enderror">
+                  <label for="exampleInputEmail1">duration of the course (hour)</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="duration_of_the_course" placeholder="Enter duration" value="{{ old('duration_of_the_course')}}" class="@error('duration_of_the_course') is-invalid @enderror">
                   @error('duration_of_the_course')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Price</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" name="course_price" placeholder="Enter price" value="{{ old('course_price')}}" class="@error('course_price') is-invalid @enderror">
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="course_price" placeholder="Enter price" value="{{ old('course_price')}}" class="@error('course_price') is-invalid @enderror">
                   @error('course_price')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
@@ -114,22 +114,21 @@ Course
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                {{-- <div class="form-group">
-                  <label for="exampleInputFile">Image two</label>
+                <div class="form-group">
+                  <label for="video_course">Upload Video</label>
                   <div class="input-group">
                     <div class="custom-file">
-                        <input id="trip_image" type="file" name="trip_image" placeholder="Upload Image" value="{{ old('trip_image')}}" class="@error('trip_image') is-invalid @enderror"><br><br>
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="trip_image2" value="{{ old('trip_image2')}}" class="@error('trip_image2') is-invalid @enderror">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <input id="video_course" type="file" name="video_course" placeholder="Upload video" value="{{ old('video_course')}}" class="@error('video_course') is-invalid @enderror"><br><br>
+                        <label class="custom-file-label" for="video_course">Choose file</label>
                     </div>
                     <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
                     </div>
                     </div>
-                        @error('trip_image2')
+                        @error('video_course')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                </div> --}}
+                </div>
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>

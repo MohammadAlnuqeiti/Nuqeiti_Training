@@ -123,22 +123,15 @@ Edit course
                  @enderror
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Video source</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="video_course" value="{{$data->video_course}}" placeholder="Enter video source"  class="@error('guest_number') is-invalid @enderror">
-                  @error('video_course')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">duration of the course</label>
-                    <input type="number" class="form-control" id="exampleInputEmail1" name="duration_of_the_course" value="{{$data->duration_of_the_course}}" placeholder="Enter price"  class="@error('duration_of_the_course') is-invalid @enderror">
+                    <label for="exampleInputEmail1">duration of the course (hour)</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="duration_of_the_course" value="{{$data->duration_of_the_course}}" placeholder="Enter price"  class="@error('duration_of_the_course') is-invalid @enderror">
                     @error('duration_of_the_course')
                     <div class="alert alert-danger">{{ $message }}</div>
                    @enderror
                   </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Price</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" name="course_price" value="{{$data->price}}" placeholder="Enter price"  class="@error('course_price') is-invalid @enderror">
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="course_price" value="{{$data->price}}" placeholder="Enter price"  class="@error('course_price') is-invalid @enderror">
                   @error('course_price')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
@@ -168,6 +161,21 @@ Edit course
                   @error('course_image')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
+              </div>
+              <div class="form-group">
+                <label for="video_course">Upload Video</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                      <input id="video_course" type="file" name="video_course" placeholder="Upload video" value="{{ old('video_course')}}" class="@error('video_course') is-invalid @enderror"><br><br>
+                      <label class="custom-file-label" for="video_course">Choose file</label>
+                  </div>
+                  <div class="input-group-append">
+                      <span class="input-group-text">Upload</span>
+                  </div>
+                  </div>
+                      @error('video_course')
+                      <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
               </div>
                 {{-- <div class="form-group">
                     <label for="exampleInputFile">Image two</label>

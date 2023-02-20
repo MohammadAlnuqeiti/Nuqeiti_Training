@@ -46,11 +46,25 @@ trip details
                 </div>
                 <div class="col-12 product-image-thumbs">
                   <div class="product-image-thumb active"><img src="{{URL::asset("storage/image/$img")}}" alt="Product Image"></div>
-                  {{-- <div class="product-image-thumb" ><video src="{{URL::asset("storage/image/$video")}}" controls></video></div> --}}
+                  {{-- <div class="product-image-thumb" >
+
+                        <video width="400" controls>
+                            <source src="{{URL::asset("storage/video/$video")}}" type="video/mp4">
+                        </video>
+
+                  </div> --}}
                   {{-- <div class="product-image-thumb" ><img src="../../dist/img/prod-3.jpg" alt="Product Image"></div>
                   <div class="product-image-thumb" ><img src="../../dist/img/prod-4.jpg" alt="Product Image"></div>
                   <div class="product-image-thumb" ><img src="../../dist/img/prod-5.jpg" alt="Product Image"></div> --}}
                 </div>
+
+                <div >
+                    <video width="400" controls>
+                        <source src="{{URL::asset("storage/video/$video")}}" type="video/mp4">
+                      </video>
+                </div>
+
+
               </div>
               <div class="col-12 col-sm-6">
                 <h3 class="my-3">{{$data[0]['name']}}</h3>
@@ -80,14 +94,6 @@ trip details
 
 
                 </div>
-
-                {{-- <div >
-                    <video width="400" controls>
-                        <source src="{{URL::asset("storage/image/$video")}}" type="video/mp4">
-                      </video>
-                    <video src="{{URL::asset("storage/image/$video")}}" controls></video>
-                </div> --}}
-
 
 
 {{--

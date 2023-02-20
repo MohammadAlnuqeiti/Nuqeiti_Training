@@ -12,7 +12,7 @@ class Cart extends Model
 
     protected $fillable = ['user_id','course_id','quantity'];
 
-    public function cousre()
+    public function course()
     {
         return $this->belongsTo(Course::class);
     }

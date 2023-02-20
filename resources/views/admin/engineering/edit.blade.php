@@ -44,6 +44,8 @@ Reservation
               @method('PUT')
 
               @csrf
+              <div class="card-body">
+
                 <div class="form-group">
                     <label for="exampleSelectRounded0">Status</label>
                     <select class="custom-select rounded-0" id="exampleSelectRounded0" name="status">
@@ -52,6 +54,7 @@ Reservation
                       <option value="rejected">Rejected</option>
                     </select>
                   </div>
+                </div>
 
               <!-- /.card-body -->
 

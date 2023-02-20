@@ -39,7 +39,7 @@ class LoginUserController extends Controller
             $request->authenticate();
             $request->session()->regenerate();
 
-                $email=$request->email;
+            $email=$request->email;
             $password=$request->password;
 
             if(Auth::attempt(['email'=>$email,'password'=>$password]))

@@ -67,9 +67,13 @@
             </li>
             @endif
             {{-- <a href="{{route('user.profile.index')}}" class="btn btn-primary rounded-pill py-2 px-4">Account</a> --}}
-            </ul>
-        </div>
-         <div class="hamburger">
+            <li>
+
+                <a href="{{route('user.cart')}}" class="nav-link">Cart</a>
+            </li>
+        </ul>
+    </div>
+    <div class="hamburger">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
