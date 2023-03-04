@@ -40,6 +40,7 @@ class ProfileEngineerController extends Controller
                 'long_description' => $course->long_description,
                 'price' => $course->price,
                 'image' => $course->image,
+                'status' => $course->status,
                 'video' => $course->video_course,
                 'category' => isset($course->category) ? $course->category->name : "",
                 'user' => isset($course->user) ? $course->user->name : "",

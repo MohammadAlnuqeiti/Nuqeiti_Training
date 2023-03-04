@@ -4,6 +4,9 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\OrderDetails;
+use App\Models\Course;
+
 use Illuminate\Support\Facades\Hash;
 
 use App\Models\User;
@@ -20,13 +23,50 @@ class ProfileUserController extends Controller
     {
         $this->middleware('CheckUser');
     }
-    
+
     public function index()
     {
         $id = Auth()->user()->id;
         // dd($id);
         $data = User::where('id', $id)->get();
-        return view('publicUser.userProfile',['data'=>$data]);
+        $orders = OrderDetails::where('user_id',$id)->get();
+        $course_id = [];
+        foreach ($orders as $order) {
+            $course_id[$order->course_id] =$order->course_id;
+
+        }
+
+        $courses = Course::all();
+        $data_courses = [];
+        foreach ($courses as $course) {
+
+            if(array_key_exists($course->id, $course_id)){
+
+                $data_courses[] = [
+
+                    'id' => $course->id,
+                    'name' => $course->name,
+                    'short_description' => $course->short_description,
+                    'long_description' => $course->long_description,
+                    'price' => $course->price,
+                    'image' => $course->image,
+                    'video' => $course->video_course,
+                    'discount' => $course->discount,
+                    'new_price' => $course->new_price,
+                    'status' => $course->status,
+                    'duration_of_the_course' => $course->duration_of_the_course,
+                    'category' => isset($course->category) ? $course->category->name : "",
+                    'user' => isset($course->user) ? $course->user->name : "",
+                ];
+            }
+
+
+
+
+
+        }
+        // dd( $data_courses);
+        return view('publicUser.userProfile',['data'=>$data,'courses'=> $data_courses]);
     }
 
     /**

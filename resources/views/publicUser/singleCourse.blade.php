@@ -50,7 +50,7 @@ Course
         <p>{{$data[0]['short_description']}}</p>
         <p><i class="fa-solid fa-calendar"></i> {{$data[0]['created_at']}}</p>
         <div>
-
+{{-- {{dd($has_Sold)}} --}}
             @if(session()->has('cart') || $has_Sold == true || Auth()->user())
 
                 @if ($has_Sold == true)
@@ -58,18 +58,13 @@ Course
                 <a href="#topic" class="btn">Show topics</a>
 
 
-                @elseif ( Auth()->user())
+                @elseif ( Auth()->user() && Auth()->user()->role == "engineer")
 
-                    @if (Auth()->user()->role == "engineer")
+                {{-- @if (Auth()->user()->role == "engineer") --}}
 
-                        <p>no</p>
+                <p>no</p>
 
-                    @else
 
-                        <a href="{{route('user.cart.store', $data[0]['id'])}}" class="btn">Add to cart</a>
-
-                    @endif
-                    
                 @elseif (session()->has('cart'))
 
                 @if(array_key_exists($data[0]['id'], session('cart')))
@@ -82,6 +77,10 @@ Course
 
 
                 @endif
+
+                @elseif ( Auth()->user() && Auth()->user()->role == "user")
+
+                        <a href="{{route('user.cart.store', $data[0]['id'])}}" class="btn">Add to cart</a>
 
 
 

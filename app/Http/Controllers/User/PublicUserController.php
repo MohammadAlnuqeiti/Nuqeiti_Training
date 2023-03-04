@@ -62,6 +62,21 @@ class PublicUserController extends Controller
                         }
 
                     }
+                    $data = Cart::where('user_id',$user_id)->get();
+                    session()->forget('cart');
+                    $cart = session()->get('cart');
+                    if(count($data)!=0){
+                        foreach ($data as $value ) {
+
+                            $cart[$value->course_id] =[];
+
+
+                        }
+
+                        // dd($cart);
+                        session()->put('cart', $cart);
+                    }
+
                 }
 
             }

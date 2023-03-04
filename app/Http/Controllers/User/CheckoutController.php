@@ -17,7 +17,7 @@ class CheckoutController extends Controller
     {
         $this->middleware('CheckLogin');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -119,6 +119,7 @@ class CheckoutController extends Controller
             OrderDetails::create([
 
                 'order_id' => $last_order_id,
+                'user_id' => $user_id,
                 'course_id' => $value['course_id'],
                 'quantity' => 1,
                 'price' =>$price,
