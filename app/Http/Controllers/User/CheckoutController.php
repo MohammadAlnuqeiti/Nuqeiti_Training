@@ -17,6 +17,7 @@ class CheckoutController extends Controller
     {
         $this->middleware('CheckLogin');
     }
+    
     /**
      * Display a listing of the resource.
      *

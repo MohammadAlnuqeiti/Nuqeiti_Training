@@ -29,14 +29,10 @@ Courses
     list-style: none;
     border-radius: 0.25rem;
 }
-.pagenation_center dl, ol, ul {
-    margin-top: 0;
-    margin-bottom: 1rem;
 
-}
 .pagenation_center dl, ol, ul {
     margin-top: 0;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     display: flex;
 }
 .pagenation_center li {

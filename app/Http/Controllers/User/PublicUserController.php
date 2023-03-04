@@ -4,6 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\OrderDetails;
+
 use App\Models\User;
 use App\Models\Cart;
 
@@ -18,25 +20,50 @@ class PublicUserController extends Controller
         if(session()->has('cart')){
             if(Auth()->user()){
 
-                $user_id = Auth()->user()->id;
-                $cart = session()->get('cart');
-                foreach ($cart as $key => $value ) {
-                    $data = Cart::where('course_id',$key)->where('user_id',$user_id)->get();
-                    // dd($data);
-                    if(count($data)==0){
-                        // dd(session()->has('cart'));
+                if(Auth()->user()->role=="engineer"){
 
-                    Cart::create([
+                    session()->forget('cart');
 
-                        'course_id' => $key,
-                        'user_id' => $user_id,
-                        'quantity' => 1,
+                }else{
+
+                    $user_id = Auth()->user()->id;
+                    $cart = session()->get('cart');
+                    //
+                    $orders =OrderDetails::where('user_id',$user_id)->get();
+                    $course_id = [];
+                    foreach ($orders as $order) {
+                        $course_id[$order->course_id] =$order->course_id;
+
+                    }
+                    //
+                    foreach ($cart as $key => $value ) {
+
+                        // dd(array_key_exists($key, $course_id));
+                        if(array_key_exists($key, $course_id)){
+
+                            unset($cart[$key]);
+                            session()->put('cart', $cart);
+                        }else{
+
+                            $data = Cart::where('course_id',$key)->where('user_id',$user_id)->get();
+                            // dd($data);
+                            if(count($data)==0){
+                                // dd(session()->has('cart'));
+
+                            Cart::create([
+
+                                'course_id' => $key,
+                                'user_id' => $user_id,
+                                'quantity' => 1,
 
 
-                    ]);
+                            ]);
+                        }
+                        }
+
+                    }
                 }
 
-                }
             }
 
 

@@ -87,13 +87,16 @@ class SingleCourseController extends Controller
 
             ];
         }
+        // $has_Sold
 
         $orders =OrderDetails::where('course_id',$id)->get();
         $users_id = [];
         foreach ($orders as $order) {
-            $users_id[$order->order->user_id] =$order->order->user_id;
+            $users_id[$order->user_id] =$order->user_id;
 
         }
+        // dd($users_id);
+        // dd(array_key_exists(Auth()->user()->id, $users_id));
 // dd( array_key_exists(4, $users_id) );
         // $users_id=[];
         // foreach($orders_course as $value){
@@ -102,11 +105,19 @@ class SingleCourseController extends Controller
 
         // }
 
-        // dd($users_id);
         if($courses->isEmpty()) {
             return redirect()->back();
         }
-        return view('publicUser.singleCourse',['data'=>$data , 'lectures'=>$lectures,'users_id'=>$users_id]);
+        // للتشييك اذا كان المستخدم اشترى الكورس او لا
+        $has_Sold= false;
+        if(Auth()->user()){
+
+        if(array_key_exists(Auth()->user()->id, $users_id)){
+            $has_Sold = true;
+
+        }
+    }
+        return view('publicUser.singleCourse',['data'=>$data , 'lectures'=>$lectures,'has_Sold'=>$has_Sold]);
     }
 
     /**

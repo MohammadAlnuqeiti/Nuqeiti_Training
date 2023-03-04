@@ -51,15 +51,60 @@ Course
         <p><i class="fa-solid fa-calendar"></i> {{$data[0]['created_at']}}</p>
         <div>
 
-            @if(session()->has('cart')&&   array_key_exists($data[0]['id'], session('cart')) )
+            @if(session()->has('cart') || $has_Sold == true || Auth()->user())
+
+                @if ($has_Sold == true)
+
+                <a href="#topic" class="btn">Show topics</a>
+
+
+                @elseif ( Auth()->user())
+
+                    @if (Auth()->user()->role == "engineer")
+
+                        <p>no</p>
+
+                    @else
+
+                        <a href="{{route('user.cart.store', $data[0]['id'])}}" class="btn">Add to cart</a>
+
+                    @endif
+                    
+                @elseif (session()->has('cart'))
+
+                @if(array_key_exists($data[0]['id'], session('cart')))
+
+                <a href="{{route('user.cart')}}" class="btn">Go to cart</a>
+
+                @else
+
+                <a href="{{route('user.cart.store', $data[0]['id'])}}" class="btn">Add to cart</a>
+
+
+                @endif
+
+
+
+
+
+
+
+                @endif
+
+            @else
+
+            <a href="{{route('user.cart.store', $data[0]['id'])}}" class="btn">Add to cart</a>
+
+            @endif
+            {{-- @if(session()->has('cart')&&   array_key_exists($data[0]['id'], session('cart')) )
 
             <a href="{{route('user.cart')}}" class="btn">Go to cart</a>
             @else
             <a href="{{route('user.cart.store', $data[0]['id'])}}" class="btn">Add to cart</a>
             @endif
-            @if(Auth()->user() && array_key_exists(Auth()->user()->id, $users_id))
+            @if($has_Sold == true)
             <a href="#topic" class="btn">Show topics</a>
-            @endif
+            @endif --}}
             {{-- <a href="./checkout.html" class="btn">Buy now</a> --}}
 
         </div>
@@ -170,8 +215,8 @@ Course
             </div>
           </div>
         </div> --}}
-    @if(Auth()->user())
-        @if(array_key_exists(Auth()->user()->id, $users_id))
+    {{-- @if(Auth()->user()) --}}
+        @if($has_Sold == true)
             @foreach ($lectures as $lecture)
                 <div class="accordion-item">
                         <div class="accordion-item-header">
@@ -204,7 +249,7 @@ Course
             </div>
         </div>
         @endif
-    @endif
+    {{-- @endif --}}
 
         {{-- <div class="accordion-item">
           <div class="accordion-item-header">
