@@ -122,9 +122,7 @@ Profile
                     @foreach($Data as $value)
                     {{-- {{dd($value['name'])}} --}}
                     <div class="card">
-                        <?php
-            $img=$value['image']
-            ?>
+                        <?php$img=$value['image']?>
             <img src="{{URL::asset("storage/image/$img")}}" alt="{{$img}}"/>
             <div class="card-body">
                 <div class="row">

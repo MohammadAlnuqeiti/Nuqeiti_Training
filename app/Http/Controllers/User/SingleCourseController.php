@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\OrderDetails;
 use App\Models\Course;
 use App\Models\lecture;
 use App\Models\Comment;
@@ -60,6 +61,7 @@ class SingleCourseController extends Controller
      */
     public function show($id)
     {
+
         $lectures =lecture::where('course_id', $id)->get();
         $courses = Course::where('id', $id)->get();
         $data = [];
@@ -85,10 +87,26 @@ class SingleCourseController extends Controller
 
             ];
         }
+
+        $orders =OrderDetails::where('course_id',$id)->get();
+        $users_id = [];
+        foreach ($orders as $order) {
+            $users_id[$order->order->user_id] =$order->order->user_id;
+
+        }
+// dd( array_key_exists(4, $users_id) );
+        // $users_id=[];
+        // foreach($orders_course as $value){
+
+        //     $users_id[]=$value;
+
+        // }
+
+        // dd($users_id);
         if($courses->isEmpty()) {
             return redirect()->back();
         }
-        return view('publicUser.singleCourse',['data'=>$data , 'lectures'=>$lectures]);
+        return view('publicUser.singleCourse',['data'=>$data , 'lectures'=>$lectures,'users_id'=>$users_id]);
     }
 
     /**

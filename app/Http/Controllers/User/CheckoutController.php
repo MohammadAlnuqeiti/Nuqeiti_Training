@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderDetails;
+use App\Models\Checkout;
 
 use Illuminate\Http\Request;
 
@@ -23,7 +24,14 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        return view('publicUser.checkout');
+        // dd(session('total_price'));
+        if(session('total_price')!=0){
+
+            return view('publicUser.checkout');
+        }else{
+            return redirect()->back();
+
+        }
     }
 
     /**
@@ -47,13 +55,13 @@ class CheckoutController extends Controller
 
         $request->validate([
             'user_name' => ['required'],
-            'email' => ['required'],
+            'email' => ['required','string', 'email', 'max:255'],
             'address' => ['required'],
             'city' => ['required'],
             'card_name' => ['required'],
             'card_number' => ['required'],
-            'exp_date' => ['required'],
-            'cvv' => ['required'],
+            'exp_date' => ['required','numeric'],
+            'cvv' => ['required','numeric'],
 
         ]);
         $user_id = Auth()->user()->id;
@@ -86,6 +94,20 @@ class CheckoutController extends Controller
             ];
         }
 
+        Checkout::create([
+
+            'user_name' => $request->user_name,
+            'email' => $request->email,
+            'address' => $request->address,
+            'city' => $request->city,
+            'card_name' => $request->card_name,
+            'card_number' => $request->card_number,
+            'exp_date' => $request->exp_date,
+            'cvv' => $request->cvv,
+            'order_id' => $last_order_id,
+
+
+        ]);
         foreach($data as $value){
 
             if($value['course_discount']>0){

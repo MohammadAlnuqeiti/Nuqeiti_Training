@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\CategoryDiscountController;
 use App\Http\Controllers\Admin\CourseDiscountController;
 use App\Http\Controllers\Admin\DeleteDiscountController;
+use App\Http\Controllers\Admin\EditStatusController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,10 +68,14 @@ Route::get('/',[AdminController::class,'index'])->name('index');
 Route::get('/admin',[AdminController::class,'admin'])->name('show.admin');
 Route::get('/admin/create',[AdminController::class,'create'])->name('create.admin');
 Route::get('/admin/store',[AdminController::class,'store'])->name('store.admin');
+Route::get('/profile',[AdminController::class,'profile'])->name('profile.admin');
+Route::get('/profile/edit/{id}',[AdminController::class,'editProfile'])->name('profile.edit');
+Route::get('/profile/{id}',[AdminController::class,'updateProfile'])->name('profile.update');
 Route::resource('/users',UserController::class);
 Route::resource('/engineering',EngineeringController::class);
 Route::resource('/categories',CategoryController::class);
 Route::resource('/courses',CourseController::class);
+Route::resource('/editStatus',EditStatusController::class);
 Route::resource('/lectures',LectureController::class);
 // Route::resource('/reservation',ReservationController::class);
 Route::resource('/comment',CommentController::class);
@@ -92,6 +97,7 @@ Route::prefix('user')->name('user.')->group(function () {
 
 
     Route::get('/',[PublicUserController::class,'index'])->name('index');
+    Route::get('/engineering_details/{id}',[PublicUserController::class,'engineeringDetails'])->name('engineeringDetails');
     Route::get('/categories/{id}',[PublicUserController::class,'show'])->name('categories.show');
 
     Route::get('/about',function(){
@@ -106,6 +112,7 @@ Route::prefix('user')->name('user.')->group(function () {
      Route::get('/contact/create',[ContactController::class,'store'])->name('message.create');
 
      Route::get('/courses',[ShopController::class,'index'])->name('shop');
+     Route::get('/courses/{id}',[ShopController::class,'showCategory'])->name('shop.category');
 
     // Route::post('/search' , [Search::class , 'search'])->name('search');
     Route::get('/login',[LoginUserController::class,'index'])->name('login');

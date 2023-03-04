@@ -61,7 +61,9 @@ Trips
               <tr>
                 <th style="text-align: center">#</th>
                 <th style="text-align: center">Name</th>
-                <th style="text-align: center">more details</th>
+                <th style="text-align: center">Status</th>
+                <th style="text-align: center">Edit status</th>
+                <th style="text-align: center">More details</th>
                 {{-- <th>Short description</th>
                 <th>Long description</th>
                 <th>image one</th>
@@ -79,6 +81,16 @@ Trips
                 <tr>
                     <td style="text-align: center">{{$value['id']}}</td>
                     <td style="text-align: center">{{$value['name']}}</td>
+                    @if ($value['status']	=="accepted")
+                    <td style="text-align: center"><span class="badge bg-success">Accepted</span></td>
+                    @elseif ($value['status']	=="rejected")
+                    <td style="text-align: center"><span class="badge bg-danger">Rejected</span></td>
+                    @else
+                    <td style="text-align: center"><span class="badge bg-warning">Pending</span></td>
+                    @endif
+
+                    <td style="text-align: center"><a href="{{Route('admin.editStatus.edit',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit status</button>
+                    </a></td>
                     <td style="text-align: center"><a href="{{Route('admin.courses.show',$value['id'])}}"><button type="button" class="btn btn-block bg-gradient-info btn-sm">more details</button>
 
 

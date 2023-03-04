@@ -23,7 +23,12 @@ Cart
             {{-- <th>New Price</th> --}}
         </tr>
         <?php $total_price=0 ?>
+@if(count($data)==0)
+<tr>
+    <td colspan="3" style="text-align: center; font-size:20px">Cart is empty...</td>
+</tr>
 
+@else
 @foreach ($data as $value)
 
 <tr>
@@ -64,6 +69,7 @@ Cart
 </tr>
 
 @endforeach
+@endif
         {{-- <tr>
             <td>
                 <div class="cart-info">

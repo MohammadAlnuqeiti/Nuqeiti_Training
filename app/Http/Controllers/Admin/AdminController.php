@@ -52,4 +52,45 @@ class AdminController extends Controller
         return redirect()->route('admin.show.admin');
 
     }
+    public function profile()
+    {
+
+
+        $id = Auth()->user()->id;
+
+        $data=User::where('id',$id)->first();
+        return view('admin.admin.profile',['data'=>$data]);
+
+    }
+    public function editProfile($id)
+    {
+
+        $data=User::where('id',$id)->first();
+        return view('admin.admin.editProfile',['data'=>$data]);
+
+    }
+    public function updateProfile(Request $request, $id)
+    {
+
+        $request->validate([
+            'name' => ['required'],
+            'email' => ['required'],
+            'password' => ['required', Rules\Password::defaults()],
+            'phone' => ['required'],
+            'image' =>['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
+
+        ]);
+        $photoName = $request->file('image')->getClientOriginalName();
+        $request->file('image')->storeAs('public/image', $photoName);
+        $user=User::findorFail($id);
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=Hash::make($request->password);
+        $user->phone=$request->phone;
+        $user->image=$photoName;
+
+        $user->save();
+        return redirect()->route('admin.profile.admin');
+
+    }
 }

@@ -17,10 +17,14 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-            <img src="{{asset('assets/img/icon.png')}}" class="img-circle elevation-2" alt="User Image">
+            <?php
+
+            $img = Auth()->user()->image;
+            ?>
+            <img src="{{URL::asset("storage/image/$img")}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">
+            <a href="{{route('admin.profile.admin')}}" class="d-block">
                 {{ Auth::user()->name }}
         </a>
         </div>
@@ -51,6 +55,14 @@
                         </p>
                     </a>
 
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('admin.profile.admin')}}" class="nav-link  @yield('profile')">
+                    <i class="nav-icon fa-solid fa-address-card"></i>
+                    <p>
+                      Profile
+                    </p>
+                  </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('admin.show.admin')}}" class="nav-link  @yield('admin')">

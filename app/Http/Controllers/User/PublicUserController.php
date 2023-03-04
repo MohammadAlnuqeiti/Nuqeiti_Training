@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\User;
 use App\Models\Cart;
 
 
@@ -44,6 +45,7 @@ class PublicUserController extends Controller
 
                 $user_id = Auth()->user()->id;
                 $data = Cart::where('user_id',$user_id)->get();
+
                 $cart = session()->get('cart');
                 if(count($data)!=0){
                     foreach ($data as $value ) {
@@ -53,6 +55,7 @@ class PublicUserController extends Controller
 
                     }
 
+                    // dd($cart);
                     session()->put('cart', $cart);                }
 
 
@@ -87,4 +90,29 @@ class PublicUserController extends Controller
 
 
 }
+        public function engineeringDetails($id){
+
+            $courses = Course::where('user_id',$id)->get();
+            $data_courses = [];
+            foreach ($courses as $course) {
+                $data_courses[]= [
+                    'id' => $course->id,
+                    'name' => $course->name,
+                    'short_description' => $course->short_description,
+                    'long_description' => $course->long_description,
+                    'price' => $course->price,
+                    'image' => $course->image,
+                    'video' => $course->video_course,
+                    'category' => isset($course->category) ? $course->category->name : "",
+                    'user' => isset($course->user) ? $course->user->name : "",
+
+
+                ];
+            }
+            $data=User::where('id',$id)->get();
+            return view('publicUser.engineeringdetails',['data'=>$data,'data_courses'=>$data_courses]);
+
+
+
+        }
 }

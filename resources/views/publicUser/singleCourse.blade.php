@@ -7,17 +7,38 @@ Course
 
 @section('css')
 <link rel="stylesheet" href="{{asset('userSide/css/singlecoarse.css')}}">
-
+<style>
+    .message{
+        border: 1px solid;
+        margin: 10px 0px;
+        padding: 15px 10px 15px 15px;
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        width: 100%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #D8000C;
+        background-color: #FFBABA;
+        text-align: center;
+    }
+    .message p {
+        font-size: 18px
+    }
+</style>
 @endsection
 
 
 
 @section('content')
 <section class="course-info">
-
+{{-- {{dd(session()->has('cart'))}} --}}
     <div class="image">
         <?php
         $img=$data[0]['image']
+
+
         ?>
 
         <img src="{{URL::asset("storage/image/$img")}}" alt="{{$data[0]['name']}}"/>
@@ -25,10 +46,20 @@ Course
     <div class="info">
         <h1>{{$data[0]['name']}}</h1>
         <p>{{$data[0]['user']}}</p>
+        {{-- {{route('user.cart')}} --}}
         <p>{{$data[0]['short_description']}}</p>
         <p><i class="fa-solid fa-calendar"></i> {{$data[0]['created_at']}}</p>
         <div>
+
+            @if(session()->has('cart')&&   array_key_exists($data[0]['id'], session('cart')) )
+
+            <a href="{{route('user.cart')}}" class="btn">Go to cart</a>
+            @else
             <a href="{{route('user.cart.store', $data[0]['id'])}}" class="btn">Add to cart</a>
+            @endif
+            @if(Auth()->user() && array_key_exists(Auth()->user()->id, $users_id))
+            <a href="#topic" class="btn">Show topics</a>
+            @endif
             {{-- <a href="./checkout.html" class="btn">Buy now</a> --}}
 
         </div>
@@ -110,12 +141,12 @@ Course
 
             <h2 class="name">{{$data[0]['user']}}</h2>
             <p class="description">{{$data[0]['education']}}</p>
-            <a href="{{route('user.profile_engineer.show',$data[0]['user_id'])}}"><button class="button">View more</button></a>
+            <a href="{{route('user.engineeringDetails',$data[0]['user_id'])}}"><button class="button">View more</button></a>
 
         </div>
     </div>
 </section>
-<section>
+<section id="topic">
    {{-- {{ dd($lectures)}} --}}
     <h2 class="heading"><span style="color: #FF0000;">Topic</span> courses</h2>
     <div class="accordion">
@@ -139,30 +170,42 @@ Course
             </div>
           </div>
         </div> --}}
+    @if(Auth()->user())
+        @if(array_key_exists(Auth()->user()->id, $users_id))
+            @foreach ($lectures as $lecture)
+                <div class="accordion-item">
+                        <div class="accordion-item-header">
+                            {{$lecture->name}}
+                    </div>
+                    <div class="accordion-item-body">
+                        <div class="accordion-item-body-content">
+                            <ul style="padding-left: 1rem;">
+                                <li>{{$lecture->description}}</li>
+                                <li><a href="{{$lecture->video_lecture}}" target="_blank">video link</a></li>
+                                {{-- <li>Responsive Design</li>
+                                <li>Version Control/Git</li>
+                                <li>Testing/Debugging</li>
+                                <li>Browser Developer Tools</li>
+                                <li>Web Performance</li>
+                                <li>SEO (Search Engine Optimization)</li>
+                                <li>Command Line</li>
+                                <li>CMS (Content Management System)</li> --}}
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+            @endforeach
+        @else
+        <div style="display: flex;align-items: center;justify-content: center;height:100%;">
 
-        @foreach ($lectures as $lecture)
-      <div class="accordion-item">
-            <div class="accordion-item-header">
-                {{$lecture->name}}
-        </div>
-          <div class="accordion-item-body">
-              <div class="accordion-item-body-content">
-                  <ul style="padding-left: 1rem;">
-                    <li>{{$lecture->description}}</li>
-                    <li><a href="{{$lecture->video_lecture}}" target="_blank">video link</a></li>
-                    {{-- <li>Responsive Design</li>
-                    <li>Version Control/Git</li>
-                    <li>Testing/Debugging</li>
-                    <li>Browser Developer Tools</li>
-                    <li>Web Performance</li>
-                    <li>SEO (Search Engine Optimization)</li>
-                    <li>Command Line</li>
-                    <li>CMS (Content Management System)</li> --}}
-                </ul>
+            <div class="message">
+
+                <p>In order to be able to view the contents of the course, you must purchase it.</p>
             </div>
-          </div>
         </div>
-        @endforeach
+        @endif
+    @endif
+
         {{-- <div class="accordion-item">
           <div class="accordion-item-header">
             What is HTTP?

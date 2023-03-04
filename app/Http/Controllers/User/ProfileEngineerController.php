@@ -82,8 +82,8 @@ class ProfileEngineerController extends Controller
      */
     public function show($id)
     {
-        $data=User::where('id',$id)->get();
-        return view('publicUser.engineeringdetails',['data'=>$data]);
+        // $data=User::where('id',$id)->get();
+        // return view('publicUser.engineeringdetails',['data'=>$data]);
     }
 
     /**

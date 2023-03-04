@@ -47,10 +47,13 @@ Profile
             <p>{{$data[0]->education}}</p>
             <p>{{$data[0]->email}}</p>
             <div class="icon">
-                <a href="#"><i class="fa-brands fa-facebook"></i> </a>
+                <a href="http://wa.me/+962{{$data[0]->phone}}"><i class="fa-solid fa-square-phone"></i></a>
+                <a href="mailto:{{$data[0]->email}}"><i class="fa-solid fa-envelope"> </i></a>
+                <a href="{{$data[0]->Linkedin_link}}"><i class="fa-brands fa-linkedin"> </i></a>
+                {{-- <a href="#"><i class="fa-brands fa-facebook"></i> </a>
                 <a href="#"><i class="fa-solid fa-square-phone"></i></a>
                 <a href="#"><i class="fa-solid fa-envelope"> </i></a>
-                <a href="{{$data[0]->Linkedin_link}}"><i class="fa-brands fa-linkedin"> </i></a>
+                <a href="{{$data[0]->Linkedin_link}}"><i class="fa-brands fa-linkedin"> </i></a> --}}
             </div>
             <!-- <div class="icon">
                 <ul >
@@ -61,7 +64,7 @@ Profile
 
             </div> -->
             <ul class="about ul">
-                <li style="margin: auto;"><span>4</span>courses</li>
+                <li style="margin: auto;"><span>{{count($data_courses)}}</span>courses</li>
                 <!-- <li><span>4.05</span>followers</li>
                 <li><span>4.05</span>followers</li> -->
             </ul>
@@ -93,22 +96,26 @@ Profile
 
             <div class="photos">
     <!-- <div class="container"> -->
+        @foreach($data_courses as $value)
+        <?php $img=$value['image'] ?>
+
         <div class="card">
-            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
+            <img src="{{URL::asset("storage/image/$img")}}" alt="{{$value['name']}}"/>
             <div class="card-body">
                 <div class="row">
                     <div class="card-title">
-                        <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                        <p>Nike Sneaker</p>
+                        <h3>{{$value['name']}}</h3><br>
+                        <p>{{$value['category']}}</p>
                     </div>
                 </div>
 
                 <div class="btn">
-                    <a href="">Show course</a>
+                    <a href="{{route('user.course_details.show',$value['id'])}}">Show course</a>
                 </div>
             </div>
         </div>
-        <div class="card">
+        @endforeach
+        {{-- <div class="card">
             <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
             <div class="card-body">
                 <div class="row">
@@ -137,8 +144,8 @@ Profile
                     <a href="">Show course</a>
                 </div>
             </div>
-        </div>
-        <div class="card">
+        </div> --}}
+        {{-- <div class="card">
             <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
             <div class="card-body">
                 <div class="row">
@@ -152,7 +159,7 @@ Profile
                     <a href="">Show course</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
         </div>
