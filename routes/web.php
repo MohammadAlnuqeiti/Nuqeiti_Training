@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\CategoryDiscountController;
 use App\Http\Controllers\Admin\CourseDiscountController;
 use App\Http\Controllers\Admin\DeleteDiscountController;
 use App\Http\Controllers\Admin\EditStatusController;
+use App\Http\Controllers\Admin\PdfController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -86,6 +87,8 @@ Route::get('/messages',[ContactController::class,'show'])->name('message');
 Route::get('/discount',[DiscountController::class,'index'])->name('discount');
 Route::get('/discount/create',[DiscountController::class,'addDiscount'])->name('discount.create');
 Route::get('/discount/delete',[DeleteDiscountController::class,'deleteDiscountCourse'])->name('course.delete');
+Route::get('/download/{file}',[PdfController::class,'download'])->name('downloadcv');
+Route::get('/view/{file}',[PdfController::class,'view'])->name('viewcv');
 
 });
 

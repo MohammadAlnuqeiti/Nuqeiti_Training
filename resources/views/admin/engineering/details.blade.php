@@ -50,6 +50,12 @@ engineering details
                                     <li class="list-group-item">
                                     <b>Phone number:</b> <a class="float-right">{{$data->phone}}</a>
                                     </li>
+                                    <li class="list-group-item">
+                                    <b>CV :</b> <a class="float-right" href="{{route('admin.viewcv',$data->cv_pdf)}}">view</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                    <b>CV :</b> <a class="float-right" href="{{route('admin.downloadcv',$data->cv_pdf)}}">Download</a>
+                                    </li>
                                     {{-- <li class="list-group-item">
                                     <b>Following</b> <a class="float-right">543</a>
                                     </li> --}}
