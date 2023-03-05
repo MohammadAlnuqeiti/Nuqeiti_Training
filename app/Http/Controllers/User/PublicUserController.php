@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\OrderDetails;
+use App\Models\Category;
 
 use App\Models\User;
 use App\Models\Cart;
@@ -107,6 +108,8 @@ class PublicUserController extends Controller
 
         //
         $courses = Course::where('feature',1)->get();
+        $engineering = User::where('role','engineer')->where('status','accepted')->get();
+        $category = Category::all();
 
         // dd($courses);
         $data = [];
@@ -128,7 +131,7 @@ class PublicUserController extends Controller
         }
 
 
-        return view('publicUser.index',['data'=>$data]);
+        return view('publicUser.index',['data'=>$data,'engineering'=>$engineering,'category'=>$category]);
 
 
 }

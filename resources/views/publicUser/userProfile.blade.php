@@ -7,7 +7,22 @@ Profile
 
 @section('css')
 <link rel="stylesheet" href="{{asset('userSide/css/userprofile.css')}}">
+<style>
 
+.info-msg,
+.success-msg,
+.warning-msg,
+.error-msg {
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 3px 3px 3px 3px;
+}
+
+.success-msg {
+  color: #270;
+  background-color: #DFF2BF;
+}
+</style>
 @endsection
 
 
@@ -57,7 +72,18 @@ Profile
                 <button><a href="{{route('user.shop')}}">Show all courses</a></button>
             </nav>
 
+            @if(session()->get('success'))
+            <div class="success-msg">
+                <i class="fa fa-check"></i>
+
+                {{ session()->get('success') }}
+            </div>
+        @endif
             <div class="photos">
+                {{-- <div class="success-msg">
+                    <i class="fa fa-check"></i>
+                    This is a success message.
+                  </div> --}}
     <!-- <div class="container"> -->
                 @foreach($courses as $course)
 

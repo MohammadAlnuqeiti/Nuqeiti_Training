@@ -36,7 +36,7 @@ class ContactController extends Controller
             'message' => $request->message,
 
         ]);
-        return redirect()->route('user.contact');
+        return redirect()->route('user.contact')->with('success','Reservation Successful,thank you for booking.');
 
     }
 }

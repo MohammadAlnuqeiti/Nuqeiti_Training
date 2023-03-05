@@ -30,7 +30,7 @@ Courses
     border-radius: 0.25rem;
 }
 
-.pagenation_center dl, ol, ul {
+.pagenation_center nav dl, ol, ul {
     margin-top: 0;
     /* margin-bottom: 1rem; */
     display: flex;

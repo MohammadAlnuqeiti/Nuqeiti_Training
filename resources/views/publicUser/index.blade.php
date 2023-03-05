@@ -12,6 +12,7 @@ home page
 
 
 @section('content')
+
 <section id="landpage">
     <h1> Aspire, learn, advance.</h1>
     <p>"Build your practical skills by joining advanced training programs,<br> and gain certificates that will help you enter the<br> labor market and develop your career."</p>
@@ -101,27 +102,32 @@ home page
 <section class="category">
 <h2 class="title"><span style="color: #FF0000;">Explore </span> top courses</h2>
 
-<div class="category-body">
-<div class="category-card">
-    <a href="./shop.html"><img src="userSide/img/civil engineering.jpg" alt=""></a>
-    <div class="intro">
-        <h2>Civil Engineering</h2>
-        <p>The Complete Basic Electricity & Electronics Course</p>
-    </div>
-</div>
-<div class="category-card">
+<div class="swiper category-slider">
+<div class="category-body swiper-wrapper">
+
+    @foreach($category as $value)
+        <div class="category-card swiper-slide">
+            <a href="{{route('user.shop.category',$value->id)}}"><img src="{{URL::asset("storage/image/$value->image")}}" alt=""></a>
+            <div class="intro">
+                <h2>{{$value->name}}</h2>
+                <p>{{$value->description}}</p>
+            </div>
+        </div>
+    @endforeach
+{{-- <div class="category-card swiper-slide ">
     <img src="userSide/img/Mechanical Engineering.jpg" alt="">
     <div class="intro">
         <h2>Mechanical Engineering</h2>
         <p>The Complete Basic Electricity & Electronics Course</p>
     </div>
 </div>
-<div class="category-card">
+<div class="category-card swiper-slide">
     <img src="userSide/img/electrical engineering..jpg" alt="">
     <div class="intro">
         <h2>Electrical Engineering</h2>
         <p>The Complete Basic Electricity & Electronics Course</p>
     </div>
+</div> --}}
 </div>
 </div>
 </section>
@@ -202,41 +208,51 @@ home page
 <a href="./shop.html" class="btn" onclick="">Browse courses</a>
 </section>
 
-<!-- <div class="reviews" id="reviews">
-<h2 class="heading"><span style="color: #FF0000;">Our</span> distinguished staff</h2>
-<div class="swiper reviews-slider">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide coachcard">
-            <img src="./image/coach.jpg" alt="">
-            <div class="body">
-                <h4>Mohammad Alnuqeiti</h4>
-                <p>Bachelor of Civil Engineering</p>
+<div class="reviews" id="reviews">
+    <h2 class="heading"><span style="color: #FF0000;">Our</span> distinguished staff</h2>
+    <div class="swiper reviews-slider">
+        <div class="swiper-wrapper">
+            @foreach($engineering as $value)
+            <div class="swiper-slide coachcard" id="coachcard">
+                <img src="{{URL::asset("storage/image/$value->image")}}" alt="{{$value->name}}">
+                <div class="body">
+                    <h4>{{$value->name}}</h4>
+                    <p>{{$value->education}}</p>
+                </div>
+
             </div>
+            @endforeach
+            {{-- <div class="swiper-slide coachcard" id="coachcard">
+                <img src="userSide/img/coach.jpg" alt="">
+                <div class="body">
+                    <h4>Mohammad Alnuqeiti</h4>
+                    <p>Bachelor of Civil Engineering</p>
+                </div>
+
+            </div>
+            <div class="swiper-slide coachcard" id="coachcard">
+                <img src="userSide/img/coach.jpg" alt="">
+                <div class="body">
+                    <h4>Mohammad Alnuqeiti</h4>
+                    <p>Bachelor of Civil Engineering</p>
+                </div>
+
+            </div>
+            <div class="swiper-slide coachcard" id="coachcard">
+                <img src="userSide/img/coach.jpg" alt="">
+                <div class="body">
+                    <h4>Mohammad Alnuqeiti</h4>
+                    <p>Bachelor of Civil Engineering</p>
+                </div>
+
+            </div> --}}
+
+
 
         </div>
-        <div class="swiper-slide coachcard">
-            <img src="./image/coach.jpg" alt="">
-            <div class="body">
-                <h4>Mohammad Alnuqeiti</h4>
-                <p>Bachelor of Civil Engineering</p>
-            </div>
-
-        </div>
-        <div class="swiper-slide coachcard">
-            <img src="./image/coach.jpg" alt="">
-            <div class="body">
-                <h4>Mohammad Alnuqeiti</h4>
-                <p>Bachelor of Civil Engineering</p>
-            </div>
-
-        </div>
-
-
-
     </div>
 </div>
-</div> -->
-<section id="coaches">
+{{-- <section id="coaches">
 <h2>Our distinguished staff</h2>
 <div class="container coach-slider">
 
@@ -276,7 +292,7 @@ home page
     </div>
 </div>
 </div>
-</section>
+</section> --}}
 <section id="feature">
 <div class="container">
 

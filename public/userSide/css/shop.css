@@ -499,6 +499,7 @@ select:focus{
 }
 .col_footer ul {
     list-style: none;
+    display: block !important;
 }
 .col_footer ul li:not(:last-child) {
     margin-bottom: 10px;

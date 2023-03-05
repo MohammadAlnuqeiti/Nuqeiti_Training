@@ -14,7 +14,21 @@ Contact
   margin-top: -10px;
 }
 
+.info-msg,
+.success-msg,
+.warning-msg,
+.error-msg {
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 3px 3px 3px 3px;
+}
+
+.success-msg {
+  color: #270;
+  background-color: #DFF2BF;
+}
 </style>
+
 @endsection
 
 
@@ -63,6 +77,13 @@ Contact
         </div>
 
 
+        @if(session()->get('success'))
+        <div class="success-msg">
+            <i class="fa fa-check"></i>
+
+            {{ session()->get('success') }}
+        </div>
+    @endif
         <div class="contact_form">
             <form action="{{route('user.message.create')}}" method="post">
                 @method('HEAD')
