@@ -40,6 +40,10 @@ class SingleCourseController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'comment' => ['required'],
+        ]);
         Comment::create([
 
             'user_id' => $request->user_id,
@@ -64,6 +68,20 @@ class SingleCourseController extends Controller
 
         $lectures =lecture::where('course_id', $id)->get();
         $courses = Course::where('id', $id)->get();
+        $comments = Comment::where('course_id',$id)->get();
+        $data_comments = [];
+        foreach ($comments as $comment) {
+            $data_comments[] = [
+                'id' => $comment->id,
+                'comment' => $comment->comment,
+                'created_at' => $comment->created_at,
+                'user' => isset($comment->user) ? $comment->user->name : "",
+                'user_id' => isset($comment->user) ? $comment->user->id : "",
+                'user_image' => isset($comment->user) ? $comment->user->image : "",
+
+
+            ];
+        }
         $data = [];
         foreach ($courses as $course) {
             $data[] = [
@@ -117,7 +135,7 @@ class SingleCourseController extends Controller
 
         }
     }
-        return view('publicUser.singleCourse',['data'=>$data , 'lectures'=>$lectures,'has_Sold'=>$has_Sold]);
+        return view('publicUser.singleCourse',['data'=>$data , 'lectures'=>$lectures,'has_Sold'=>$has_Sold,'comments'=>$data_comments]);
     }
 
     /**

@@ -278,17 +278,22 @@ Course
         <!-- <h1 class="heading">clients review</h1> -->
         <div class="swiper reviews-slider">
             <div class="swiper-wrapper">
-                <div class="swiper-slide box">
+                @foreach($comments as $comment)
+                    <div class="swiper-slide box">
+<?php
+$user_image =$comment['user_image'];
+?>
+                        <img src="{{URL::asset("storage/image/$user_image")}}" alt="">
+                        <h3>{{$comment['user']}}</h3>
+                        <p>{{$comment['comment']}}</p>
+                        <div class="stars">
+                            <i class="fa-solid fa-calendar"></i>
+                            <div >{{$comment['created_at']}}</div>
 
-                    <img src="userSide/img/user icon.png" alt="">
-                    <h3>mohammad alnuqeiti</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam saepe numquam sequi accusamus tenetur?</p>
-                    <div class="stars">
-                    <i class="fa-solid fa-calendar"></i> 20 - 12 - 1998
-
-                </div>
-                </div>
-                <div class="swiper-slide box">
+                        </div>
+                    </div>
+                @endforeach
+                {{-- <div class="swiper-slide box">
                     <img src="userSide/img/user icon.png" alt="">
                     <h3>mohammad alnuqeiti</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam saepe numquam sequi accusamus tenetur?</p>
@@ -338,7 +343,7 @@ Course
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                </div>
+                </div> --}}
 
 
 
@@ -363,7 +368,10 @@ Course
             <div >
                 <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
                 <input type="hidden" name="course_id" value="{{$data[0]['id']}}"/>
-                <textarea id="story" name="comment" rows="5" cols="33" ></textarea>
+                <textarea id="story" name="comment" rows="5" cols="33" class="@error('comment') is-invalid @enderror"></textarea>
+                @error('comment')
+                <div class="error">{{ $message }}</div>
+               @enderror
 
             </div>
             <div id="input">

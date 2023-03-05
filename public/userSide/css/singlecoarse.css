@@ -629,9 +629,20 @@
     padding: 1rem 0;
     line-height: 2;
 }
+.reviews .reviews-slider .box .stars{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    color: #07393E;
+    justify-content: center;
+    align-items: center;
+}
+.reviews .reviews-slider .box .stars div{
+    align-self: end;
+}
 .reviews .reviews-slider .box .stars i{
     font-size: 1.7rem;
-    color: gold;
+    color: #07393E;
 }
 
 
