@@ -127,14 +127,11 @@ class AddCourseController extends Controller
             'duration_of_the_course' => ['required','numeric'],
             'course_price' => ['required','numeric'],
             'select' => ['required'],
-            'video_course' => ['required','mimetypes:video/avi,video/mpeg,video/mp4','max:102400'],
-            'course_image' => ['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
+            // 'video_course' => ['required','mimetypes:video/avi,video/mpeg,video/mp4','max:102400'],
+            // 'course_image' => ['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
         ]);
 
-        $photoName = $request->file('course_image')->getClientOriginalName();
-        $request->file('course_image')->storeAs('public/image', $photoName);
-        $videooName = $request->file('video_course')->getClientOriginalName();
-        $request->file('video_course')->storeAs('public/video', $videooName);
+
 
         $data = Course::findOrfail($id);
         $data->name = $request->course_name;  //id لانه هون انا موجودة عندي البيانات من خلال ال  new model ما عملت هون
@@ -142,9 +139,19 @@ class AddCourseController extends Controller
         $data->long_description = $request->long_description;
         $data->price = $request->course_price;
         $data->category_id = $request->select;
-        $data->video_course = $videooName;
         $data->duration_of_the_course = $request->duration_of_the_course;
-        $data->image = $photoName;
+        if ( $request->file('course_image')) {
+            $photoName = $request->file('course_image')->getClientOriginalName();
+            $request->file('course_image')->storeAs('public/image', $photoName);
+            $data->image = $photoName;
+
+        }
+        if (  $request->file('video_course')) {
+            $videooName = $request->file('video_course')->getClientOriginalName();
+            $request->file('video_course')->storeAs('public/video', $videooName);
+            $data->video_course = $videooName;
+
+        }
         $data->status = "pending";
         $data->save();
         //-------------------------------

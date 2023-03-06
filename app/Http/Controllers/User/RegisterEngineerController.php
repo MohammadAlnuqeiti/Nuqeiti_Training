@@ -55,8 +55,13 @@ class RegisterEngineerController extends Controller
         // $request->file->move(public_path('uploads'), $file);
         $photoName = $request->file('image')->getClientOriginalName();
         $request->file('image')->storeAs('public/image', $photoName);
-        $file = $request->file('cv_pdf')->getClientOriginalName();
-        $request->file('cv_pdf')->store('/public/cv');
+        // $file = $request->file('cv_pdf')->getClientOriginalName();
+        // $request->file('cv_pdf')->store('/public/cv',  $file);
+
+        $file = $request->file('cv_pdf');
+        $filename = time().'.'.$file->getClientOriginalExtension();
+        $request->file('cv_pdf')->storeAs('/public/cv',$filename);
+
         User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -64,7 +69,7 @@ class RegisterEngineerController extends Controller
             'password' => Hash::make($request->password),
             'role' => 'engineer',
             'image' => $photoName,
-            'cv_pdf' => $file,
+            'cv_pdf' => $filename,
             'education' => $request->education,
             'the_description' => $request->the_description,
             'Linkedin_link' => $request->Linkedin_link,

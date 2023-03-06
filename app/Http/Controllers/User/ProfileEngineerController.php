@@ -108,13 +108,21 @@ class ProfileEngineerController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $data = User::findOrfail($id);
+        $email=$data->email;
+        $phone=$data->phone;
+
+
+
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'phone' => ['required', 'max:10' ,'min:10','unique:'.User::class],
-            'password' => ['required', 'min:8'],
-            'image' => ['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
-            'cv_pdf' => ['required','mimes:pdf,xlx,csv','max:511998'],
+            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            // 'phone' => ['required', 'max:10' ,'min:10','unique:'.User::class],
+            // 'password' => ['required', 'min:8'],
+            // 'image' => ['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
+            // 'cv_pdf' => ['required','mimes:pdf,xlx,csv','max:511998'],
             'the_description' => ['required','string'],
             'job_position' => ['required','string'],
             'address' => ['required','string'],
@@ -124,16 +132,10 @@ class ProfileEngineerController extends Controller
             'certificates_and_credits' => ['required','string'],
             'experience' => ['required','string'],
         ]);
-        $photoName = $request->file('image')->getClientOriginalName();
-        $request->file('image')->storeAs('public/image', $photoName);
-        $file = $request->file('cv_pdf')->getClientOriginalName();
-        $request->file('cv_pdf')->store('/public/cv');
 
-        $data = User::findOrfail($id);
+
+
         $data->name = $request->name;  //id لانه هون انا موجودة عندي البيانات من خلال ال  new model ما عملت هون
-        $data->email = $request->email;
-        $data->phone = $request->phone;
-        $data->password = Hash::make($request->password);
         $data->the_description = $request->the_description;
         $data->job_position = $request->job_position;
         $data->address = $request->address;
@@ -142,12 +144,41 @@ class ProfileEngineerController extends Controller
         $data->education = $request->education;
         $data->certificates_and_credits = $request->certificates_and_credits;
         $data->experience = $request->experience;
-        $data->cv_pdf = $file;
-        $data->image = $photoName;
+        if($email !==$request->email){
+            $request->validate([
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+
+            ]);
+
+            $data->email = $request->email;
+        }
+        if($phone !=$request->phone){
+            $request->validate([
+                'phone' => ['required', 'max:10' ,'min:10','unique:'.User::class],
+
+            ]);
+
+            $data->phone = $request->phone;
+        }
+        if ( $request->file('image')) {
+            $photoName = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('public/image', $photoName);
+            $data->image = $photoName;
+
+        }
+        if ( $request->password) {
+            $data->password = Hash::make($request->password);
+        }
+        if ( $request->file('cv_pdf')) {
+            $file = $request->file('cv_pdf')->getClientOriginalName();
+            $request->file('cv_pdf')->store('/public/cv');
+            $data->cv_pdf = $file;
+
+        }
         $data->save();
 
 
-        return redirect()->back();
+        return redirect()->route('user.profile_engineer.index');
 
     }
 

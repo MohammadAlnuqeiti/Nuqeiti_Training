@@ -77,17 +77,21 @@ class AdminController extends Controller
             'email' => ['required'],
             'password' => ['required', Rules\Password::defaults()],
             'phone' => ['required'],
-            'image' =>['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
 
         ]);
-        $photoName = $request->file('image')->getClientOriginalName();
-        $request->file('image')->storeAs('public/image', $photoName);
+
         $user=User::findorFail($id);
         $user->name=$request->name;
         $user->email=$request->email;
         $user->password=Hash::make($request->password);
         $user->phone=$request->phone;
-        $user->image=$photoName;
+
+        if ( $request->file('image')) {
+            $photoName = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('public/image', $photoName);
+            $user->image=$photoName;
+
+        }
 
         $user->save();
         return redirect()->route('admin.profile.admin');

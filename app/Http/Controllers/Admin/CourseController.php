@@ -180,14 +180,12 @@ class CourseController extends Controller
             'duration_of_the_course' => ['required'],
             'course_price' => ['required'],
             'select' => ['required'],
-            'video_course' => ['required','mimetypes:video/avi,video/mpeg,video/mp4','max:102400'],
-            'course_image' => ['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
+            // 'video_course' => ['required','mimetypes:video/avi,video/mpeg,video/mp4','max:102400'],
+            // 'course_image' => ['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
         ]);
 
-        $photoName = $request->file('course_image')->getClientOriginalName();
-        $request->file('course_image')->storeAs('public/image', $photoName);
-        $videooName = $request->file('video_course')->getClientOriginalName();
-        $request->file('video_course')->storeAs('public/video', $videooName);
+
+
 
 
         $data = Course::findOrfail($id);
@@ -197,8 +195,18 @@ class CourseController extends Controller
         $data->price = $request->course_price;
         $data->duration_of_the_course = $request->duration_of_the_course;
         $data->category_id = $request->select;
-        $data->video_course = $videooName;
-        $data->image = $photoName;
+        if ( $request->file('course_image')) {
+            $photoName = $request->file('course_image')->getClientOriginalName();
+            $request->file('course_image')->storeAs('public/image', $photoName);
+            $data->image = $photoName;
+
+        }
+        if (  $request->file('video_course')) {
+            $videooName = $request->file('video_course')->getClientOriginalName();
+            $request->file('video_course')->storeAs('public/video', $videooName);
+            $data->video_course = $videooName;
+
+        }
         $data->status = "pending";
         $data->save();
         //-------------------------------

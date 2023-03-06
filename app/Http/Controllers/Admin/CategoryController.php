@@ -100,16 +100,18 @@ class CategoryController extends Controller
         $request->validate([
             'name' => ['required'],
             'description' => ['required'],
-            'image' =>['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
 
         ]);
-        $photoName = $request->file('image')->getClientOriginalName();
-        $request->file('image')->storeAs('public/image', $photoName);
+
         $category=Category::findorFail($id);
         $category->name=$request->name;
         $category->description=$request->description;
-        $category->image=$photoName;
+        if ( $request->file('image')) {
+            $photoName = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('public/image', $photoName);
+            $category->image=$photoName;
 
+        }
         $category->save();
          return redirect()->route('admin.categories.index');
     }

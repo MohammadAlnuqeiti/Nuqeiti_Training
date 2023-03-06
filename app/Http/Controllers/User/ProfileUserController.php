@@ -125,28 +125,46 @@ class ProfileUserController extends Controller
     {
         $data = User::findOrfail($id);
         $email=$data->email;
-
+        $phone=$data->phone;
+// dd($request->phone);
 
         $request->validate([
             'name' => ['required'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'phone' => ['required', 'max:10' ,'min:10','unique:'.User::class],
-            'password' => ['required', 'min:8'],
-            'update_image' => ['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
+            // 'phone' => ['required', 'max:10' ,'min:10','unique:'.User::class],
+            // 'password' => ['required', 'min:8'],
+            // 'update_image' => ['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
         ]);
 
-        $photoName = $request->file('update_image')->getClientOriginalName();
-        $request->file('update_image')->storeAs('public/image', $photoName);
+
 
 
         $data->name = $request->name;  //id لانه هون انا موجودة عندي البيانات من خلال ال  new model ما عملت هون
         if($email !==$request->email){
+            $request->validate([
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+
+            ]);
 
             $data->email = $request->email;
         }
-        $data->password = Hash::make($request->password);
-        $data->phone = $request->phone;
-        $data->image = $photoName;
+        if($phone !=$request->phone){
+            $request->validate([
+                'phone' => ['required', 'max:10' ,'min:9','unique:'.User::class],
+
+            ]);
+
+            $data->phone = $request->phone;
+        }
+        if ( $request->file('update_image')) {
+            $photoName = $request->file('update_image')->getClientOriginalName();
+            $request->file('update_image')->storeAs('public/image', $photoName);
+            $data->image = $photoName;
+
+        }
+        if ( $request->password) {
+            $data->password = Hash::make($request->password);
+        }
+
         $data->status = "accepted";
         $data->save();
         //-------------------------------
