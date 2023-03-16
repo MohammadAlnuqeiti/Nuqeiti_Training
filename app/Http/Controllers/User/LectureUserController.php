@@ -144,3 +144,4 @@ class LectureUserController extends Controller
         return redirect()->back();
     }
 }
+?>

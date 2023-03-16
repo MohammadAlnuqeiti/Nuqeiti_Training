@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use File;
-use Response;
+use Illuminate\Support\Facades\Response;
+// use Response;
 
 class PdfController extends Controller
 {
@@ -22,3 +23,4 @@ class PdfController extends Controller
                    ]);
    }
 }
+?>

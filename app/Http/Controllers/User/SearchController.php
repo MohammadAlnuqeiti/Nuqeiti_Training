@@ -39,3 +39,4 @@ class SearchController extends Controller
         return view('publicUser.search',['results'=>$data]);
     }
 }
+?>

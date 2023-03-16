@@ -51,3 +51,4 @@ class ShopController extends Controller
 
     }
 }
+?>

@@ -89,3 +89,4 @@ class UserController extends Controller
         return redirect()->route('admin.users.index');
     }
 }
+?>

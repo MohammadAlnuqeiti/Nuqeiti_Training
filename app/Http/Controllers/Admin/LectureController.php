@@ -132,3 +132,4 @@ class LectureController extends Controller
         return redirect()->route('admin.lectures.index');
     }
 }
+?>

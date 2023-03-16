@@ -31,3 +31,4 @@ class DiscountController extends Controller
     }
 
 }
+?>

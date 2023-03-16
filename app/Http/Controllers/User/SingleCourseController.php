@@ -172,3 +172,4 @@ class SingleCourseController extends Controller
         //
     }
 }
+?>

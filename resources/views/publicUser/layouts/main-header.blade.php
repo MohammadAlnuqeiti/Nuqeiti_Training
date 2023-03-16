@@ -67,10 +67,36 @@
             </li>
             @endif
             {{-- <a href="{{route('user.profile.index')}}" class="btn btn-primary rounded-pill py-2 px-4">Account</a> --}}
-            <li>
+            {{-- <li>
 
                 <a href="{{route('user.cart')}}" class="nav-link">Cart</a>
-            </li>
+            </li> --}}
+            {{-- <li>
+                <a href="{{route('user.cart')}}" >
+                    <span class="fa-stack fa-2x has-badge" data-count="5">
+                        <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                        <i style="" class="fa fa-shopping-cart fa-stack-2x red-cart"></i>
+                      </span>
+                </a>
+            </li> --}}
+            {{-- <li>
+                <a href="{{route('user.cart')}}" >
+                    <span class="fa-stack fa-2x has-badge" data-count="5">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li> --}}
+            {{-- <li>
+                <a href="{{route('user.cart')}}" >
+                    <div class="cart">
+                        @if(session()->has('cart') && count(session('cart'))>0)
+                        <span class="count">{{count(session('cart'))}}</span>
+                        @endif
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                </a>
+            </li> --}}
         </ul>
     </div>
     <div class="hamburger">
@@ -80,6 +106,18 @@
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
+    </div>
+    <div class="navbar">
+        <li>
+            <a href="{{route('user.cart')}}" >
+                <div class="cart">
+                    @if(session()->has('cart') && count(session('cart'))>0)
+                    <span class="count">{{count(session('cart'))}}</span>
+                    @endif
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </a>
+        </li>
     </div>
     </div>
 

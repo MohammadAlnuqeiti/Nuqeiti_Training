@@ -170,3 +170,4 @@ class AddCourseController extends Controller
         //
     }
 }
+?>

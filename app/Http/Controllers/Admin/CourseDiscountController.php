@@ -123,3 +123,4 @@ class CourseDiscountController extends Controller
         return redirect()->route('admin.discount');
     }
 }
+?>

@@ -159,3 +159,4 @@ class CategoryDiscountController extends Controller
         return redirect()->back();
     }
 }
+?>

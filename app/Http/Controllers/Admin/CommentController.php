@@ -52,7 +52,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        
+
     }
 
     /**
@@ -102,3 +102,4 @@ class CommentController extends Controller
         return redirect()->route('admin.comment.index');
     }
 }
+?>

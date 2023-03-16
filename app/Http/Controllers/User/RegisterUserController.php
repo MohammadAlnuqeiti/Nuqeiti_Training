@@ -39,3 +39,4 @@ class RegisterUserController extends Controller
 
     }
 }
+?>
