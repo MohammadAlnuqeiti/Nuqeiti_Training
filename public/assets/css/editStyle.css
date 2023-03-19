@@ -1,0 +1,31 @@
+.content-header h1 {
+    color: #07393E !important;
+}
+.btn-primary{
+    color: #fff;
+    background-color: #ff0000 !important;
+    border-color: #ff0000 !important;
+    box-shadow: none;
+}
+ .btn-primary:hover {
+    color: #fff;
+    background-color: #f23131 !important;
+    border-color: #f23131 !important;
+  }
+
+  .bg-gradient-primary.btn {
+    background: #07393E linear-gradient(180deg,#07393E,#0a4247) repeat-x !important;
+    color: #fff;
+}
+  .bg-gradient-primary.btn:hover {
+    background: #08666e linear-gradient(180deg,#08666e,#08666e) repeat-x !important;
+    border-color: #07393E !important;
+
+    color: #fff;
+}
+.table.table-head-fixed thead tr:nth-child(1) th {
+    text-align: center;
+}
+.table td, .table th {
+    text-align: center;
+}

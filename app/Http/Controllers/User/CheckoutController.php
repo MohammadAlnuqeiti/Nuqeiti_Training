@@ -136,7 +136,7 @@ class CheckoutController extends Controller
 
 
         // return redirect()->route('user.profile_user.index');
-        return redirect()->route('user.profile_user.index')->with('success','Reservation Successful,thank you for booking.');
+        return redirect()->route('user.profile_user.index')->with('success','We thank you for your trust in our website. We hope that you will get the most out of this course. Sections of the course can be viewed from the main page of the course at any time you want.');
 
 
 

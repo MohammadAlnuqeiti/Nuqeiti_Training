@@ -2,7 +2,7 @@
 
 
 @section('title')
-Category
+Lecture
 @endsection
 
 @section('css')
@@ -16,7 +16,7 @@ Create new category
 @endsection
 
 
-@section('Category')
+@section('lectures')
 active
 @endsection
 

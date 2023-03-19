@@ -46,7 +46,7 @@ Add course
 <link rel="stylesheet" href="{{asset('userSide/css/footer.css')}}">
 <style>
      .card-header{
-        background-color: #07393E;
+        background-color: #07393E !important;
         }
     label{
         color: #07393E !important;
@@ -74,7 +74,7 @@ Add course
 <div class="row container m-auto mt-5">
     <div class="col-12 m-5">
         <div class="card card-primary">
-            <div class="card-header" style="background-color:#07393E">
+            <div class="card-header" >
               <h3 class="card-title">Controls</h3>
             </div>
             <!-- /.card-header -->

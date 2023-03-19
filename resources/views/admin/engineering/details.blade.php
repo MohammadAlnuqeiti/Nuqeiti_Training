@@ -13,6 +13,20 @@ Engineering details
   <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/css/adminlte.min.css')}}">
+  <style>
+    .btn-primary {
+  color: #fff;
+  background-color: #007bff !important;
+  border-color: #007bff !important;
+  box-shadow: none;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0069d9 !important;
+  border-color: #0062cc !important;
+}
+  </style>
 @endsection
 
 @section('title_page1')

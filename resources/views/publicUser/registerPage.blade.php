@@ -46,7 +46,7 @@ Register page
 
 </section>
 <div class="login">
-    <p>Don't have an account?<a href="./login.html" > <span style="color: #FF0000;">Sign in</span> </a></p>
+    <p>Don't have an account?<a href="{{route('user.login')}}" > <span style="color: #FF0000;">Sign in</span> </a></p>
 
 </div>
 </div>

@@ -2,7 +2,7 @@
 
 
 @section('title')
-Reservation
+Engineering
 @endsection
 
 @section('css')
@@ -12,11 +12,11 @@ Reservation
 @endsection
 
 @section('section_title')
-Edit Reservation
+Edit the engineerig status
 @endsection
 
 
-@section('Reservation')
+@section('engineer')
 active
 @endsection
 
@@ -25,7 +25,7 @@ admin
 @endsection
 
 @section('title_page2')
-Reservation
+Engineering
 @endsection
 
 
@@ -35,7 +35,7 @@ Reservation
     <div class="col-12">
         <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Edit</h3>
+              <h3 class="card-title">Edit the engineerig status</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->

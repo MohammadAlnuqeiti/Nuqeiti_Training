@@ -1,6 +1,6 @@
 
 
-  <title>Your tour |   @yield('title')</title>
+  <title>Nuqeiti training |   @yield('title')</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -36,6 +36,7 @@
   {{-- <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css"> --}}
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/editStyle.css')}}">
 
   <script src="https://kit.fontawesome.com/a8b56cb52b.js" crossorigin="anonymous"></script>
 

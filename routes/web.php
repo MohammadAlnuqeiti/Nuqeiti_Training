@@ -28,6 +28,9 @@ use App\Http\Controllers\Admin\CourseDiscountController;
 use App\Http\Controllers\Admin\DeleteDiscountController;
 use App\Http\Controllers\Admin\EditStatusController;
 use App\Http\Controllers\Admin\PdfController;
+use App\Http\Controllers\SubscriberController;
+use App\Mail\Subscribe;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -145,4 +148,16 @@ Route::prefix('user')->name('user.')->group(function () {
     // Route::get('/booking/create/{id}',[BookController::class,'create'])->name('book.create')->middleware('CheckLogin');
 
     });
+
+    Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
+
+    Route::get('/email' , function(){
+
+        Mail::to('mohammadalnuqeiti@gmail.com')->send(new Subscribe());
+
+        return response("dddd");
+        // return new Subscribe();
+
+    });
+
 require __DIR__.'/auth.php';

@@ -39,7 +39,7 @@ login
        @enderror
         <p>Forgot Password?</p>
         <button type="submit">Login</button>
-        <p>Don't have an account?<a href="./registerPage.html" >Sign up</a></p>
+        <p>Don't have an account?<a href="{{route('user.register')}}" >Sign up</a></p>
     </form>
     </div>
 

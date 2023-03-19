@@ -36,7 +36,7 @@ class ContactController extends Controller
             'message' => $request->message,
 
         ]);
-        return redirect()->route('user.contact')->with('success','Reservation Successful,thank you for booking.');
+        return redirect()->route('user.contact')->with('success','Thank you for contacting Naqiti Training Platform. We appreciate your effort and will do our best to answer your inquiries.');
 
     }
 }

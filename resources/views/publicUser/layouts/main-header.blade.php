@@ -108,7 +108,7 @@
         <span class="bar"></span>
     </div>
     <div class="navbar">
-        <li>
+        <li style="list-style:none">
             <a href="{{route('user.cart')}}" >
                 <div class="cart">
                     @if(session()->has('cart') && count(session('cart'))>0)

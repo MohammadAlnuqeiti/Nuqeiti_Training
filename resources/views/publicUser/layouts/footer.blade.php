@@ -9,9 +9,9 @@
             <div class="col_footer">
                 <h4> Company </h4>
                 <ul>
-                    <li><a href="./index.html"> Home</a></li>
-                    <li><a href="./about.html"> About Us</a></li>
-                    <li><a href="./contact.html"> Contact Us</a></li>
+                    <li><a href="{{route('user.index')}}"> Home</a></li>
+                    <li><a href="{{route('user.about')}}"> About Us</a></li>
+                    <li><a href="{{route('user.contact')}}"> Contact Us</a></li>
 
 
                 </ul>
@@ -20,9 +20,9 @@
             <div class="col_footer">
                 <h4> Quick Links </h4>
                 <ul>
-                    <li><a href="./login.html"> Login</a></li>
-                    <li><a href="./registerPage.html"> Register</a></li>
-                    <li><a href="./shop.html"> Shop Now </a></li>
+                    <li><a href="{{route('user.login')}}"> Login</a></li>
+                    <li><a href="{{route('user.register')}}"> Register</a></li>
+                    <li><a href="{{route('user.shop')}}"> Shop Now </a></li>
                 </ul>
             </div>
 
@@ -30,9 +30,9 @@
                 <h4> Courses </h4>
                     <div class="time_footer">
                         <ul>
-                            <li><a href="./shop.html"> All Courses  </a></li>
-                            <li><a href="#"> Civil Engineering </a></li>
-                            <li><a href="#"> Electrical Engineering </a></li>
+                            <li><a href="{{route('user.shop')}}"> All Courses  </a></li>
+                            <li><a href="{{route('user.shop.category',1)}}"> Civil Engineering </a></li>
+                            <li><a href="{{route('user.shop.category',2)}}"> Electrical Engineering </a></li>
                         </ul>
                     </div>
             </div>
@@ -42,8 +42,8 @@
 
                 <div class="socail_footer">
                     <a href="#"><i class="fa-brands fa-facebook"></i> </a>
-                    <a href="#"><i class="fa-solid fa-square-phone"></i></a>
-                    <a href="#"><i class="fa-solid fa-envelope"> </i></a>
+                    <a href="http://wa.me/+962790369501"><i class="fa-solid fa-square-phone"></i></a>
+                    <a href="mailto:tnuqeiti@gmail.com"><i class="fa-solid fa-envelope"> </i></a>
                     <a href="#"><i class="fa-brands fa-linkedin"> </i></a>
                 </div>
 

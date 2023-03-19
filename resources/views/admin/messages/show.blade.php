@@ -2,7 +2,7 @@
 
 
 @section('title')
-Profile
+Messages
 @endsection
 
 @section('css')
@@ -36,7 +36,7 @@ Messages
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Admin controls</h3>
+          <h3 class="card-title">Page messages</h3>
 
           <div class="card-tools">
             <div class="input-group input-group-sm" style="width: 90px;">

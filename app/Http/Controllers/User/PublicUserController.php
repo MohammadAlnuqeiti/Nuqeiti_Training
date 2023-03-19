@@ -155,6 +155,9 @@ class PublicUserController extends Controller
                 ];
             }
             $data=User::where('id',$id)->get();
+            if($data->isEmpty()) {
+                return redirect()->back();
+            }
             return view('publicUser.engineeringdetails',['data'=>$data,'data_courses'=>$data_courses]);
 
 

@@ -203,9 +203,9 @@ home page
 </div>
 </section> -->
 <section id="sectionfour">
-<h1> Master key skills with<br>......... specializations</h1>
+<h1> Master key skills with<br>Nuqeiti specializations</h1>
 <p>"Develop a specific career skill through a series of related<br> courses and hands-on projects. Put theory into practice<br> and earn a Specialization Certificate to add to your CV."</p>
-<a href="./shop.html" class="btn" onclick="">Browse courses</a>
+<a href="{{route('user.shop')}}" class="btn" onclick="">Browse courses</a>
 </section>
 
 <div class="reviews" id="reviews">
@@ -213,12 +213,14 @@ home page
     <div class="swiper reviews-slider">
         <div class="swiper-wrapper">
             @foreach($engineering as $value)
-            <div class="swiper-slide coachcard" id="coachcard">
+            <a href="{{route('user.engineeringDetails',$value->id)}}">
+                <div class="swiper-slide coachcard" id="coachcard">
                 <img src="{{URL::asset("storage/image/$value->image")}}" alt="{{$value->name}}">
                 <div class="body">
                     <h4>{{$value->name}}</h4>
                     <p>{{$value->education}}</p>
                 </div>
+            </a>
 
             </div>
             @endforeach

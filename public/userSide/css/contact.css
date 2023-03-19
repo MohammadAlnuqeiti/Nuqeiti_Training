@@ -341,7 +341,7 @@ header {
 .line div:nth-child(2) {
     width: 10px;
     height: 10px;
-    background: red;
+    background: #ff0000;
     border-radius: 50%;
 }
 
@@ -382,7 +382,7 @@ header {
     text-align: center;
     padding: 2rem 0;
     display: grid;
-    grid-template-columns: repeat(4 , 1fr);
+    grid-template-columns: repeat(3 , 1fr);
     font-family: 'Open Sans', sans-serif;
 }
 .contact_info span {

@@ -128,9 +128,11 @@ class SingleCourseController extends Controller
         }
         // للتشييك اذا كان المستخدم اشترى الكورس او لا
         $has_Sold= false;
+        // dd($data[0]['user_id']);
+        $engineering_id = $data[0]['user_id'];
         if(Auth()->user()){
 
-        if(array_key_exists(Auth()->user()->id, $users_id)){
+        if(array_key_exists(Auth()->user()->id, $users_id) || Auth()->user()->id === $engineering_id){
             $has_Sold = true;
 
         }

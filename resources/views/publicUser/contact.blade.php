@@ -69,11 +69,11 @@ Contact
                 <span class="text"> Jordan </span>
             </div>
 
-            <div>
+            {{-- <div>
                 <span><i class="fa-solid fa-calendar"></i></span>
                 <span> Opening Hours</span>
                 <span class="text">  <br></span>
-            </div>
+            </div> --}}
         </div>
 
 

@@ -66,15 +66,14 @@
                 </li>
                 <li class="nav-item">
                   <a href="{{route('admin.show.admin')}}" class="nav-link  @yield('admin')">
-                    <i class="nav-icon fa-solid fa-address-card"></i>
-                    <p>
+                    <i class="nav-icon fa-solid fa-user"></i>                    <p>
                       Admin
                     </p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('admin.engineering.index')}}" class="nav-link  @yield('engineer')">
-                    <i class="nav-icon fa-solid fa-address-card"></i>
+                    <i class="nav-icon fa-solid fa-users"></i>
                     <p>
                       Engineering
                     </p>
@@ -100,8 +99,8 @@
           </li>
           <li class="nav-item">
             <a href="{{route('admin.courses.index')}}" class="nav-link  @yield('Courses')">
-              <i class="nav-icon fa-solid fa-plane-departure"></i>
-              <p><i class=""></i>
+                <i class="nav-icon fa-solid fa-film"></i>
+                <p><i class=""></i>
                 Courses
                 {{-- <span class="right badge badge-danger">user</span> --}}
               </p>
@@ -109,8 +108,7 @@
           </li>
           <li class="nav-item">
             <a href="{{route('admin.discount')}}" class="nav-link  @yield('discount')">
-              <i class="nav-icon fa-solid fa-plane-departure"></i>
-              <p><i class=""></i>
+                <i class="nav-icon fa-solid fa-tag"></i>              <p><i class=""></i>
                 Discount
                 {{-- <span class="right badge badge-danger">user</span> --}}
               </p>
@@ -127,7 +125,8 @@
           </li>
           <li class="nav-item">
             <a href="{{route('admin.comment.index')}}" class="nav-link  @yield('comments')">
-              <i class="nav-icon fa-solid fa-message"></i>
+                <i class="nav-icon fa-solid fa-comment"></i>
+                {{-- <i class="nav-icon fa-solid fa-message"></i> --}}
               <p>
                 Comments
               </p>

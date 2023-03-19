@@ -2,7 +2,7 @@
 
 
 @section('title')
-Trips details
+Course details
 @endsection
 
 @section('css')
@@ -24,7 +24,7 @@ active
 @endsection
 
 @section('title_page2')
-trip details
+Course details
 @endsection
 
 @section('content')
@@ -58,11 +58,11 @@ trip details
                   <div class="product-image-thumb" ><img src="../../dist/img/prod-5.jpg" alt="Product Image"></div> --}}
                 </div>
 
-                <div >
+                {{-- <div >
                     <video width="400" controls>
                         <source src="{{URL::asset("storage/video/$video")}}" type="video/mp4">
                       </video>
-                </div>
+                </div> --}}
 
 
               </div>

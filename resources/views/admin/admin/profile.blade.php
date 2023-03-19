@@ -13,6 +13,16 @@ Admin profile
   <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/css/adminlte.min.css')}}">
+  <style>
+     .btn-primary {
+        background-color: #07393E !important;
+        border-color: #07393E !important;
+     }
+     .btn-primary:hover {
+        background-color: #0a5960 !important;
+        border-color: #07393E !important;
+     }
+  </style>
 @endsection
 
 

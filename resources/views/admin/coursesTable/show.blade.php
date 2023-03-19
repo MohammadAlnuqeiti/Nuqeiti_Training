@@ -24,7 +24,7 @@ admin
 @endsection
 
 @section('title_page2')
-Trips
+Courses
 @endsection
 
 
@@ -35,7 +35,7 @@ Trips
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Trips controls</h3>
+          <h3 class="card-title">Courses controls</h3>
 
           <div class="card-tools">
             <div class="input-group input-group-sm" style="width: 130px;">

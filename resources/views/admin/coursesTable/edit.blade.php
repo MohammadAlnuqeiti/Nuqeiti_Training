@@ -12,7 +12,7 @@ Courses
 @endsection
 
 @section('section_title')
-Edit  course
+Edit course
 @endsection
 
 
@@ -35,7 +35,7 @@ edit courses
     <div class="col-12">
         <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Controls</h3>
+              <h3 class="card-title">Edit course</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
