@@ -31,8 +31,8 @@
                     <div class="time_footer">
                         <ul>
                             <li><a href="{{route('user.shop')}}"> All Courses  </a></li>
-                            <li><a href="{{route('user.shop.category',1)}}"> Civil Engineering </a></li>
-                            <li><a href="{{route('user.shop.category',2)}}"> Electrical Engineering </a></li>
+                            <li><a href="{{route('user.shop.category',2)}}"> Civil Engineering </a></li>
+                            <li><a href="{{route('user.shop.category',3)}}"> Electrical Engineering </a></li>
                         </ul>
                     </div>
             </div>

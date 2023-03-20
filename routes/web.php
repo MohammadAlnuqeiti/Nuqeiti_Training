@@ -153,9 +153,9 @@ Route::prefix('user')->name('user.')->group(function () {
 
     Route::get('/email' , function(){
 
-        Mail::to('mohammadalnuqeiti@gmail.com')->send(new Subscribe());
+        Mail::to('mhmdalnqyty@gmail.com')->send(new Subscribe());
 
-        return response("dddd");
+        return response("ok");
         // return new Subscribe();
 
     });
