@@ -523,6 +523,8 @@
 }
 .card-body h3 {
     color: #07393E;
+    min-height: 62px;
+
 
 }
 .card-body p {

@@ -459,7 +459,7 @@ select:focus{
 .card-body h3 {
     color: #07393E;
     font-size: 1em;
-    min-height: 48px;
+    /* min-height: 48px; */
 
 }
 .card-body p {

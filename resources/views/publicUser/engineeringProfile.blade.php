@@ -68,9 +68,9 @@ Profile
             <p>{{$data[0]->email}}</p>
             <div class="icon">
                 {{-- <a href="#"><i class="fa-brands fa-facebook"></i> </a> --}}
-                <a href="http://wa.me/+962{{$data[0]->phone}}"><i class="fa-solid fa-square-phone"></i></a>
+                <a href="http://wa.me/+962{{$data[0]->phone}}" target="_blank"><i class="fa-solid fa-square-phone"></i></a>
                 <a href="mailto:{{$data[0]->email}}"><i class="fa-solid fa-envelope"> </i></a>
-                <a href="{{$data[0]->Linkedin_link}}"><i class="fa-brands fa-linkedin"> </i></a>
+                <a href="{{$data[0]->Linkedin_link}}" target="_blank"><i class="fa-brands fa-linkedin"> </i></a>
             </div>
             <!-- <div class="icon">
                 <ul >

@@ -17,6 +17,11 @@ class LoginUserController extends Controller
 
 
 
+    public function __construct()
+    {
+        $this->middleware('RedirectHome');
+    }
+
     public function index()
     {
 
