@@ -76,7 +76,7 @@ Course details
 
                 <h4 class="mt-3"> Instrector : {{$data[0]['user']}}</h4>
                 <h4 class="mt-3"> Status : {{$data[0]['status']}}</h4>
-                <h4 class="mt-3"> Duration : {{$data[0]['duration_of_the_course']}}</h4>
+                <h4 class="mt-3"> Duration : {{$data[0]['duration_of_the_course']}} hour</h4>
 
 
                 <div class="bg-gray py-2 px-3 mt-4">
@@ -128,6 +128,13 @@ Course details
                 {{-- <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab"> Cras ut ipsum ornare, aliquam ipsum non, posuere elit. In hac habitasse platea dictumst. Aenean elementum leo augue, id fermentum risus efficitur vel. Nulla iaculis malesuada scelerisque. Praesent vel ipsum felis. Ut molestie, purus aliquam placerat sollicitudin, mi ligula euismod neque, non bibendum nibh neque et erat. Etiam dignissim aliquam ligula, aliquet feugiat nibh rhoncus ut. Aliquam efficitur lacinia lacinia. Morbi ac molestie lectus, vitae hendrerit nisl. Nullam metus odio, malesuada in vehicula at, consectetur nec justo. Quisque suscipit odio velit, at accumsan urna vestibulum a. Proin dictum, urna ut varius consectetur, sapien justo porta lectus, at mollis nisi orci et nulla. Donec pellentesque tortor vel nisl commodo ullamcorper. Donec varius massa at semper posuere. Integer finibus orci vitae vehicula placerat. </div> --}}
               </div>
             </div>
+          </div>
+          <div class="row m-auto">
+
+            <video  controls>
+                <source src="{{URL::asset("storage/video/$video")}}" type="video/mp4">
+              </video>
+
           </div>
           <!-- /.card-body -->
         </div>

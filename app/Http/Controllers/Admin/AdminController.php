@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Contact;
+use App\Models\Course;
+use App\Models\Order;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
@@ -16,8 +20,19 @@ class AdminController extends Controller
 {
     public function index(){
 
+        $number_of_admin =User::where('role','admin')->count();
+        $number_of_engineer =User::where('role','engineer')->count();
+        $number_of_users =User::where('role','user')->count();
+        $number_of_majors =Category::all()->count();
+        $number_of_messages =Contact::all()->count();
+        $number_of_courses =Course::all()->count();
+        $number_of_orders =Order::all()->count();
+        $number_of_courses_offered =Course::where('discount' , '>' , 0)->count();
 
-        return view('admin.index');
+        // dd($number_of_courses_offered);
+
+        return view('admin.index',['number_of_admin'=>$number_of_admin ,'number_of_users'=>$number_of_users , 'number_of_engineer'=>$number_of_engineer,'number_of_majors'=>$number_of_majors,'number_of_messages'=>$number_of_messages,'number_of_courses'=>$number_of_courses,'number_of_orders'=>$number_of_orders,'number_of_courses_offered'=>$number_of_courses_offered]);
+
 
     }
     public function admin(){

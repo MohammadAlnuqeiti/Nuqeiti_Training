@@ -32,14 +32,14 @@
 
       <!-- SidebarSearch Form -->
       <div class="form-inline">
-          <div class="input-group" data-widget="sidebar-search">
+          {{-- <div class="input-group" data-widget="sidebar-search">
               <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
               <button class="btn btn-sidebar">
                   <i class="fas fa-search fa-fw"></i>
                 </button>
             </div>
-        </div>
+        </div> --}}
     </div>
 
     <!-- Sidebar Menu -->
@@ -138,6 +138,14 @@
               <i class="nav-icon fa-solid fa-message"></i>
               <p>
                 Messages
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('admin.orders')}}" class="nav-link  @yield('orders')">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Orders
               </p>
             </a>
           </li>

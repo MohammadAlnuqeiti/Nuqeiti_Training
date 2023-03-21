@@ -29,3 +29,6 @@
 .table td, .table th {
     text-align: center;
 }
+.pb-3, .py-3{
+    padding-bottom: 0 !important;
+}

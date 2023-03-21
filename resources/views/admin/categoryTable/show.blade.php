@@ -62,12 +62,14 @@ Category
               </tr>
             </thead>
             <tbody >
+                <?php $i=1?>
+
               @foreach ($categories as $category)
 
 
               <tr>
 
-                <td> {{$category->id}}</td>
+                <td> {{$i}}</td>
                 <td>{{$category->name}}</td>
                 <?php
                 $img=$category->image
@@ -90,6 +92,9 @@ Category
                   </form>
                 </td>
               </tr>
+
+              <?php ++$i ?>
+
               @endforeach
 
             </tbody>

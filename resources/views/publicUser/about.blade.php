@@ -61,9 +61,9 @@ About
     <h2>Follow Us</h2>
     <div>
        <a href="https://mail.google.com/mail/u/0/#inbox"  target="_blank"><i class="fa-solid fa-envelope"></i></a>
-    <a href="#phone"><i class="fa-solid fa-square-phone"></i></a>
+    <a href="#phone"><i class="fa-solid fa-square-phone" target="_blank"></i></a>
     <a href="https://www.linkedin.com/in/mohammad-alnuqeiti-1954b1251/"  target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-    <a href="" ><i class="fa-brands fa-square-facebook"></i></a>
+    <a href="" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
     </div>
 
     </div>

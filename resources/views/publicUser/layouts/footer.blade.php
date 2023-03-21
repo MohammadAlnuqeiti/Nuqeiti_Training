@@ -41,10 +41,10 @@
                 <h4> Follow Us </h4>
 
                 <div class="socail_footer">
-                    <a href="#"><i class="fa-brands fa-facebook"></i> </a>
-                    <a href="http://wa.me/+962790369501"><i class="fa-solid fa-square-phone"></i></a>
-                    <a href="mailto:tnuqeiti@gmail.com"><i class="fa-solid fa-envelope"> </i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin"> </i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i> </a>
+                    <a href="http://wa.me/+962790369501" target="_blank"><i class="fa-solid fa-square-phone"></i></a>
+                    <a href="mailto:tnuqeiti@gmail.com" target="_blank"><i class="fa-solid fa-envelope"> </i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin" target="_blank"> </i></a>
                 </div>
 
                 <div class="qouat_footer">
