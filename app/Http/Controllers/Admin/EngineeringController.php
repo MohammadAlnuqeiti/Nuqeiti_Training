@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Subscribe;
+use App\Models\Subscriber;
 use App\Models\User;
 
 use Illuminate\Http\Request;
