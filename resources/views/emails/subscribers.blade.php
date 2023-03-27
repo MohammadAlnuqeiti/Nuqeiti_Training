@@ -1,16 +1,17 @@
 @component('mail::message')
-# Welcome to the first Newsletter
+# Welcome to the Nuqeiti Training Platform
 
 {{-- Dear {{$email}}, --}}
 
-We look forward to communicating more with you. For more information visit our blog.
-
-@component('mail::button', ['url' => 'enter your desired url'])
-Blog
+{{$message}}<br>
+For inquiries, call 0790369501
+@component('mail::button', ['url' => 'http://127.0.0.1:8000/user'])
+Go to the site
 @endcomponent
 
 Thanks,<br>
-{{ config('app.name') }}
+Nuqeiti Training
+{{-- {{ config('app.name') }} --}}
 @endcomponent
 {{-- <x-mail::message>
 # Introduction

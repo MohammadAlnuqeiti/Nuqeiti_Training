@@ -48,10 +48,10 @@ Cart
         </div>
     </td>
     <td>
-        {{-- <form action="{{Route('user.cart.destroy',$value['course_id'])}}" method="post">
+        {{-- <form action="{{Route('user.cart.destroy',$value['course_id'])}}" method="get">
             @csrf
             <input name="_method" type="hidden" value="DELETE">
-            <button type="submit" class="btn btn-sm btn-block  bg-gradient-danger  show_confirm"  data-toggle="tooltip" title='Delete'>remove</button>
+            <button type="submit" class="btn btn-sm btn-block  bg-gradient-danger  show_confirm"  data-toggle="tooltip" title='Delete'>Delete</button>
         </form> --}}
          <a href="{{Route('user.cart.destroy',$value['course_id'])}}">remove</a>
 
@@ -130,8 +130,41 @@ Cart
 @endsection
 
 @section('script')
+@section('script')
+<script src="{{URL::asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
+<script src=".{{URL::asset('assets/plugins/jszip/jszip.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/pdfmake/pdfmake.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/pdfmake/vfs_fonts.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
+<script src="{{URL::asset('plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+
+<script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+  </script>
       {{-- sweet alert --}}
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.all.min.js"></script>
+
       <script type="text/javascript">
 
            $('.show_confirm').click(function(event) {

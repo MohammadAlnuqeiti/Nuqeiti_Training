@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Subscribe;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EngineeringController extends Controller
 {
@@ -82,6 +84,13 @@ class EngineeringController extends Controller
 
 
         $data->save();
+        if($data->status == "accepted"){
+            $message = "We are pleased to inform you that your membership as a coach has been approved on our platform and that you have joined our team." ;
+        }else{
+            $message = "We regret to inform you that we will not be able to approve your membership as a trainer on our platform." ;
+        }
+        Mail::to($data->email)->send(new Subscribe($message));
+
         //-------------------------------
 
         return redirect()->route('admin.engineering.index');

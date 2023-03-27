@@ -84,10 +84,10 @@ Route::resource('/editStatus',EditStatusController::class);
 Route::resource('/lectures',LectureController::class);
 // Route::resource('/reservation',ReservationController::class);
 Route::resource('/comment',CommentController::class);
+Route::get('/messages',[ContactController::class,'show'])->name('message');
+// Route::get('/comment/destroy/{id}',[CommentController::class,'destroy'])->name('comment.destroy');
 Route::resource('/category_discount',CategoryDiscountController::class);
 Route::resource('/course_discount',CourseDiscountController::class);
-// Route::get('/comment/destroy/{id}',[CommentController::class,'destroy'])->name('comment.destroy');
-Route::get('/messages',[ContactController::class,'show'])->name('message');
 Route::get('/discount',[DiscountController::class,'index'])->name('discount');
 Route::get('/discount/create',[DiscountController::class,'addDiscount'])->name('discount.create');
 Route::get('/discount/delete',[DeleteDiscountController::class,'deleteDiscountCourse'])->name('course.delete');
@@ -155,8 +155,9 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
 
     Route::get('/email' , function(){
+        $message = "sorry." ;
 
-        Mail::to('mhmdalnqyty@gmail.com')->send(new Subscribe());
+        Mail::to('mohammadalnuqeiti@gmail.com')->send(new Subscribe($message));
 
         return response("ok");
         // return new Subscribe();
