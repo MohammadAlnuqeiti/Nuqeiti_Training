@@ -1,4 +1,6 @@
 @component('mail::message')
+
+
 # Welcome to the Nuqeiti Training Platform
 
 {{-- Dear {{$email}}, --}}

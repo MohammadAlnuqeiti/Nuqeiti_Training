@@ -118,11 +118,6 @@ class ProfileEngineerController extends Controller
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            // 'phone' => ['required', 'max:10' ,'min:10','unique:'.User::class],
-            // 'password' => ['required', 'min:8'],
-            // 'image' => ['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
-            // 'cv_pdf' => ['required','mimes:pdf,xlx,csv','max:511998'],
             'the_description' => ['required','string'],
             'job_position' => ['required','string'],
             'address' => ['required','string'],

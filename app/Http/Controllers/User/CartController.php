@@ -41,7 +41,9 @@ class CartController extends Controller
                 foreach ($cart as $key => $value) {
                     array_push($array_id, $key);
                 }
-                // dd($array_id);
+
+                // Retrieving data from the course schedule according to the ID stored in the session
+
                 $data = [];
                 foreach ($array_id as $value) {
                     $DATA = Course::where('id', $value)->get();
@@ -89,6 +91,9 @@ class CartController extends Controller
         if (!$cart) {
             $cart = [$id => []];
             session()->put('cart', $cart);
+
+            // Store in the cart table also if the user is logged in
+            
             if (Auth()->user()) {
 
                 $user_id = Auth()->user()->id;

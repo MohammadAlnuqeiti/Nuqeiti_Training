@@ -100,7 +100,8 @@ class AddCourseController extends Controller
         $category=Category::all();
         $course = Course::where('id', $id)->get();
 
-        // $trip=Trip::findOrFail($id); is emptyما بتزبط مع ال
+        // $course=Course::findOrFail($id); is emptyما بتزبط مع ال
+
         if($course->isEmpty()) {
             return redirect()->back();
         }
@@ -127,8 +128,6 @@ class AddCourseController extends Controller
             'duration_of_the_course' => ['required','numeric'],
             'course_price' => ['required','numeric'],
             'select' => ['required'],
-            // 'video_course' => ['required','mimetypes:video/avi,video/mpeg,video/mp4','max:102400'],
-            // 'course_image' => ['required','image','mimes:jpg,png,jpeg,gif','max:2048'],
         ]);
 
 
@@ -140,6 +139,7 @@ class AddCourseController extends Controller
         $data->price = $request->course_price;
         $data->category_id = $request->select;
         $data->duration_of_the_course = $request->duration_of_the_course;
+        
         if ( $request->file('course_image')) {
             $photoName = $request->file('course_image')->getClientOriginalName();
             $request->file('course_image')->storeAs('public/image', $photoName);

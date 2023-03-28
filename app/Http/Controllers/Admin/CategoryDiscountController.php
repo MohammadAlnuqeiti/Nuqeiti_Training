@@ -37,13 +37,15 @@ class CategoryDiscountController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->select);
         $request->validate([
             'select_category' => ['required'],
             'discount_category' => ['required'],
         ]);
 
         $category_id = $request->select_category;
+
+        //  get courses by category
+
         $courses = Course::where('category_id', $category_id)->get();
 
         // update discount category
@@ -55,6 +57,7 @@ class CategoryDiscountController extends Controller
 
 
         // update price of courses
+        
         foreach($courses as $course){
             $data = Course::findOrfail($course->id);
             $data->discount = $request->discount_category;
