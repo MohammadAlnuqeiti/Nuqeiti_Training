@@ -17,10 +17,10 @@ use Illuminate\Http\Request;
 class PublicUserController extends Controller
 {
     public function index(){
+        // dd(Auth()->user()->id);
 
         if(session()->has('cart')){
             if(Auth()->user()){
-
                 if(Auth()->user()->role=="engineer"){
 
                     session()->forget('cart');

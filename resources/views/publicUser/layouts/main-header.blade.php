@@ -38,8 +38,8 @@
             @endif
             @if(Auth::user())
             <li>
-
-                <a href="{{route('user.login.destroy')}}" class="nav-link">logout</a>
+                <a href="{{route('logout')}}" class="nav-link">logout</a>
+                {{-- <a href="{{route('user.login.destroy')}}" class="nav-link">logout</a> --}}
             </li>
             @endif
             @if(!Auth::user())

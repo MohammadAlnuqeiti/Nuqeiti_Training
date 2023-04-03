@@ -70,6 +70,7 @@ About
     </div>
 </section>
 <section id="feature">
+    
     <div class="container">
 
         <div id="featurecard">
