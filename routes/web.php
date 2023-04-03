@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\CategoryDiscountController;
 use App\Http\Controllers\Admin\CourseDiscountController;
 use App\Http\Controllers\Admin\DeleteDiscountController;
 use App\Http\Controllers\Admin\EditStatusController;
+use App\Http\Controllers\Admin\FeatureCourseController;
 use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Admin\PdfController;
 use App\Http\Controllers\SubscriberController;
@@ -93,6 +94,8 @@ Route::get('/discount/create',[DiscountController::class,'addDiscount'])->name('
 Route::get('/discount/delete',[DeleteDiscountController::class,'deleteDiscountCourse'])->name('course.delete');
 Route::get('/download/{file}',[PdfController::class,'download'])->name('downloadcv');
 Route::get('/view/{file}',[PdfController::class,'view'])->name('viewcv');
+Route::get('/AddFeatue/{id}',[FeatureCourseController::class,'AddFeatue'])->name('AddFeatue');
+Route::get('/RemoveFeatue/{id}',[FeatureCourseController::class,'RemoveFeatue'])->name('RemoveFeatue');
 Route::get('/orders', OrdersController::class)->name('orders');
 
 

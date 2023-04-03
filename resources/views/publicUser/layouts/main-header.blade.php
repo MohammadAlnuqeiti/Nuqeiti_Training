@@ -1,8 +1,11 @@
+<!-- start header  -->
+
 <header class="header">
 
     <a href="{{route('user.index')}}">
         <img  id="logo" src="/userSide/img/logo.png" alt="">
     </a>
+<!-- search  -->
 
     <div style="width: 90%;">
         <form action="{{ route('user.search') }}" method="post" id="form" class="form">
@@ -10,12 +13,9 @@
             <input class="search" type="search" name="search" placeholder="Search...">
             <button type="submit" class="button">Search</button>
         </form>
-        {{-- <form id="form" class="form">
-            <input type="search" placeholder="Search..." required class="search">
-            <input type="button" value="Search" class="button">
-        </form> --}}
     </div>
 
+<!-- search  -->
     <div class="navbar">
 
         <ul class="nav-menu">
@@ -66,37 +66,6 @@
                 @endif
             </li>
             @endif
-            {{-- <a href="{{route('user.profile.index')}}" class="btn btn-primary rounded-pill py-2 px-4">Account</a> --}}
-            {{-- <li>
-
-                <a href="{{route('user.cart')}}" class="nav-link">Cart</a>
-            </li> --}}
-            {{-- <li>
-                <a href="{{route('user.cart')}}" >
-                    <span class="fa-stack fa-2x has-badge" data-count="5">
-                        <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
-                        <i style="" class="fa fa-shopping-cart fa-stack-2x red-cart"></i>
-                      </span>
-                </a>
-            </li> --}}
-            {{-- <li>
-                <a href="{{route('user.cart')}}" >
-                    <span class="fa-stack fa-2x has-badge" data-count="5">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                </a>
-            </li> --}}
-            {{-- <li>
-                <a href="{{route('user.cart')}}" >
-                    <div class="cart">
-                        @if(session()->has('cart') && count(session('cart'))>0)
-                        <span class="count">{{count(session('cart'))}}</span>
-                        @endif
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                </a>
-            </li> --}}
         </ul>
     </div>
     <div class="hamburger">
@@ -123,11 +92,16 @@
 
 
 </header>
+<!-- end header  -->
+<!-- start header search responsive -->
+
 <header id="hidden" class="header">
-<div style="width: 90%;">
-    <form id="form">
-        <input type="search" placeholder="Search..." required class="search">
-        <input type="button" value="Search" class="button">
-    </form>
-</div>
+    <div style="width: 90%;">
+        <form id="form">
+            <input type="search" placeholder="Search..." required class="search">
+            <input type="button" value="Search" class="button">
+        </form>
+    </div>
 </header>
+
+<!-- end header search responsive -->

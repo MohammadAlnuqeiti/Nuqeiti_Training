@@ -52,8 +52,13 @@ class EngineeringController extends Controller
      */
     public function show($id)
     {
-        $data = User::findOrfail($id);
-
+        $data = User::where('id',$id)->first();
+        if(count(User::all()) < $id || $id < 0){
+            return redirect()->back();
+        }
+        // if($data->isEmpty()) {
+        //     return redirect()->back();
+        // }
         return view('admin.engineering.details',['data'=>$data]);
 
     }

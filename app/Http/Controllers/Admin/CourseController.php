@@ -31,6 +31,7 @@ class CourseController extends Controller
                 'video' => $course->video_course,
                 'discount' => $course->discount,
                 'new_price' => $course->new_price,
+                'feature' => $course->feature,
                 'status' => $course->status,
                 'duration_of_the_course' => $course->duration_of_the_course,
                 'category' => isset($course->category) ? $course->category->name : "",

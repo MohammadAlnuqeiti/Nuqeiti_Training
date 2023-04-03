@@ -140,7 +140,7 @@ Edit course
                     <label for="exampleSelectRounded0">Category <code></code></label>
                     <select class="custom-select rounded-0" id="exampleSelectRounded0" name="select"   class="@error('select') is-invalid @enderror">
                         @foreach($category as $value)
-                            <option value="{{$value->id}}">{{$value->name}}</option>
+                            <option value="{{$value->id}}" {{$data->category_id == $value->id ? 'selected' : ''}}>{{$value->name}}</option>
                         @endforeach
                     </select>
                     @error('select')

@@ -13,93 +13,67 @@ Cart
 
 
 @section('content')
+
 <section class="cart">
-{{-- {{dd($data)}} --}}
     <table>
         <tr>
             <th>course</th>
             <th>Remove</th>
             <th>price</th>
-            {{-- <th>New Price</th> --}}
         </tr>
+
         <?php $total_price=0 ?>
-@if(count($data)==0)
-<tr>
-    <td colspan="3" style="text-align: center; font-size:20px">Cart is empty...</td>
-</tr>
+        {{-- if empty cart  --}}
+        @if(count($data)==0)
 
-@else
-@foreach ($data as $value)
+            <tr>
+                <td colspan="3" style="text-align: center; font-size:20px">Cart is empty...</td>
+            </tr>
 
-<tr>
-    <td>
-        <?php
-        $img=$value['course_image']
-        ?>
+        @else
 
-        <div class="cart-info">
-            <img src="{{URL::asset("storage/image/$img")}}" alt="{{$value['course_name']}}">
-            <div>
-                <p style="max-width:250px;">{{$value['course_name']}}</p>
-                <small> {{$value['course_category']}}</small><br>
+            @foreach ($data as $value)
 
+                <tr>
+                    <td>
+                        <?php $img=$value['course_image']?>
 
-            </div>
-        </div>
-    </td>
-    <td>
-        {{-- <form action="{{Route('user.cart.destroy',$value['course_id'])}}" method="get">
-            @csrf
-            <input name="_method" type="hidden" value="DELETE">
-            <button type="submit" class="btn btn-sm btn-block  bg-gradient-danger  show_confirm"  data-toggle="tooltip" title='Delete'>Delete</button>
-        </form> --}}
-         <a href="{{Route('user.cart.destroy',$value['course_id'])}}">remove</a>
+                        <div class="cart-info">
+                            <img src="{{URL::asset("storage/image/$img")}}" alt="{{$value['course_name']}}">
+                            <div>
+                                <p style="max-width:250px;">{{$value['course_name']}}</p>
+                                <small> {{$value['course_category']}}</small><br>
 
 
-    </td>
-    @if($value['course_discount']>0)
-    <td>{{$value['course_new_price']}} JD</td>
-    <?php $total_price+=$value['course_new_price'] ?>
-
-    @else
-
-    <td>{{$value['course_price']}} JD</td>
-    <?php $total_price+=$value['course_price'] ?>
-    @endif
-</tr>
-
-@endforeach
-@endif
-        {{-- <tr>
-            <td>
-                <div class="cart-info">
-                    <img src="userSide/img/1215970_a5f8_11.jpg" alt="">
-                    <div>
-                        <p style="max-width:250px;">The Comprehensive ETABS Professional Course (RCC and Steel)</p>
-                        <small>Nike Sneaker</small><br>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        {{-- <form action="{{Route('user.cart.destroy',$value['course_id'])}}" method="get">
+                            @csrf
+                            <input name="_method" type="hidden" value="DELETE">
+                            <button type="submit" class="btn btn-sm btn-block  bg-gradient-danger  show_confirm"  data-toggle="tooltip" title='Delete'>Delete</button>
+                        </form> --}}
+                        <a href="{{Route('user.cart.destroy',$value['course_id'])}}">remove</a>
 
 
-                    </div>
-                </div>
-            </td>
-            <td>   <a href="">remove</a></td>
-            <td>50.00 JD</td>
-        </tr>
-        <tr>
-            <td>
-                <div class="cart-info">
-                    <img src="userSide/img/1215970_a5f8_11.jpg" alt="">
-                    <div>
-                        <p style="max-width:250px;">The Comprehensive ETABS Professional Course (RCC and Steel)</p>
-                        <small>Nike Sneaker</small><br>
+                    </td>
+                    @if($value['course_discount']>0)
+                    
+                        <td>{{$value['course_new_price']}} JD</td>
+                        <?php $total_price+=$value['course_new_price'] ?>
 
+                    @else
 
-                    </div>
-                </div>
-            </td>
-            <td>    <a href="">remove</a></td>
-            <td>50.00 JD</td>
-        </tr> --}}
+                        <td>{{$value['course_price']}} JD</td>
+                        <?php $total_price+=$value['course_price'] ?>
+
+                    @endif
+                </tr>
+
+            @endforeach
+        @endif
+
     </table>
 
 
@@ -161,9 +135,12 @@ Cart
       });
     });
   </script>
+
       {{-- sweet alert --}}
+
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.all.min.js"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.all.min.js"></script>
 
       <script type="text/javascript">
 

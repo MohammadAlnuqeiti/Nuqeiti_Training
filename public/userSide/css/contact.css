@@ -468,7 +468,6 @@ header {
     border-radius: 20px;
     margin: 20px auto;
 }
-
 @media (max-width: 768px) {
     .contact_body .contact_info {
         display: flex;
@@ -498,13 +497,12 @@ header {
 
 
 }
-
 /* End Contact US PAGE  */
-  /* --------------------- footer  ------------------ */
 
-  .footer {
+/* --------------------- footer  ------------------ */
+
+.footer {
     background-color: rgb(7, 57, 62);
-    /* background-color: #24262b; */
     padding: 70px 0;
     font-family: 'Poppins', sans-serif;
 }

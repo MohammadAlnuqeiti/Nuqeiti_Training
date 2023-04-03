@@ -87,55 +87,54 @@ Add course
                   <label for="exampleInputEmail1">Name</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" name="course_name" placeholder="Enter name" value="{{ old('course_name')}}" class="@error('course_name') is-invalid @enderror">
                   <input type="hidden" class="form-control" id="exampleInputEmail1" name="user_id"  value="{{Auth::user()->id}}">
-                  @error('course_name')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
+                    @error('course_name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputEmail11">Short description</label>
                   <input type="text" class="form-control" id="exampleInputEmail11" name="short_description" placeholder="Enter Long description" value="{{ old('short_description')}}" class="@error('short_description') is-invalid @enderror">
-                  @error('short_description')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
+                    @error('short_description')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail11">Long description</label>
                   <input type="text" class="form-control" id="exampleInputEmail11" name="long_description" placeholder="Enter Long description" value="{{ old('long_description')}}" class="@error('long_description') is-invalid @enderror">
-                  @error('long_description')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
+                    @error('long_description')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">duration of the course (hour)</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="duration_of_the_course" placeholder="Enter duration" value="{{ old('duration_of_the_course')}}" class="@error('duration_of_the_course') is-invalid @enderror">
+                  <label for="exampleInputEmail1">duration of the course (hour)</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="duration_of_the_course" placeholder="Enter duration" value="{{ old('duration_of_the_course')}}" class="@error('duration_of_the_course') is-invalid @enderror">
                     @error('duration_of_the_course')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                   @enderror
+                     <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                   </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Price</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" name="course_price" placeholder="Enter price" value="{{ old('course_price')}}" class="@error('course_price') is-invalid @enderror">
-                  @error('course_price')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
+                    @error('course_price')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
-                    <label for="exampleSelectRounded0">Category <code></code></label>
-                    <select class="custom-select rounded-0" id="exampleSelectRounded0" name="select" class="@error('select') is-invalid @enderror">
-                        @foreach($category as $value)
-                            <option value="{{$value->id}}">{{$value->name}}</option>
-                        @endforeach
-                    </select>
+                  <label for="exampleSelectRounded0">Category <code></code></label>
+                  <select class="custom-select rounded-0" id="exampleSelectRounded0" name="select" class="@error('select') is-invalid @enderror">
+                    @foreach($category as $value)
+                        <option value="{{$value->id}}">{{$value->name}}</option>
+                    @endforeach
+                  </select>
                     @error('select')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                   @enderror
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                   </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Image</label>
                   <div class="input-group">
                     <div class="custom-file">
-                        {{-- <input id="trip_image" type="file" name="trip_image" placeholder="Upload Image" value="{{ old('trip_image')}}" class="@error('trip_image') is-invalid @enderror"><br><br> --}}
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="course_image" value="{{ old('course_image')}}" class="@error('course_image') is-invalid @enderror">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                     </div>
@@ -144,8 +143,8 @@ Add course
                     </div>
                     </div>
                         @error('course_image')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                 </div>
                 <div class="form-group">
                     <label for="video_course">Upload Video</label>
@@ -158,29 +157,13 @@ Add course
                           <span class="input-group-text">Upload</span>
                       </div>
                       </div>
-                          @error('video_course')
-                          <div class="alert alert-danger">{{ $message }}</div>
-                      @enderror
+                        @error('video_course')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                   </div>
-                {{-- <div class="form-group">
-                  <label for="exampleInputFile">Image two</label>
-                  <div class="input-group">
-                    <div class="custom-file">
-                        <input id="trip_image" type="file" name="trip_image" placeholder="Upload Image" value="{{ old('trip_image')}}" class="@error('trip_image') is-invalid @enderror"><br><br>
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="trip_image2" value="{{ old('trip_image2')}}" class="@error('trip_image2') is-invalid @enderror">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                    </div>
-                    <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                    </div>
-                    </div>
-                        @error('trip_image2')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div> --}}
-              <div class="card-footer">
-                <button type="submit" class="btn btn-danger" style="background-color:red">Submit</button>
-              </div>
+                  <div class="card-footer">
+                        <button type="submit" class="btn btn-danger" style="background-color:red">Submit</button>
+                  </div>
 
           </div>
         </form>

@@ -2,6 +2,9 @@
 <span class="up"> <i class="fa-solid fa-up-long"></i></span>
 <!-- Scroll to top -->
 
+
+<!-- start footer -->
+
 <footer class="footer">
     <div class="cont_footer">
         <div class="row_footer">
@@ -63,3 +66,6 @@
 <div class="footer-botoom">
     <p> Copyright &copy; 2023 <span>Nuqeiti For Training </span> . designed by <span> Mohammad Al-nuqeiti </span> </p>
 </div>
+
+<!-- end footer -->
+

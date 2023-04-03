@@ -61,6 +61,7 @@ Courses
               <tr>
                 <th style="text-align: center">#</th>
                 <th style="text-align: center">Name</th>
+                <th style="text-align: center">Feature</th>
                 <th style="text-align: center">Status</th>
                 <th style="text-align: center">Edit status</th>
                 <th style="text-align: center">More details</th>
@@ -81,6 +82,14 @@ Courses
                 <tr>
                     <td style="text-align: center">{{$value['id']}}</td>
                     <td style="text-align: center">{{$value['name']}}</td>
+                    @if ($value['feature']==1)
+
+                    <td style="text-align: center"><a href="{{route('admin.RemoveFeatue',$value['id'])}}"><i class="fa-solid fa-star" style="color: #07393e;"></i></a></td>
+
+                    @else
+
+                    <td style="text-align: center"><a href="{{route('admin.AddFeatue',$value['id'])}}"><i class="fa-regular fa-star" style="color: #07393e;"></i></a></td>
+                    @endif
                     @if ($value['status']	=="accepted")
                     <td style="text-align: center"><span class="badge bg-success">Accepted</span></td>
                     @elseif ($value['status']	=="rejected")

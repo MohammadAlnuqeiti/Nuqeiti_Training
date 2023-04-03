@@ -155,13 +155,13 @@ class ProfileUserController extends Controller
 
             $data->phone = $request->phone;
         }
-        if ( $request->file('update_image')) {
+        if ($request->file('update_image')) {
             $photoName = $request->file('update_image')->getClientOriginalName();
             $request->file('update_image')->storeAs('public/image', $photoName);
             $data->image = $photoName;
 
         }
-        if ( $request->password) {
+        if ($request->password) {
             $data->password = Hash::make($request->password);
         }
 
