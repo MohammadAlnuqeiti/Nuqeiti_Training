@@ -55,8 +55,11 @@ Search
 
 
             @endforeach
+
             @else
+
                 <p>Results not found ...</p>
+                
             @endif
     </div>
  </div>

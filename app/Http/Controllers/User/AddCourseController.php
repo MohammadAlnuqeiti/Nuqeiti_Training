@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AddCourseController extends Controller
 {
@@ -100,9 +101,17 @@ class AddCourseController extends Controller
         $category=Category::all();
         $course = Course::where('id', $id)->get();
 
+        //لحتى ما يقدر المهندس يعدل على دورة مهندس اخر
+
+        $courses_user = Course::where('user_id', Auth()->user()->id)->get();
+        $id_courses_user=[];
+        foreach ($courses_user as  $value) {
+            array_push($id_courses_user, $value->id);
+        }
+
         // $course=Course::findOrFail($id); is emptyما بتزبط مع ال
 
-        if($course->isEmpty()) {
+        if($course->isEmpty() || !in_array($id, $id_courses_user)) {
             return redirect()->back();
         }
 
@@ -139,7 +148,7 @@ class AddCourseController extends Controller
         $data->price = $request->course_price;
         $data->category_id = $request->select;
         $data->duration_of_the_course = $request->duration_of_the_course;
-        
+
         if ( $request->file('course_image')) {
             $photoName = $request->file('course_image')->getClientOriginalName();
             $request->file('course_image')->storeAs('public/image', $photoName);

@@ -10,6 +10,7 @@ use App\Models\Course;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileEngineerController extends Controller
 {
@@ -96,6 +97,9 @@ class ProfileEngineerController extends Controller
     public function edit($id)
     {
         $data=User::where('id',$id)->get();
+        if($data->isEmpty() || $id != Auth()->user()->id) {
+            return redirect()->back();
+        }
         return view('publicUser.editProfileEngineering',['data'=>$data]);
     }
 

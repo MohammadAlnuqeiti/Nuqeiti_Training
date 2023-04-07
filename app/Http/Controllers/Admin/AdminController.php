@@ -91,6 +91,10 @@ class AdminController extends Controller
     {
 
         $data=User::where('id',$id)->first();
+        
+        if($data == "" || $id != Auth()->user()->id) {
+            return redirect()->back();
+        }
         return view('admin.admin.editProfile',['data'=>$data]);
 
     }
@@ -108,7 +112,7 @@ class AdminController extends Controller
         $user->name=$request->name;
         $user->phone=$request->phone;
 
-        
+
         if($email !==$request->email){
             $request->validate([
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],

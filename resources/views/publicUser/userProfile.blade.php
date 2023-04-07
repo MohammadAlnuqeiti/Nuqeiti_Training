@@ -29,9 +29,7 @@ Profile
 
 @section('content')
 <div class="header_wrapper">
-    <?php
-    $img=$data[0]['image']
-    ?>
+    <?php $img=$data[0]['image'] ?>
     <header></header>
     <div class="col_container">
         <div class="left_col">
@@ -73,25 +71,20 @@ Profile
             </nav>
 
             @if(session()->get('success'))
-            <div class="success-msg">
-                <i class="fa fa-check"></i>
-
-                {{ session()->get('success') }}
-            </div>
-        @endif
-            <div class="photos">
-                {{-- <div class="success-msg">
+                <div class="success-msg">
                     <i class="fa fa-check"></i>
-                    This is a success message.
-                  </div> --}}
-    <!-- <div class="container"> -->
+
+                    {{ session()->get('success') }}
+                </div>
+            @endif
+
+            <div class="photos">
+
                 @foreach($courses as $course)
 
 
                     <div class="card">
-                        <?php
-                        $img=$course['image']
-                        ?>
+                        <?php $img=$course['image'] ?>
                         <img src="{{URL::asset("storage/image/$img")}}" alt=""/>
                         <div class="card-body">
                             <div class="row">
@@ -109,56 +102,9 @@ Profile
 
                 @endforeach
 
-{{--
-        <div class="card">
-            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-            <div class="card-body">
-                <div class="row">
-                    <div class="card-title">
-                        <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                        <p>Nike Sneaker</p>
-                    </div>
-                </div>
-
-                <div class="btn">
-                    <a href="">Show course</a>
-                </div>
             </div>
-        </div>
-        <div class="card">
-            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-            <div class="card-body">
-                <div class="row">
-                    <div class="card-title">
-                        <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                        <p>Nike Sneaker</p>
-                    </div>
-                </div>
-
-                <div class="btn">
-                    <a href="">Show course</a>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-            <div class="card-body">
-                <div class="row">
-                    <div class="card-title">
-                        <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                        <p>Nike Sneaker</p>
-                    </div>
-                </div>
-
-                <div class="btn">
-                    <a href="">Show course</a>
-                </div>
-            </div>
-        </div> --}}
-    </div>
 
         </div>
-    <!-- </div> -->
 </div>
 
 @endsection

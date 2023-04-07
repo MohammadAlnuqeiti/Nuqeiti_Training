@@ -50,10 +50,6 @@ Profile
                 <a href="http://wa.me/+962{{$data[0]->phone}}" target="_blank"><i class="fa-solid fa-square-phone"></i></a>
                 <a href="mailto:{{$data[0]->email}}"><i class="fa-solid fa-envelope"> </i></a>
                 <a href="{{$data[0]->Linkedin_link}}" target="_blank"><i class="fa-brands fa-linkedin"> </i></a>
-                {{-- <a href="#"><i class="fa-brands fa-facebook"></i> </a>
-                <a href="#"><i class="fa-solid fa-square-phone"></i></a>
-                <a href="#"><i class="fa-solid fa-envelope"> </i></a>
-                <a href="{{$data[0]->Linkedin_link}}"><i class="fa-brands fa-linkedin"> </i></a> --}}
             </div>
             <!-- <div class="icon">
                 <ul >
@@ -70,7 +66,8 @@ Profile
             </ul>
             <div class="content">
                 <p>
-{{$data[0]->the_description}}                </p>
+                    {{$data[0]->the_description}}
+                </p>
                 <ul class="ul">
                     <!-- <li><i class="fap fa-twitter"></i></li>
                     <li><i class="fap fa-twitter"></i></li>
@@ -95,76 +92,33 @@ Profile
             </nav>
 
             <div class="photos">
-    <!-- <div class="container"> -->
-        @foreach($data_courses as $value)
-        <?php $img=$value['image'] ?>
 
-        <div class="card">
-            <img src="{{URL::asset("storage/image/$img")}}" alt="{{$value['name']}}"/>
-            <div class="card-body">
-                <div class="row">
-                    <div class="card-title">
-                        <h3>{{$value['name']}}</h3><br>
-                        <p>{{$value['category']}}</p>
+                @foreach($data_courses as $value)
+
+                <?php $img=$value['image'] ?>
+
+                    <div class="card">
+                        <img src="{{URL::asset("storage/image/$img")}}" alt="{{$value['name']}}"/>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="card-title">
+                                    <h3>{{$value['name']}}</h3><br>
+                                    <p>{{$value['category']}}</p>
+                                </div>
+                            </div>
+
+                            <div class="btn">
+                                <a href="{{route('user.course_details.show',$value['id'])}}">Show course</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="btn">
-                    <a href="{{route('user.course_details.show',$value['id'])}}">Show course</a>
-                </div>
+                @endforeach
+
             </div>
+
         </div>
-        @endforeach
-        {{-- <div class="card">
-            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-            <div class="card-body">
-                <div class="row">
-                    <div class="card-title">
-                        <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                        <p>Nike Sneaker</p>
-                    </div>
-                </div>
-
-                <div class="btn">
-                    <a href="">Show course</a>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-            <div class="card-body">
-                <div class="row">
-                    <div class="card-title">
-                        <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                        <p>Show Sneaker</p>
-                    </div>
-                </div>
-
-                <div class="btn">
-                    <a href="">Show course</a>
-                </div>
-            </div>
-        </div> --}}
-        {{-- <div class="card">
-            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-            <div class="card-body">
-                <div class="row">
-                    <div class="card-title">
-                        <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                        <p>Nike Sneaker</p>
-                    </div>
-                </div>
-
-                <div class="btn">
-                    <a href="">Show course</a>
-                </div>
-            </div>
-        </div> --}}
     </div>
-
-        </div>
-    <!-- </div> -->
-</div>
 
 @endsection
 

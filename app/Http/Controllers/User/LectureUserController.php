@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\Lecture;
 
 use Illuminate\Http\Request;
@@ -76,6 +77,18 @@ class LectureUserController extends Controller
     public function show($id)
     {
         $lectures = Lecture::where('course_id',$id)->get();
+
+        //لحتى ما يقدر المهندس يعدل على دورة مهندس اخر
+
+        $courses_user = Course::where('user_id', Auth()->user()->id)->get();
+        $id_courses_user=[];
+        foreach ($courses_user as  $value) {
+            array_push($id_courses_user, $value->id);
+        }
+
+        if($lectures->isEmpty() || !in_array($id, $id_courses_user)) {
+            return redirect()->back();
+        }
         // dd($lectures);
         return view('publicUser.lectureCourse',['lectures'=>$lectures,'course_id'=>$id]);
 
@@ -90,8 +103,19 @@ class LectureUserController extends Controller
     public function edit($id)
     {
         $lecture = Lecture::where('id', $id)->get();
+        $courses_user = Course::where('user_id', Auth()->user()->id)->get();
+        $id_courses_user=[];
+        foreach ($courses_user as  $value) {
+            array_push($id_courses_user, $value->id);
+        }
+        $id_lecture_courses="";
+        foreach ($lecture as  $value) {
+            // array_push($id_lecture_courses, $value->course_id);
+            $id_lecture_courses=$value->course_id;
+        }
+        // dd($id_lecture_courses);
 
-        if($lecture->isEmpty()) {
+        if($lecture->isEmpty() || !in_array($id_lecture_courses, $id_courses_user)) {
             return redirect()->back();
         }
 

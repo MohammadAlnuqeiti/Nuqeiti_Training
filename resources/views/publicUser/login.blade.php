@@ -29,15 +29,15 @@ login
         @csrf
         <label for="">E-mail</label>
         <input type="email" name="email" class="@error('email') is-invalid @enderror" value="{{ old('email')}}">
-        @error('email')
-        <div class="error">{{ $message }}</div>
-       @enderror
+            @error('email')
+                <div class="error">{{ $message }}</div>
+            @enderror
         <label for="">Password</label>
         <input type="password" name="password" class="@error('password') is-invalid @enderror" value="{{ old('password')}}">
-        @error('password')
-        <div class="error">{{ $message }}</div>
-       @enderror
-        <p>Forgot Password?</p>
+            @error('password')
+                <div class="error">{{ $message }}</div>
+            @enderror
+        {{-- <p>Forgot Password?</p> --}}
         <button type="submit">Login</button>
         <p>Don't have an account?<a href="{{route('user.register')}}" >Sign up</a></p>
     </form>

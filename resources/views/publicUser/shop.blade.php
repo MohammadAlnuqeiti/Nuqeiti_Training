@@ -77,14 +77,15 @@ Courses
     <div class="row">
         <h2 class="title2">all product</h2>
         <select name="" id="" onchange="location = this.value">
+            
             <option value="">Select category</option>
+
             <option value="{{route('user.shop')}}">ALL COURSE</option>
+
             @foreach ($category as $value)
-            <option value="{{route('user.shop.category',$value->id)}}">{{strtoupper($value->name)}}</option>
+                <option value="{{route('user.shop.category',$value->id)}}">{{strtoupper($value->name)}}</option>
             @endforeach
-            {{-- <option value="">CIVIL ENGINEERING</option>
-            <option value="">ELECTRICAL ENGINEERING</option>
-            <option value="">MECHANICAL ENGINEERING</option> --}}
+
         </select>
     </div>
     <div class="row_1">
@@ -92,256 +93,51 @@ Courses
             <a href="{{route('user.shop')}}">ALL COURSE</a>
         </div>
         @foreach ($category as $value)
-        <div>
-            <a href="{{route('user.shop.category',$value->id)}}">{{strtoupper($value->name)}}</a>
-        </div>
+            <div>
+                <a href="{{route('user.shop.category',$value->id)}}">{{strtoupper($value->name)}}</a>
+            </div>
         @endforeach
-        {{-- <div>
-            <a href="{{route('user.shop.category',2)}}">ELECTRICAL ENGINEERING</a>
-        </div>
-        <div>
-            <a href="#">MECHANICAL ENGINEERING</a>
-        </div> --}}
     </div>
     <div class="row_2">
         @foreach ($data as $value)
-        <div class="card">
-            <?php
-            $img=$value['image']
-            ?>
+            <div class="card">
+                <?php $img=$value['image'] ?>
 
-            <img src="{{URL::asset("storage/image/$img")}}" alt="{{$value['name']}}"/>
-            <div class="card-body">
-                <div class="row">
-                    <div class="card-title">
-                        <h3>{{$value['name']}}</h3><br>
-                        <p>{{$value['user']->name}}</p>
-                        @if($value['discount'] == 0)
-                        <h3>{{$value['price']}} JD</h3><br>
-                        @else
-                        <h3><s>{{$value['price']}} JD</s><span style="color:red;font-size:1.125em;">  {{$value['new_price']}} JD</span></h3><br>
-                        @endif
+                <img src="{{URL::asset("storage/image/$img")}}" alt="{{$value['name']}}"/>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="card-title">
+                            <h3>{{$value['name']}}</h3><br>
+                            <p>{{$value['user']->name}}</p>
+                            @if($value['discount'] == 0)
+                            <h3>{{$value['price']}} JD</h3><br>
+                            @else
+                            <h3><s>{{$value['price']}} JD</s><span style="color:red;font-size:1.125em;">  {{$value['new_price']}} JD</span></h3><br>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="btn">
+                        <a href="{{route('user.course_details.show',$value['id'])}}">More details</a>
                     </div>
                 </div>
-
-                <div class="btn">
-                    <a href="{{route('user.course_details.show',$value['id'])}}">More details</a>
-                </div>
             </div>
-        </div>
         @endforeach
 
 
 
-            {{-- <div class="card">
-                <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="card-title">
-                            <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                            <p>Nike Sneaker</p>
-                            <h3>$120</h3><br>
-                        </div>
-                    </div>
-
-                    <div class="btn">
-                        <a href="">Buy Now</a>
-                    </div>
-                </div>
-            </div> --}}
-            {{-- <div class="card">
-                <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="card-title">
-                            <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                            <p>Nike Sneaker</p>
-                            <h3>$120</h3><br>
-                        </div>
-                    </div>
-
-                    <div class="btn">
-                        <a href="">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="card-title">
-                            <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                            <p>Nike Sneaker</p>
-                            <h3>$120</h3><br>
-                        </div>
-                    </div>
-
-                    <div class="btn">
-                        <a href="">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="card-title">
-                            <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                            <p>Nike Sneaker</p>
-                            <h3>$120</h3><br>
-                        </div>
-                    </div>
-
-                    <div class="btn">
-                        <a href="">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="card-title">
-                            <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                            <p>Nike Sneaker</p>
-                            <h3>$120</h3><br>
-                        </div>
-                    </div>
-
-                    <div class="btn">
-                        <a href="">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="card-title">
-                            <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                            <p>Nike Sneaker</p>
-                            <h3>$120</h3><br>
-                        </div>
-                    </div>
-
-                    <div class="btn">
-                        <a href="">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="card-title">
-                            <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                            <p>Nike Sneaker</p>
-                            <h3>$120</h3><br>
-                        </div>
-                    </div>
-
-                    <div class="btn">
-                        <a href="">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="card-title">
-                            <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                            <p>Nike Sneaker</p>
-                            <h3>$120</h3><br>
-                        </div>
-                    </div>
-
-                    <div class="btn">
-                        <a href="">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="card-title">
-                            <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                            <p>Nike Sneaker</p>
-                            <h3>$120</h3><br>
-                        </div>
-                    </div>
-
-                    <div class="btn">
-                        <a href="">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="card-title">
-                            <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                            <p>Nike Sneaker</p>
-                            <h3>$120</h3><br>
-                        </div>
-                    </div>
-
-                    <div class="btn">
-                        <a href="">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="card-title">
-                            <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                            <p>Nike Sneaker</p>
-                            <h3>$120</h3><br>
-                        </div>
-                    </div>
-
-                    <div class="btn">
-                        <a href="">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="card-title">
-                            <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                            <p>Nike Sneaker</p>
-                            <h3>$120</h3><br>
-                        </div>
-                    </div>
-
-                    <div class="btn">
-                        <a href="">Buy Now</a>
-                    </div>
-                </div>
-            </div> --}}
 
 
     </div>
+
     @if($data->hasPages())
-    <div class="pagenation_center">
+        <div class="pagenation_center">
 
-        {{ $data->links() }}
-    </div>
+            {{ $data->links() }}
+
+        </div>
     @endif
-    {{-- <div class="page-btn">
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span><i class="fa-solid fa-arrow-right"></i></span>
 
-    </div> --}}
 
 
 </section>

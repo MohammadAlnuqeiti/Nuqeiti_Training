@@ -54,9 +54,7 @@ Profile
 @section('content')
 <div class="header_wrapper">
     <header></header>
-    <?php
-    $img=$data[0]->image
-    ?>
+    <?php $img=$data[0]->image ?>
     <div class="col_container">
         <div class="left_col">
             <div class="img_container">
@@ -102,102 +100,60 @@ Profile
             </div>
         </div>
         <div class="right_col">
+
             @if(Auth()->user()->status=='accepted')
-            <nav>
-                <h3>my courses</h3>
-                <ul class="ul">
-                    <!-- <li><a href="#">photo</a></li>
-                        <li><a href="#">photo</a></li>
-                        <li><a href="#">photo</a></li>
-                        <li><a href="#">photo</a></li> -->
-                    </ul>
-                <div>
 
-                    <button><a href="{{route('user.add_course.index')}}">Upload Course</a></button>
-                </div>
-            </nav>
+                <nav>
+                    <h3>my courses</h3>
+                    <ul class="ul">
+                        <!-- <li><a href="#">photo</a></li>
+                            <li><a href="#">photo</a></li>
+                            <li><a href="#">photo</a></li>
+                            <li><a href="#">photo</a></li> -->
+                        </ul>
+                    <div>
 
-            <div class="photos">
-                <!-- <div class="container"> -->
+                        <button><a href="{{route('user.add_course.index')}}">Upload Course</a></button>
+                    </div>
+                </nav>
+
+                <div class="photos">
+
                     @foreach($Data as $value)
-                    {{-- {{dd($value['name'])}} --}}
-                    <div class="card">
-                        <?php $img=$value['image']?>
-            <img src="{{URL::asset("storage/image/$img")}}" alt="{{$img}}"/>
-            <div class="card-body">
-                <div class="row">
-                    <div class="card-title">
-                        <h3>{{$value['name']}}</h3><br>
-                        <p>status : {{$value['status']}}</p>
-                        <p>{{$value['category']}}</p>
+
+                        <div class="card">
+                            <?php $img=$value['image']?>
+                            <img src="{{URL::asset("storage/image/$img")}}" alt="{{$img}}"/>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="card-title">
+                                        <h3>{{$value['name']}}</h3><br>
+                                        <p>status : {{$value['status']}}</p>
+                                        <p>{{$value['category']}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="btn">
+                                    <a href="{{route('user.add_course.edit',$value['id'])}}">Edit course</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        @endforeach
+                </div>
+
+            @else
+                <div style="display: flex;align-items: center;justify-content: center;height:100%;">
+
+                    <div class="message">
+
+                        <p>Dear engineer, you cannot modify your account or enjoy the privillages of an engineer on the site unless you obtain the approval of the administration.</p>
                     </div>
                 </div>
-
-                <div class="btn">
-                    <a href="{{route('user.add_course.edit',$value['id'])}}">Edit course</a>
-                </div>
-            </div>
+            @endif
         </div>
 
-        @endforeach
-        {{-- <div class="card">
-            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-            <div class="card-body">
-                <div class="row">
-                    <div class="card-title">
-                        <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                        <p>Nike Sneaker</p>
-                    </div>
-                </div>
-
-                <div class="btn">
-                    <a href="">Edit course</a>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-            <div class="card-body">
-                <div class="row">
-                    <div class="card-title">
-                        <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                        <p>Nike Sneaker</p>
-                    </div>
-                </div>
-
-                <div class="btn">
-                    <a href="">Edit course</a>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/userSide/img/1215970_a5f8_11.jpg" alt=""/>
-            <div class="card-body">
-                <div class="row">
-                    <div class="card-title">
-                        <h3>The Complete Basic Electricity & Electronics Course</h3><br>
-                        <p>Nike Sneaker</p>
-                    </div>
-                </div>
-
-                <div class="btn">
-                    <a href="">Show course</a>
-                </div>
-            </div>
-        </div> --}}
-        @else
-        <div style="display: flex;align-items: center;justify-content: center;height:100%;">
-
-            <div class="message">
-
-                <p>Dear engineer, you cannot modify your account or enjoy the privillages of an engineer on the site unless you obtain the approval of the administration.</p>
-            </div>
-        </div>
-        @endif
     </div>
-
-</div>
-<!-- </div> -->
 </div>
 
 @endsection

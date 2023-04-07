@@ -85,47 +85,36 @@ Add course
                 @csrf
 
               <div class="card-body">
+
                 <div class="form-group">
                   <label for="exampleInputEmail1">Title</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" name="name" value="{{$data->name}}"  class="@error('name') is-invalid @enderror">
-                  @error('name')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
+                    @error('name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
+
                 <div class="form-group">
                   <label for="exampleInputEmail11">Description</label>
                   <input type="text" class="form-control" id="exampleInputEmail11" name="description" value="{{$data->description}}"  class="@error('description') is-invalid @enderror">
-                  @error('description')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
+                    @error('description')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
                 <div class="form-group">
                   <label for="exampleInputEmail1">Video source</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" name="video_lecture" value="{{$data->video_lecture}}" placeholder="Enter video url"  class="@error('video_lecture') is-invalid @enderror">
-                  @error('video_lecture')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
+                    @error('video_lecture')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
-                  {{-- <div class="form-group">
-                    <label for="exampleInputFile">Video</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="video_lecture" value="{{$data->video_lecture	}}" class="@error('video_lecture	') is-invalid @enderror">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
-                  </div>
-                  @error('video_lecture	')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
-              </div> --}}
 
-
-              <div class="card-footer">
-                <button type="submit" class="btn btn-primary" style="background-color:red">Submit</button>
-              </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary" style="background-color:red">Submit</button>
+                </div>
+                
               </div>
             </form>
           </div>

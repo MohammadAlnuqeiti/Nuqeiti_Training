@@ -69,144 +69,118 @@ Add course
 
 
 @section('content')
-<!-- /.row -->
-
+{{-- start lecture table --}}
 <div class="row container-fluid" style="margin: 50px auto 50px auto">
     <div class="col-9 m-auto">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title" style="color: white">Lectures</h3>
+        <div class="card">
+            <div class="card-header">
+            <h3 class="card-title" style="color: white">Lectures</h3>
 
+            </div>
         </div>
-        </div>
-        <!-- /.card-header -->
-
         <div class="card-body table-responsive p-0" >
-          <table class="table table-head-fixed text-nowrap">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Video</th>
-                <th>edit</th>
-                <th>delete</th>
-              </tr>
-            </thead>
-            <tbody>
-{{-- {{dd($data)}} --}}
-<?php   $course_id = $course_id  ?>
-<?php $i = 1 ?>
-                @foreach ($lectures as $value)
+             <table class="table table-head-fixed text-nowrap">
+
+                <thead>
                 <tr>
-                    <td>{{$i}}</td>
-                    <td>{{$value->name}}</td>
-                    <td>{{$value->description}}</td>
-                    <td>{{$value->video_lecture}}</td>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Video</th>
+                    <th>edit</th>
+                    <th>delete</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                    <?php   $course_id = $course_id  ?>
+                    <?php $i = 1 ?>
+
+                    @foreach ($lectures as $value)
+
+                        <tr>
+                            <td>{{$i}}</td>
+                            <td>{{$value->name}}</td>
+                            <td>{{$value->description}}</td>
+                            <td>{{$value->video_lecture}}</td>
+                            <td>
+                                <a href="{{Route('user.lectures.edit',$value->id)}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button></a>
+                            </td>
+                            <td>
+                                <form action="{{Route('user.lectures.destroy',$value->id)}}" method="post">
+                                    @method('delete')
+                                    @csrf
+
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <button type="submit" class="btn btn-sm btn-block  bg-gradient-danger  show_confirm"  data-toggle="tooltip" title='Delete'>Delete</button>
+                                </form>
+                            </td>
+
+                        </tr>
+
+                    <?php $i++ ?>
+
+                    @endforeach
 
 
-
-                <td>
-                    <a href="{{Route('user.lectures.edit',$value->id)}}"><button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button></a>
-                </td>
-                <td>
-                    <form action="{{Route('user.lectures.destroy',$value->id)}}" method="post">
-                        @method('delete')
-                        @csrf
-
-                        <input name="_method" type="hidden" value="DELETE">
-                        <button type="submit" class="btn btn-sm btn-block  bg-gradient-danger  show_confirm"  data-toggle="tooltip" title='Delete'>Delete</button>
-                      </form>
-
-</td>
-
-</tr>
-<?php $i++ ?>
-@endforeach
-
-
-</tbody>
-</table>
-</div>
-<!-- /.card-body -->
-</div>
-<!-- /.card -->
-</div>
-{{-- {{dd( $course_id)}} --}}
-
-
-
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
-  <!-- /.row -->
-<!-- /.row -->
+</div>
+{{-- end lecture table --}}
+
+{{-- start add lecture form --}}
+
+
 <div class="row container m-auto mt-5">
     <div class="col-12 m-auto">
         <div class="card card-primary">
             <div class="card-header" style="background-color:#07393E">
               <h3 class="card-title">Add new lecture</h3>
             </div>
-            <!-- /.card-header -->
-            <!-- form start -->
             <form action="{{route('user.lectures.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
-              <div class="card-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Enter name" value="{{ old('name')}}" class="@error('name') is-invalid @enderror">
-                  <input type="hidden" class="form-control" id="exampleInputEmail1" name="user_id"  value="{{Auth::user()->id}}">
-                  <input type="hidden" class="form-control" id="exampleInputEmail1" name="course_id"  value="{{$course_id}}">
-                  @error('name')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
-                </div>
+                <div class="card-body">
 
-                <div class="form-group">
-                  <label for="exampleInputEmail11">Description</label>
-                  <input type="text" class="form-control" id="exampleInputEmail11" name="description" placeholder="Enter  description" value="{{ old('description')}}" class="@error('description') is-invalid @enderror">
-                  @error('description')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail11">Video lecture</label>
-                  <input type="text" class="form-control" id="exampleInputEmail11" name="video_lecture" placeholder="Enter Long description" value="{{ old('video_lecture')}}" class="@error('video_lecture') is-invalid @enderror">
-                  @error('video_lecture')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                 @enderror
-                </div>
-
-
-
-                {{-- <div class="form-group">
-                  <label for="exampleInputFile">Image</label>
-                  <div class="input-group">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="course_image" value="{{ old('course_image')}}" class="@error('course_image') is-invalid @enderror">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Enter name" value="{{ old('name')}}" class="@error('name') is-invalid @enderror">
+                        <input type="hidden" class="form-control" id="exampleInputEmail1" name="user_id"  value="{{Auth::user()->id}}">
+                        <input type="hidden" class="form-control" id="exampleInputEmail1" name="course_id"  value="{{$course_id}}">
+                            @error('name')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                     </div>
-                    <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                    </div>
-                    </div>
-                        @error('course_image')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div> --}}
 
-              <div class="card-footer">
-                <button type="submit" class="btn btn-danger" style="background-color:red">Submit</button>
-              </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail11">Description</label>
+                        <input type="text" class="form-control" id="exampleInputEmail11" name="description" placeholder="Enter  description" value="{{ old('description')}}" class="@error('description') is-invalid @enderror">
+                            @error('description')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                    </div>
 
-          </div>
-        </form>
-          <!-- /.card -->
+                    <div class="form-group">
+                        <label for="exampleInputEmail11">Video lecture</label>
+                        <input type="text" class="form-control" id="exampleInputEmail11" name="video_lecture" placeholder="Enter Long description" value="{{ old('video_lecture')}}" class="@error('video_lecture') is-invalid @enderror">
+                            @error('video_lecture')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-danger" style="background-color:red">Submit</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
-  </div>
+</div>
+{{-- end add lecture form --}}
 
-  <!-- /.row -->
 @endsection
 
 @section('script')

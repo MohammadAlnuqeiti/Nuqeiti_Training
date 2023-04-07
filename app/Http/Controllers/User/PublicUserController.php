@@ -17,7 +17,6 @@ use Illuminate\Http\Request;
 class PublicUserController extends Controller
 {
     public function index(){
-        // dd(Auth()->user()->id);
 
         if(session()->has('cart')){
             if(Auth()->user()){
@@ -39,7 +38,6 @@ class PublicUserController extends Controller
                     //
                     foreach ($cart as $key => $value ) {
 
-                        // dd(array_key_exists($key, $course_id));
                         if(array_key_exists($key, $course_id)){
 
                             unset($cart[$key]);
@@ -47,17 +45,13 @@ class PublicUserController extends Controller
                         }else{
 
                             $data = Cart::where('course_id',$key)->where('user_id',$user_id)->get();
-                            // dd($data);
                             if(count($data)==0){
-                                // dd(session()->has('cart'));
 
                             Cart::create([
 
                                 'course_id' => $key,
                                 'user_id' => $user_id,
                                 'quantity' => 1,
-
-
                             ]);
                         }
                         }
@@ -74,7 +68,6 @@ class PublicUserController extends Controller
 
                         }
 
-                        // dd($cart);
                         session()->put('cart', $cart);
                     }
 
@@ -99,7 +92,8 @@ class PublicUserController extends Controller
                     }
 
                     // dd($cart);
-                    session()->put('cart', $cart);                }
+                    session()->put('cart', $cart);
+                }
 
 
 
@@ -111,7 +105,6 @@ class PublicUserController extends Controller
         $engineering = User::where('role','engineer')->where('status','accepted')->get();
         $category = Category::all();
 
-        // dd($courses);
         $data = [];
         foreach ($courses as $course) {
             $data[] = [

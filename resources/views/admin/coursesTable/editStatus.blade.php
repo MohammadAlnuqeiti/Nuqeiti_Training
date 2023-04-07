@@ -45,13 +45,12 @@ Courses
 
               @csrf
               <div class="card-body">
-
                 <div class="form-group">
                     <label for="exampleSelectRounded0">Status</label>
                     <select class="custom-select rounded-0" id="exampleSelectRounded0" name="status">
-                      <option value="pending">Pending</option>
-                      <option value="accepted">Accepted</option>
-                      <option value="rejected">Rejected</option>
+                      <option value="pending" {{$data->status == 'pending'? 'selected' : ''}}>Pending</option>
+                      <option value="accepted" {{$data->status == 'accepted'? 'selected' : ''}}>Accepted</option>
+                      <option value="rejected" {{$data->status == 'rejected'? 'selected' : ''}}>Rejected</option>
                     </select>
                   </div>
                 </div>

@@ -110,6 +110,9 @@ class ProfileUserController extends Controller
     public function edit($id)
     {
         $data = User::where('id', $id)->get();
+        if($data->isEmpty() || $id != Auth()->user()->id) {
+            return redirect()->back();
+        }
         return view('publicUser.editaccountuser',['data'=>$data]);
 
     }

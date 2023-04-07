@@ -76,7 +76,10 @@ class CourseDiscountController extends Controller
      */
     public function edit($id)
     {
-        $data = Course::findOrfail($id);
+        $data = Course::where('id',$id)->first();
+        if(count(Course::all()) < $id || $id < 0){
+            return redirect()->back();
+        }
         return view('admin.discountTable.editCoursesDiscount',['data'=>$data]);
     }
 

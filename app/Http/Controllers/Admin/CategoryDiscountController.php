@@ -57,7 +57,7 @@ class CategoryDiscountController extends Controller
 
 
         // update price of courses
-        
+
         foreach($courses as $course){
             $data = Course::findOrfail($course->id);
             $data->discount = $request->discount_category;
@@ -89,7 +89,10 @@ class CategoryDiscountController extends Controller
      */
     public function edit($id)
     {
-        $data = Category::findOrfail($id);
+        $data = Category::where('id',$id)->first();
+        if(count(Category::all()) < $id || $id < 0){
+            return redirect()->back();
+        }
         return view('admin.discountTable.editCategoryDiscount',['data'=>$data]);
     }
 
