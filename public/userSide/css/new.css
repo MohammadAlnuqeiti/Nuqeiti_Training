@@ -706,6 +706,7 @@
     #sectionfour p{
         font-size: 15px;
     }
+
   }
   /* --------------------- section coaches ------------------ */
   #coaches{
@@ -815,6 +816,9 @@
     }
     #coaches{
         margin: 50px 15px;
+    }
+    #reviews h2 {
+        font-size: 26px;
     }
 }
 @media(max-width:300px){

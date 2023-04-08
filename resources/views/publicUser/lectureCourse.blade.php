@@ -70,8 +70,8 @@ Add course
 
 @section('content')
 {{-- start lecture table --}}
-<div class="row container-fluid" style="margin: 50px auto 50px auto">
-    <div class="col-9 m-auto">
+<div class="row container-fluid" style="margin: 50px auto 50px auto ;width: 92%">
+    <div class="col-12 m-auto ">
         <div class="card">
             <div class="card-header">
             <h3 class="card-title" style="color: white">Lectures</h3>

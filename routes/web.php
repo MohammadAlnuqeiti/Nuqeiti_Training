@@ -46,13 +46,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::group(['middleware'=>['guest']],function(){
+    Route::get('/', function () {
     return view('admin.login');
 })->name('admin.login');
+});
 
-// Route::get('/admin', function () {
-//     return view('admin.profile.show');
-// });
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -67,7 +67,6 @@ Route::middleware('auth')->group(function () {
 
 //admin
 
-// Route::middleware(['auth','verified','admin'])->name('admin.')->prefix('admin')->group(function()
 Route::middleware(['auth','verified','admin'])->name('admin.')->prefix('admin')->group(function()
 {
 Route::get('/',[AdminController::class,'index'])->name('index');
@@ -83,10 +82,8 @@ Route::resource('/categories',CategoryController::class);
 Route::resource('/courses',CourseController::class);
 Route::resource('/editStatus',EditStatusController::class);
 Route::resource('/lectures',LectureController::class);
-// Route::resource('/reservation',ReservationController::class);
 Route::resource('/comment',CommentController::class);
 Route::get('/messages',[ContactController::class,'show'])->name('message');
-// Route::get('/comment/destroy/{id}',[CommentController::class,'destroy'])->name('comment.destroy');
 Route::resource('/category_discount',CategoryDiscountController::class);
 Route::resource('/course_discount',CourseDiscountController::class);
 Route::get('/discount',[DiscountController::class,'index'])->name('discount');
@@ -126,7 +123,6 @@ Route::prefix('user')->name('user.')->group(function () {
      Route::get('/courses',[ShopController::class,'index'])->name('shop');
      Route::get('/courses/{id}',[ShopController::class,'showCategory'])->name('shop.category');
 
-    // Route::post('/search' , [Search::class , 'search'])->name('search');
     Route::get('/login',[LoginUserController::class,'index'])->name('login');
     Route::get('/login/check',[LoginUserController::class,'LoginPost'])->name('login.check');
     Route::get('/register_user',[RegisterUserController::class,'index'])->name('register_user');
@@ -146,13 +142,6 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::get('/destroy-from-cart/{id}',[CartController::class,'destroy'])->name('cart.destroy');
     Route::post('/search' , [SearchController::class , 'search'])->name('search');
 
-
-    // Route::get('/package_details/{id}',[PackageDetailsController::class,'index'])->name('package.details');
-
-    // Route::get('/trip_details/{id}',[TripsDetailsController::class,'index'])->name('trip.details');
-    // Route::get('/booking/{id}',[BookController::class,'index'])->name('book')->middleware('CheckLogin');
-    // Route::get('/booking/create/{id}',[BookController::class,'create'])->name('book.create')->middleware('CheckLogin');
-
     });
 
     Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
@@ -163,7 +152,6 @@ Route::prefix('user')->name('user.')->group(function () {
         Mail::to('mohammadalnuqeiti@gmail.com')->send(new Subscribe($message));
 
         return response("ok");
-        // return new Subscribe();
 
     });
 

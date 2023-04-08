@@ -77,7 +77,7 @@ Edit course
 @section('content')
 <!-- /.row -->
 <div class="row container m-auto mt-5">
-    <div class="col-12 m-5">
+    <div class="col-12">
         <div class="card card-primary">
             <div class="card-header" style="background-color:#07393E">
               <h3 class="card-title">Controls</h3>
