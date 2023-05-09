@@ -91,7 +91,7 @@ class AdminController extends Controller
     {
 
         $data=User::where('id',$id)->first();
-        
+
         if($data == "" || $id != Auth()->user()->id) {
             return redirect()->back();
         }
@@ -114,6 +114,7 @@ class AdminController extends Controller
 
 
         if($email !==$request->email){
+            
             $request->validate([
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
 

@@ -37,6 +37,7 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/css/editStyle.css')}}">
+  <link rel="icon" href="/userSide/img/logo.png">
 
   <script src="https://kit.fontawesome.com/a8b56cb52b.js" crossorigin="anonymous"></script>
 

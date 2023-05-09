@@ -2,6 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
     <link rel="icon" href="{{ asset('image/placeholder.png') }}">
+
     {{-- <link rel="icon" href="{{ asset('usersTable/img/logo.png') }}"> --}}
 
 

@@ -34,7 +34,7 @@ Checkout
 
                 <div class="inputBox">
                     <span>full name :</span>
-                    <input type="text" placeholder="Enter full name" name="user_name" value="{{ old('user_name')}}" class="@error('user_name') is-invalid @enderror">
+                    <input type="text" placeholder="Enter full name" name="user_name" value="{{ old('user_name')}}" class="@error('user_name') is-invalid @enderror" autofocus>
                     @error('user_name')
                     <div class="error">{{ $message }}</div>
                    @enderror

@@ -113,22 +113,13 @@ class SingleCourseController extends Controller
             $users_id[$order->user_id] =$order->user_id;
 
         }
-        // dd($users_id);
-        // dd(array_key_exists(Auth()->user()->id, $users_id));
-// dd( array_key_exists(4, $users_id) );
-        // $users_id=[];
-        // foreach($orders_course as $value){
 
-        //     $users_id[]=$value;
-
-        // }
 
         if($courses->isEmpty()) {
             return redirect()->back();
         }
         // للتشييك اذا كان المستخدم اشترى الكورس او لا
         $has_Sold= false;
-        // dd($data[0]['user_id']);
         $engineering_id = $data[0]['user_id'];
         if(Auth()->user()){
 

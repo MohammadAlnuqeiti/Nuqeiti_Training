@@ -31,7 +31,7 @@
       height: 100px;
   }
   .menu a {
-      text-decoration: none;
+     text-decoration: none;
      padding: 0 15PX;
      transition: all 0.3s ease 0s;
      align-self: center;
@@ -223,7 +223,7 @@
       margin: 5px auto;
       -webkit-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out;
-      background-color: black;
+      background-color: #07393E;
 
   }
   @media(max-width:913px){
@@ -423,7 +423,7 @@
 #follow-us .follow{
     background-color: white;
     height: 100%;
-    width: 35%;
+    min-width: 35%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

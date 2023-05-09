@@ -200,7 +200,6 @@ class CourseController extends Controller
             $photoName = $request->file('course_image')->getClientOriginalName();
             $request->file('course_image')->storeAs('public/image', $photoName);
             $data->image = $photoName;
-
         }
         if (  $request->file('video_course')) {
             $videooName = $request->file('video_course')->getClientOriginalName();

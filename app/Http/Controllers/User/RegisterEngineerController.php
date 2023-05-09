@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\User;
 
 
@@ -43,19 +45,7 @@ class RegisterEngineerController extends Controller
             'certificates_and_credits' => ['required','string'],
             'experience' => ['required','string'],
         ]);
-        // dd("ggg"),
 
-        // $fileName = $request->file->getClientOriginalName();
-        // $filePath = 'uploads/' . $fileName;
-
-        // $path = Storage::disk('public')->put($filePath, file_get_contents($request->file));
-        // $path = Storage::disk('public')->url($path);
-
-        ////////////////////////////
-        // $file = $request->file('cv_pdf');
-        // $filename = time() . '.' . $request->file('cv_pdf')->extension();
-        // $filePath = public_path() . '/public/uploads/';
-        // $file->move($filePath, $filename);
 /////////////////////
         // $file = time().'.'.$request->file->extension();
         // $request->file->move(public_path('uploads'), $file);
@@ -87,7 +77,14 @@ class RegisterEngineerController extends Controller
             'status' => 'pending',
 
         ]);
-        return redirect()->route('user.login');
+
+        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password]))
+        {
+
+            return redirect()->route('user.index');
+
+        }
+        // return redirect()->route('user.login');
 
     }
 }

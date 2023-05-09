@@ -62,7 +62,7 @@ Course
 
                 {{-- @if (Auth()->user()->role == "engineer") --}}
 
-                <p>no</p>
+                <p></p>
 
 
                 @elseif (session()->has('cart'))

@@ -26,7 +26,7 @@ home page
 {{-- start feature course section --}}
 
 <section id="newcourses">
-    <h2><span style="color: #FF0000;">New</span> on Alpha</h2>
+    <h2><span style="color: #FF0000;">Feature</span> courses</h2>
     <div class="container">
 
         @foreach ($data as $value)

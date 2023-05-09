@@ -44,10 +44,10 @@
                 <h4> Follow Us </h4>
 
                 <div class="socail_footer">
-                    <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i> </a>
+                    <a href="https://web.facebook.com/profile.php?id=100092625304668" target="_blank"><i class="fa-brands fa-facebook"></i> </a>
                     <a href="http://wa.me/+962790369501" target="_blank"><i class="fa-solid fa-square-phone"></i></a>
                     <a href="mailto:tnuqeiti@gmail.com" target="_blank"><i class="fa-solid fa-envelope"> </i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin" target="_blank"> </i></a>
+                    <a href="https://www.linkedin.com/in/nuqeiti-training-974739275/" target="_blank"><i class="fa-brands fa-linkedin" target="_blank"> </i></a>
                 </div>
 
                 <div class="qouat_footer">

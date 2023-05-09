@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\User;
 
 
@@ -35,7 +37,18 @@ class RegisterUserController extends Controller
 
 
         ]);
-        return redirect()->route('user.login');
+
+
+        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password]))
+        {
+
+            return redirect()->route('user.index');
+
+        }
+
+
+
+        // return redirect()->route('user.login');
 
     }
 }

@@ -45,11 +45,11 @@ Contact
     <div class="contact_body">
 
     <h2> Were here to help </h2>
-            <div class="line">
-                <div></div>
-                <div></div>
-                <div></div>
-             </div>
+        <div class="line">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <div class="contact_info">
             <div>
                 <span><i class="fa-solid fa-phone"></i></span>
@@ -78,42 +78,42 @@ Contact
 
 
         @if(session()->get('success'))
-        <div class="success-msg">
-            <i class="fa fa-check"></i>
+            <div class="success-msg">
+                <i class="fa fa-check"></i>
 
-            {{ session()->get('success') }}
-        </div>
-    @endif
+                {{ session()->get('success') }}
+            </div>
+        @endif
         <div class="contact_form">
             <form action="{{route('user.message.create')}}" method="post">
                 @method('HEAD')
 				@csrf
 
             <div>
-                <input type="text"  class="form_control" name="first_name" id="fname" placeholder="First Name" value="{{ old('first_name')}}" class="@error('first_name') is-invalid @enderror">
+                <input type="text"  class="form_control" name="first_name" id="fname" placeholder="First Name" value="{{ old('first_name')}}" class="@error('first_name') is-invalid @enderror" autofocus>
                 @error('first_name')
-                <div class="error">{{ $message }}</div>
-            @enderror
+                    <div class="error">{{ $message }}</div>
+                @enderror
                 <input type="text"  class="form_control" name="last_name" id="lname" placeholder="Last Name" value="{{ old('last_name')}}" class="@error('last_name') is-invalid @enderror">
                 @error('last_name')
-                <div class="error">{{ $message }}</div>
-            @enderror
+                    <div class="error">{{ $message }}</div>
+                @enderror
             </div>
 
             <div>
                 <input type="email" class="form_control" name="email" id="email" placeholder="Email" value="{{ old('email')}}" class="@error('email') is-invalid @enderror">
                 @error('email')
-                <div class="error">{{ $message }}</div>
-            @enderror
+                    <div class="error">{{ $message }}</div>
+                @enderror
                 <input type="text" class="form_control" name="phone" id="phone" placeholder="Phone" value="{{ old('phone')}}" class="@error('phone') is-invalid @enderror">
                 @error('phone')
-                <div class="error">{{ $message }}</div>
-            @enderror
+                    <div class="error">{{ $message }}</div>
+                @enderror
             </div>
             <textarea class="form_control" name="message" id="message" cols="30" rows="5" placeholder="Message" value="{{ old('message')}}" class="@error('message') is-invalid @enderror"></textarea>
             @error('message')
-            <div class="error">{{ $message }}</div>
-        @enderror
+                <div class="error">{{ $message }}</div>
+            @enderror
             <input type="submit" class="send_btn" value="send message">
             </form>
 

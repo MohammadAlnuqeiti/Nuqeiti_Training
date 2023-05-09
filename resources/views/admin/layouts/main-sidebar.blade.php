@@ -1,7 +1,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar elevation-4" style="background-color:#dddddd">
     <!-- Brand Logo -->
-    <a href="{{route('admin.index')}}" class="brand-link" style="padding:0;">
+    <a href="{{route('user.index')}}" class="brand-link" style="padding:0;">
         <div class="user-panel  " style="display: flex;justify-content: center;">
             <div class="">
                 <img src="/userSide/img/logo.png" class="" alt="User Image" style="width: 125px;height:100px">

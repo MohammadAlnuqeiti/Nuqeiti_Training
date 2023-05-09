@@ -65,7 +65,7 @@ edit profile
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputEmail1" placeholder="Enter  password" value="{{$data->password}}" name="password"  class="@error('password') is-invalid @enderror">
+                  <input type="password" class="form-control" id="exampleInputEmail1" placeholder="Enter  password"  name="password"  class="@error('password') is-invalid @enderror">
                   @error('password')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror

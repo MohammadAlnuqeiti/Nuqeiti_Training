@@ -62,14 +62,14 @@ Admin
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail11">Phone Number</label>
-                  <input type="number" class="form-control" id="exampleInputEmail11" name="phone" placeholder="Enter Long description" value="{{ old('phone')}}" class="@error('phone') is-invalid @enderror">
+                  <input type="number" class="form-control" id="exampleInputEmail11" name="phone" placeholder="Enter phone number" value="{{ old('phone')}}" class="@error('phone') is-invalid @enderror">
                   @error('phone')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Password</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="password" placeholder="Enter guest number" value="{{ old('password')}}" class="@error('password') is-invalid @enderror">
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="password" placeholder="Enter password" value="{{ old('password')}}" class="@error('password') is-invalid @enderror">
                   @error('password')
                   <div class="alert alert-danger">{{ $message }}</div>
                  @enderror

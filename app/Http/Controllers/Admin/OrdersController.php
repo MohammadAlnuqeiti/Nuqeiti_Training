@@ -18,19 +18,6 @@ class OrdersController extends Controller
     {
         $orders = Order::all();
 
-// $data = [];
-// foreach ($comments as $comment) {
-//     $data[] = [
-//         'id' => $comment->id,
-//         'comment' => $comment->comment,
-//         'course' => isset($comment->course) ? $comment->course->name : "",
-//         'user' => isset($comment->user) ? $comment->user->name : "",
-
-
-//     ];
-// }
-// dd($data);
-
-return view('admin.orders.show',['orders'=>$orders]);
+        return view('admin.orders.show',['orders'=>$orders]);
     }
 }

@@ -42,18 +42,9 @@ Profile
             <p>{{ Auth::user()->email }}</p>
             <ul class="about ul">
                 <li style="margin: auto;"><span>{{count($courses)}}</span>course</li>
-                <!-- <li><span>4.05</span>followers</li>
-                <li><span>4.05</span>followers</li> -->
             </ul>
             <div class="content">
-                <!-- <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore odio temporibus sint libero doloribus exercitationem voluptates, tenetur quod est aspernatur!
-                </p> -->
                 <ul class="ul">
-                    <!-- <li><i class="fap fa-twitter"></i></li>
-                    <li><i class="fap fa-twitter"></i></li>
-                    <li><i class="fap fa-twitter"></i></li>
-                    <li><i class="fap fa-twitter"></i></li> -->
                     <button><a href="{{route('user.profile_user.edit',Auth::user()->id)}}">Edit account</a></button>
                 </ul>
             </div>

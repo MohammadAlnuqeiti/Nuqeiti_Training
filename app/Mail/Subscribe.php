@@ -19,6 +19,7 @@ class Subscribe extends Mailable
      * @return void
      */
     public $message ;
+    
     public function __construct($message)
     {
         $this->message=$message;

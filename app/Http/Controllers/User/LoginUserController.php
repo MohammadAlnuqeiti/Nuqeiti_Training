@@ -64,7 +64,6 @@ class LoginUserController extends Controller
     public function destroy(Request $request): RedirectResponse
     {
 
-        dd('ggg');
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

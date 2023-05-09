@@ -65,7 +65,7 @@ About
 
     <h2>OUR VISION</h2>
     <p>In engineering, we work hard towards providing a Jordanian engineering platform that raises<br> competencies and develops their skills and knowledge. We believe that realistic challenges make continuous<br> learning an urgent necessity, and at the same time puts Jordanian competencies under pressure of limited time,<br> and for this reason the solution with us in this platform was to provide engineering courses that qualify Engineers for <br>the labor market and develop their skills with modern modern means so that you can continue your<br> learning at the right time for you without the need to adhere to the appointments of others.</p>
-    
+
 </section>
 
 {{-- end our-vision section --}}
@@ -78,10 +78,10 @@ About
         <h2>Follow Us</h2>
 
         <div>
-            <a href="https://mail.google.com/mail/u/0/#inbox"  target="_blank"><i class="fa-solid fa-envelope"></i></a>
-            <a href="#phone"><i class="fa-solid fa-square-phone" target="_blank"></i></a>
-            <a href="https://www.linkedin.com/in/mohammad-alnuqeiti-1954b1251/"  target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+            <a href="mailto:tnuqeiti@gmail.com"  target="_blank"><i class="fa-solid fa-envelope"></i></a>
+            <a href="http://wa.me/+962790369501"><i class="fa-solid fa-square-phone" target="_blank"></i></a>
+            <a href="https://www.linkedin.com/in/nuqeiti-training-974739275/"  target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://web.facebook.com/profile.php?id=100092625304668" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
         </div>
 
     </div>

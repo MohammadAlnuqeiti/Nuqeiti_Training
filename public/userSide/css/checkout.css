@@ -384,7 +384,7 @@
   transition: all 0.5s ease;
 }
 
-.container .form .submit-btn:hover{
+.container .form .btn-popup:hover{
   background: #07393E;
 }
 
@@ -487,7 +487,7 @@ th:last-child{
     margin-top: 5px;
     cursor: pointer;
     border-radius: 3px;
-    transition: all 0.5s ease;
+    transition: all 0.7s ease;
     text-decoration: none;
     margin-top: 10px;
     display: block;
@@ -495,7 +495,7 @@ th:last-child{
     font-weight: 500;
     border: none;
 }
-.total-price a:hover{
+.total-price .btn-popup:hover{
     background-color: #07393E;
 
 }

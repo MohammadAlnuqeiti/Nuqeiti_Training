@@ -3,7 +3,7 @@
 <header class="header">
 
     <a href="{{route('user.index')}}">
-        <img  id="logo" src="/userSide/img/logo.png" alt="">
+        <img  id="logo" src="/userSide/img/logo.png" alt="logo">
     </a>
 <!-- search  -->
 
@@ -58,8 +58,11 @@
             @endif
             @if(Auth::user())
             <li class="nav-item">
-                @if(Auth::user()->role=="user" || Auth::user()->role=="admin")
+                @if(Auth::user()->role=="user")
                 <a href="{{route('user.profile_user.index')}}"><button id="btn-nav" class="nav-link">ACCOUNT</button></a>
+                @endif
+                @if(Auth::user()->role=="admin")
+                <a href="{{route('admin.index')}}"><button id="btn-nav" class="nav-link">DASHBOARD</button></a>
                 @endif
                 @if(Auth::user()->role=="engineer")
                 <a href="{{route('user.profile_engineer.index')}}"><button id="btn-nav" class="nav-link">ACCOUNT</button></a>
@@ -81,7 +84,7 @@
             <a href="{{route('user.cart')}}" >
                 <div class="cart">
                     @if(session()->has('cart') && count(session('cart'))>0)
-                    <span class="count">{{count(session('cart'))}}</span>
+                        <span class="count">{{count(session('cart'))}}</span>
                     @endif
                     <i class="fas fa-shopping-cart"></i>
                 </div>
@@ -97,9 +100,10 @@
 
 <header id="hidden" class="header">
     <div style="width: 90%;">
-        <form id="form">
-            <input type="search" placeholder="Search..." required class="search">
-            <input type="button" value="Search" class="button">
+        <form action="{{ route('user.search') }}" method="post" id="form">
+            @csrf
+            <input class="search" type="search" name="search" placeholder="Search...">
+            <button type="submit" class="button">Search</button>
         </form>
     </div>
 </header>

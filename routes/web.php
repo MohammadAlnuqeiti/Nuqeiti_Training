@@ -108,15 +108,12 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::get('/',[PublicUserController::class,'index'])->name('index');
     Route::get('/engineering_details/{id}',[PublicUserController::class,'engineeringDetails'])->name('engineeringDetails');
     Route::get('/categories/{id}',[PublicUserController::class,'show'])->name('categories.show');
-
     Route::get('/about',function(){
         return view('publicUser.about');
     })->name('about');
-
     Route::get('/register',function(){
         return view('publicUser.registerPage');
     })->name('register');
-
      Route::get('/contact',[ContactController::class,'index'])->name('contact');
      Route::get('/contact/create',[ContactController::class,'store'])->name('message.create');
 
@@ -144,6 +141,9 @@ Route::prefix('user')->name('user.')->group(function () {
 
     });
 
+
+
+    
     Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
 
     Route::get('/email' , function(){
