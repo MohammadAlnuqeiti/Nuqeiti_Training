@@ -11,7 +11,9 @@ About
 
 @endsection
 
-
+@section('ABOUT')
+active
+@endsection
 
 @section('content')
 

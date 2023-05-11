@@ -503,6 +503,8 @@
     font-size: 1em;
     color: #07393E;
     margin: 10px 0;
+    min-height: 96px;
+
 }
 
 

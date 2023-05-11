@@ -20,20 +20,20 @@
 
         <ul class="nav-menu">
             <li class="nav-item">
-                <a href="{{route('user.index')}}" class="nav-link">HOME</a>
+                <a href="{{route('user.index')}}" class="nav-link @yield('HOME')">HOME</a>
             </li>
             <li class="nav-item">
-                <a href="{{route('user.shop')}}" class="nav-link">COURSES </a>
+                <a href="{{route('user.shop')}}" class="nav-link @yield('COURSES')">COURSES </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('user.about')}}" class="nav-link">ABOUT</a>
+                <a href="{{route('user.about')}}" class="nav-link @yield('ABOUT')">ABOUT</a>
             </li>
             <li class="nav-item">
-                <a href="{{route('user.contact')}}" class="nav-link">CONTACT</a>
+                <a href="{{route('user.contact')}}" class="nav-link @yield('CONTACT')">CONTACT</a>
             </li>
             @if(!Auth::user())
             <li class="nav-item">
-                <a href="{{route('user.login')}}" class="nav-link">LOGIN</a>
+                <a href="{{route('user.login')}}" class="nav-link @yield('LOGIN')">LOGIN</a>
             </li>
             @endif
             @if(Auth::user())

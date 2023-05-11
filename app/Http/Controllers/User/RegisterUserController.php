@@ -13,6 +13,10 @@ use App\Models\User;
 
 class RegisterUserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('RedirectHome');
+    }
     public function index()
     {
         return view('publicUser.registerUser');

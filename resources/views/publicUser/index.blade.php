@@ -10,6 +10,9 @@ home page
 
 @endsection
 
+@section('HOME')
+active
+@endsection
 
 @section('content')
 
@@ -68,7 +71,7 @@ home page
 {{-- start category section --}}
 
 <section class="category">
-    <h2 class="title"><span style="color: #FF0000;">Explore </span> top courses</h2>
+    <h2 class="title"><span style="color: #FF0000;">Explore </span> categorios</h2>
 
     <div class="swiper category-slider">
         <div class="category-body swiper-wrapper">

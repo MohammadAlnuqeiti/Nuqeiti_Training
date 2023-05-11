@@ -90,7 +90,7 @@ class CategoryDiscountController extends Controller
     public function edit($id)
     {
         $data = Category::where('id',$id)->first();
-        if(count(Category::all()) < $id || $id < 0){
+        if($data == null){
             return redirect()->back();
         }
         return view('admin.discountTable.editCategoryDiscount',['data'=>$data]);

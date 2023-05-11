@@ -86,7 +86,7 @@ class LectureUserController extends Controller
             array_push($id_courses_user, $value->id);
         }
 
-        if($lectures->isEmpty() || !in_array($id, $id_courses_user)) {
+        if(!in_array($id, $id_courses_user)) {
             return redirect()->back();
         }
         // dd($lectures);

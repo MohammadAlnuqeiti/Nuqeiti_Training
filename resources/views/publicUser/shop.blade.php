@@ -61,7 +61,9 @@ Courses
 </style>
 @endsection
 
-
+@section('COURSES')
+active
+@endsection
 
 @section('content')
 <section id="landpage">
@@ -77,7 +79,7 @@ Courses
     <div class="row">
         <h2 class="title2">all product</h2>
         <select name="" id="" onchange="location = this.value">
-            
+
             <option value="">Select category</option>
 
             <option value="{{route('user.shop')}}">ALL COURSE</option>

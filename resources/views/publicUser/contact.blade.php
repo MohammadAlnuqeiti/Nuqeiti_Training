@@ -31,7 +31,9 @@ Contact
 
 @endsection
 
-
+@section('CONTACT')
+active
+@endsection
 
 @section('content')
 <section id="landpage">

@@ -80,7 +80,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        if(count(Category::all()) < $id || $id < 0){
+        $categories = Category::where('id',$id)->first();
+        if($categories == null){
             return redirect()->back();
         }
         return view('admin.categoryTable.edit', [

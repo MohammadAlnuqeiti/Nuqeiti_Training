@@ -53,11 +53,11 @@ class EngineeringController extends Controller
     public function show($id)
     {
         $data = User::where('id',$id)->first();
-        if(count(User::all()) < $id || $id < 0){
+        if($data == null){
             return redirect()->back();
         }
         // if($data->isEmpty()) {
-        //     return redirect()->back();
+            //     return redirect()->back();
         // }
         return view('admin.engineering.details',['data'=>$data]);
 
@@ -73,7 +73,7 @@ class EngineeringController extends Controller
     {
         $data = User::where('id',$id)->first();
 
-        if(count(User::all()) < $id || $id < 0){
+        if($data == null){
             return redirect()->back();
         }
         return view('admin.engineering.edit', ['data' => $data]);
