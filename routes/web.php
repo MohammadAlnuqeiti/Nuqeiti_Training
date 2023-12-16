@@ -95,7 +95,6 @@ Route::get('/AddFeatue/{id}',[FeatureCourseController::class,'AddFeatue'])->name
 Route::get('/RemoveFeatue/{id}',[FeatureCourseController::class,'RemoveFeatue'])->name('RemoveFeatue');
 Route::get('/orders', OrdersController::class)->name('orders');
 
-
 });
 
 
@@ -143,7 +142,7 @@ Route::prefix('user')->name('user.')->group(function () {
 
 
 
-    
+
     Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
 
     Route::get('/email' , function(){
